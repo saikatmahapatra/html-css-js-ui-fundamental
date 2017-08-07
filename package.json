@@ -1,0 +1,39 @@
+{
+  "name": "sample-web-app-for-poc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Saikat Mahapatra",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/saikatmahapatra/sample-web-app-for-poc.git"
+  },
+  "devDependencies": {
+    "R2": "^1.4.3",
+    "bower": "^1.8.0",
+    "grunt": "^1.0.1",
+    "grunt-bootlint": "^0.10.2",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-clean": "^1.1.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-csslint": "^2.0.0",
+    "grunt-contrib-cssmin": "^2.2.1",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-less": "^1.4.1",
+    "grunt-contrib-uglify": "^3.0.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-cssjanus": "^0.4.0",
+    "grunt-image": "^2.5.0",
+    "grunt-includes": "^1.0.0",
+    "grunt-jscs": "^3.0.1",
+    "grunt-less": "^0.1.7",
+    "grunt-notify": "^0.4.5",
+    "grunt-text-replace": "^0.4.0",
+    "less": "^2.7.2",
+    "webserver": "^3.1.10"
+  }
+}

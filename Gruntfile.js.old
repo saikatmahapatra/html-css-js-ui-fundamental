@@ -1,0 +1,16 @@
+module.exports = function(grunt) {
+	 grunt.initConfig({
+		 less: {
+			 development: {
+				 options: {
+					 paths: ["assets/css"],
+					 compress: true
+				 },
+				 files: {"assets/css/style.min.css": "assets/less/main.less"},				 
+			 },			
+		 }
+	 });
+	 grunt.loadNpmTasks('grunt-contrib-less');
+	 grunt.loadNpmTasks('less-plugin-clean-css');
+	 grunt.registerTask('default', ['less']);
+};

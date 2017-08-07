@@ -1,0 +1,18 @@
+{
+  "name": "sample-app",
+  "description": "This is a sample app for all kind of ui technologies learning",
+  "main": "Gruntfile.js",
+  "authors": [
+    "Saikat Mahapatra"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/saikatmahapatra/sample-app-for-poc",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
