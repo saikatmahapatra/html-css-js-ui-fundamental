@@ -1,4 +1,4 @@
-// SampleApp Gruntfile
+// SampleWebApp Gruntfile
 module.exports = function (grunt) { // jshint ignore:line
   'use strict'
 
@@ -20,19 +20,19 @@ module.exports = function (grunt) { // jshint ignore:line
     notify: {
       less: {
         options: {
-          title  : 'SampleApp',
+          title  : 'SampleWebApp',
           message: 'LESS finished running'
         }
       },
       js  : {
         options: {
-          title  : 'SampleApp',
+          title  : 'SampleWebApp',
           message: 'JS bundler finished running'
         }
       }
     },
     // 'less'-task configuration
-    // This task will compile all less files upon saving to create both SampleApp.css and SampleApp.min.css
+    // This task will compile all less files upon saving to create both SampleWebApp.css and SampleWebApp.min.css
     less  : {
       // Development not compressed
       development  : {
@@ -70,11 +70,11 @@ module.exports = function (grunt) { // jshint ignore:line
     concat: {
       options: {
         separator: '\n\n',
-        banner   : '/*! SampleApp app.js\n'
+        banner   : '/*! SampleWebApp app.js\n'
         + '* ================\n'
-        + '* Main JS application file for SampleApp v2. This file\n'
+        + '* Main JS application file for SampleWebApp v2. This file\n'
         + '* should be included in all pages. It controls some layout\n'
-        + '* options and implements exclusive SampleApp plugins.\n'
+        + '* options and implements exclusive SampleWebApp plugins.\n'
         + '*\n'
         + '* @Author  Saikat Mahapatra\n'
         + '* @Support \n'
@@ -85,7 +85,7 @@ module.exports = function (grunt) { // jshint ignore:line
         + '*/\n\n'
         + '// Make sure jQuery has been loaded\n'
         + 'if (typeof jQuery === \'undefined\') {\n'
-        + 'throw new Error(\'SampleApp requires jQuery\')\n'
+        + 'throw new Error(\'SampleWebApp requires jQuery\')\n'
         + '}\n\n'
       },
       dist   : {
@@ -94,11 +94,11 @@ module.exports = function (grunt) { // jshint ignore:line
       }
     },
 
-    // Replace image paths in SampleApp without plugins
+    // Replace image paths in SampleWebApp without plugins
     /*replace: {
       withoutPlugins   : {
-        src         : ['assets/dist/css/alt/SampleApp-without-plugins.css'],
-        dest        : 'assets/dist/css/alt/SampleApp-without-plugins.css',
+        src         : ['assets/dist/css/alt/SampleWebApp-without-plugins.css'],
+        dest        : 'assets/dist/css/alt/SampleWebApp-without-plugins.css',
         replacements: [
           {
             from: '../img',
@@ -107,8 +107,8 @@ module.exports = function (grunt) { // jshint ignore:line
         ]
       },
       withoutPluginsMin: {
-        src         : ['assets/dist/css/alt/SampleApp-without-plugins.min.css'],
-        dest        : 'assets/dist/css/alt/SampleApp-without-plugins.min.css',
+        src         : ['assets/dist/css/alt/SampleWebApp-without-plugins.min.css'],
+        dest        : 'assets/dist/css/alt/SampleWebApp-without-plugins.min.css',
         replacements: [
           {
             from: '../img',

@@ -2,7 +2,39 @@
 //######################### Main Application Object ####################//
 //######################################################################//
 $.mainApp = {
-	validOTP: 1987
+	validOTP: 1987,
+	countCheckedCheckbox: function(){
+		var c = $('input[type="checkbox"][class="rc-checkbox"]:checked').length;
+		$('#cb_counter').html(c);
+	},
+	renderControl: function(type){
+		switch(type){
+			case 'textbox':
+				var html = '<div class="form-group control-'+type+'" data-controltype="'+type+'">';
+				html+='<div class="col-md-8">';
+				html+='<input type="text" name="demoname[]" class="form-control" placeholder="Enter text here"/>';					
+				html+='</div>';
+				html+='<div class="">';
+				html+='<a href="#" class="remove-control">Remove</a>';
+				
+				html+='</div>';
+				html+='</div>';
+				return html;
+				break;
+			default:
+				return '<div class="alert alert-danger">No data-controltype attribute found in the selected checkbox</div>';
+		}
+	},
+	removeDomObj: function(obj){
+		$(obj).remove();
+	},
+	countControl: function(type){
+		var c = $('div.control-'+type).length;
+	},
+	regEx: {
+		email: 'ter',
+		
+	}
 };
 
 function emailDummyMask(emailAddress,maskCharacter){
@@ -49,6 +81,23 @@ $(document).ready(function(e){
 	//var eml = 'saikat.mahapatra@citi.com'
 	//var maskedEmail = emailDummyMask(eml,'*');
 	//console.log(maskedEmail);
+	
+	//***********************************************//
+	// Render HTML Control 
+	//***********************************************//
+	$.mainApp.countCheckedCheckbox();
+	//Count Checked Items
+	$('input[type="checkbox"][class="rc-checkbox"]').on('click',function(){
+		$.mainApp.countCheckedCheckbox();
+		var contolType = $(this).attr('data-controltype');
+		if($(this).prop('checked')===true){				
+			var html = $.mainApp.renderControl(contolType);
+			$('#control-container').append(html);
+		}else{
+			$('.control-'+contolType).remove();
+		}
+	});
+	
 });
 
 
@@ -93,4 +142,14 @@ $('#btn-validate-otp').on('click',function(e){
 	}else{
 		alert('Successful ! Proceed to next action.');
 	}
+});
+
+
+
+//***********************************************//
+// Render HTML Control 
+//***********************************************//
+$(document).on('click','a.remove-control',function(e){
+	var domObj = $(this).parents('div[class*="control-"]');
+	$.mainApp.removeDomObj(domObj);		
 });
