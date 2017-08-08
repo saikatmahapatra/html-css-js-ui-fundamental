@@ -227,6 +227,13 @@ $.mainApp = {
 //######## DOM Interaction (Ready/Load, Click, Hover, Change) ##########//
 //######################################################################//
 
+//***********************************************//
+// Initiate Nanobar 
+//***********************************************//
+//var options = {target: document.getElementByTagName('bar_holder'),}
+//var nanobar = new Nanobar(options);
+var nanobar = new Nanobar();
+
 
 //***********************************************//
 //Document Ready
@@ -235,6 +242,7 @@ $(document).ready(function(e){
 	//var eml = 'saikat.mahapatra@citi.com'
 	//var maskedEmail = emailDummyMask(eml,'*');
 	//console.log(maskedEmail);
+	nanobar.go(100);
 	
 	//***********************************************//
 	// Render HTML Control 
