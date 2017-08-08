@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <!--<link rel="icon" href="assets/dist/img/favicon.ico">-->
 
-    <title>Starter Template for Bootstrap</title>
+    <title>JS Case Study</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -70,18 +70,23 @@
 		<!--Copy this for new example -->
 		
 		<!--<div class="row demo" data-demo-id="">
-			<div class="col-md-12"><h3>Untitled</h3></div>
-			<div class="col-md-12">
-				<div class="form-group">
-					<label>Email</label>
-					<input type="text" class="form-control" name="email" value="" placeholder="Email">
-				</div>								
-				<button class="btn btn-primary">Submit</button>
+			<div class="row">
+				<div class="col-md-12"><h4>Untitled</h4></div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-group">
+						<label>Email</label>
+						<input type="text" class="form-control" name="email" value="" placeholder="Email">
+					</div>								
+					<button class="btn btn-primary">Submit</button>
+				</div>
 			</div>
 		</div><!--.row-->
 		
 		<div class="row demo" data-demo-id="cryptojs">
-			<div class="col-md-12"><h3>Crypto JS Example</h3></div>
+			<div class="row"><div class="col-md-12"><h4>Crypto JS Example</h4></div></div>
+			<div class="row">
 			<div class="col-md-6">
 				<div class="form-group">
 				<label>String </label>
@@ -100,11 +105,15 @@
 				<div id="encryptedDataStr"></div>
 				<div id="decryptedDataStr"></div>
 			</div>
+			</div>
 		</div><!--.row-->
 		
 				
 		<div class="row demo" data-demo-id="otp_style">
-			<div class="col-md-12"><h3>OTP UI & Validation</h3></div>
+			<div class="row">
+			<div class="col-md-12"><h4>OTP UI & Validation</h4></div>
+			</div>
+			<div class="row">
 			<div class="col-md-12">
 				<div class="form-group">
 					<label>Enter OTP </label>
@@ -117,11 +126,13 @@
 								
 				<button id="btn-validate-otp" class="btn btn-primary">Submit</button>
 			</div>
+			</div>
 		</div><!--.row-->
 		
 		<div class="row demo" data-demo-id="render_control">
-			<div class="col-md-12"><h3>Render HTML Control</h3></div>
-			<div class="col-md-12">
+			<div class="row"><div class="col-md-12"><h4>Render HTML Control</h4></div></div>
+			
+			<div class="row">
 				<div class="col-md-4">
 					<div class="panel panel-default">
 					<div class="panel-heading">Panel heading</div>
@@ -150,16 +161,43 @@
 		</div><!--.row-->
 		
 		<div class="row demo" data-demo-id="password_strength">
-			<div class="col-md-12"><h3>Password Strength Indicator</h3></div>
-			<div class="col-md-12">
-				<div class="form-group">
-					<label>Please Password</label>
-					<input type="password" class="form-control" id="password" name="password" value="" placeholder="Password" maxlength="16" data-hint="test">
-					<div class="text-muted help-info"></div>
-				</div>								
-				<button class="btn btn-primary">Submit</button>
+			<div class="row"><div class="col-md-12"><h4>Password Strength Indicator</h4></div></div>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="form-group">
+						<label>Username</label>
+						<input type="text" class="form-control" id="username" name="username" value="" placeholder="Username" maxlength="20" required>
+						<div class="text-muted help-info"></div>
+					</div>
+					<div class="form-group">
+						<label>Enter Password</label>
+						<input type="password" class="form-control" id="password" name="password" value="" placeholder="Password" maxlength="16" data-hint="test">
+						<div class="text-muted help-info"></div>
+					</div>								
+					<button class="btn btn-primary" id="btn-count-strength">Submit</button>
+				</div>
+			<div class="col-md-8">
+				<div id="username_weight"></div>
+			</div>
 			</div>
 		</div>
+		
+		
+		<div class="row demo" data-demo-id="file_read">
+			<div class="row"><div class="col-md-12"><h4>Read File Content</h4></div></div>
+			<div class="row">
+			<div class="col-md-2">
+				<div class="form-group">
+					<label>Upload</label>
+					<input type="file" name="fileinput" id= "fileinput"></input>					
+				</div>		
+			</div>
+			<div class="col-md-10">
+				<div id="file_read_result"></div>
+			</div>
+			</div>
+		</div>
+		
 		
 	</div> <!--/.container--->
 	

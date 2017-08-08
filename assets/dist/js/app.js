@@ -81,6 +81,9 @@ $.mainApp = {
         numeric_only_with_spaces: /^[0-9\s]*$/,
         numeric_two_decimal_places: /^\d+(\.\d{1,2})?$/,
         alpha_only: /^[A-Za-z]*$/,
+		alpha_upper: /^[A-Z]*$/,
+		alpha_lower: /^[a-z]*$/,
+		is_special_char: /^[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]+$/,
         alpha_with_spaces: /^[A-Za-z\s]*$/,
         alpha_numeric_only: /^[0-9A-Za-z]*$/,
         alphanumeric_with_spaces: /^[A-Za-z0-9\s]*$/,
@@ -125,7 +128,66 @@ $.mainApp = {
 			maskedEmailAddress = maskedPart+'@'+emailSplit[1];
 		}	
 		return {"email":email,"masked":maskedEmailAddress};
+	},
+	readMultipleFiles: function(evt) {
+		//Retrieve all the files from the FileList object
+		var files = evt.target.files;     		
+		if (files) {
+			for (var i=0, f; f=files[i]; i++) {
+				  var r = new FileReader();
+				r.onload = (function(f) {
+					return function(e) {
+						var contents = e.target.result;
+						var html= "Got the file.</br>" ;
+							  html+="Name: " + f.name + "</br>";
+							  html+="Type: " + f.type + "</br>";
+							  html+="Size: " + f.size + " bytes </br>";
+							  //html+="Content starts with: " + contents.substr(1, contents.indexOf("n"));
+							  html+="Content starts with: <embed type='"+f.type+"'>" + contents+"</embed>";
+						$('#file_read_result').html(html);
+					};
+				})(f);
+
+				r.readAsText(f);
+			}   
+		} else {
+			  alert("Failed to load files"); 
+		}
+	},
+	countStringStrength: function(str){			
+		var i = 0;
+		var total_strength = 0;
+		var strWeight = {
+			string:str,
+			length:str.length,
+			upper: {count: 0,weight:0},
+			lower: {count: 0,weight:0},
+			numeric: {count: 0,weight:0},
+			special: {count: 0,weight:0},
+		}
+		while(i<=str.length){
+			var strChar = str.charAt(i);
+			i++;
+			if ($.mainApp.regEx.alpha_upper.test(strChar)) {
+			 strWeight.upper.count++;
+			 strWeight.upper.weight++;
+			}
+			else if ($.mainApp.regEx.alpha_lower.test(strChar)){
+			 strWeight.lower.count++;
+			 strWeight.lower.weight++;
+			}
+			else if ($.mainApp.regEx.numeric_only.test(strChar)){
+			 strWeight.numeric.count++;
+			 strWeight.numeric.weight++;
+			}
+			else if ($.mainApp.regEx.is_special_char.test(strChar)){
+			 strWeight.special.count++;
+			 strWeight.special.weight++;
+			}			
+		}				
+		return strWeight;		
 	}
+  
 };
 
 
@@ -244,4 +306,24 @@ $('#btn-validate-otp').on('click',function(e){
 $(document).on('click','a.remove-control',function(e){
 	var domObj = $(this).parents('div[class*="control-"]');
 	$.mainApp.removeDomObj(domObj);		
+});
+
+
+//***********************************************//
+// Read File Content
+//***********************************************//
+$('#fileinput').on('change',function(e){	
+	$.mainApp.readMultipleFiles(e);		
+});
+
+//***********************************************//
+// Read File Content
+//***********************************************//
+$('#btn-count-strength').on('click',function(e){
+	var username = $('#username').val();
+	if(username.length>0){
+		var username_weight = $.mainApp.countStringStrength(username);	
+		$('#username_weight').html(JSON.stringify(username_weight));
+	}
+	
 });
