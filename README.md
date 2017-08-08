@@ -16,7 +16,7 @@ Sample web application using twitter bootstrap, javascript, jquery, html5, less,
 1. Node JS
 2. Any Web Server
 
-## Regular Epressions Used
+## Regular Expressions Used
 
 
 ## Contributions
