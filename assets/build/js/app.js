@@ -34,43 +34,75 @@ $.mainApp = {
 	regEx: {
 		email: 'ter',
 		
+	},
+	maskAll: function(){},
+	digitMask: function(){},
+	emailMask: function(emailAddress,maskCharacter){
+		var email = emailAddress;
+		var maskedPart = '';	
+		var maskChar = maskCharacter;
+		var emailSplit = email.split('@');
+		var emailAddressLegth = emailSplit[0].length;
+		var maskedEmailAddress = maskedPart+'@'+emailSplit[1];
+		if(emailAddressLegth<=3){		
+			var emailArr = emailSplit[0].split("");
+			for(i=0; i<emailAddressLegth; i++){
+				if(i != 0){
+					emailArr[i] = maskChar;
+				}
+			}
+			maskedPart = emailArr.join("");
+			maskedEmailAddress = maskedPart+'@'+emailSplit[1];		
+		}
+		else{		
+			var emailArr = emailSplit[0].split("");
+			for(i=0; i<emailAddressLegth; i++){
+				if(i != 0 && i != (emailAddressLegth-1)){
+					emailArr[i] = maskChar;
+				}
+			}
+			maskedPart = emailArr.join("");
+			maskedEmailAddress = maskedPart+'@'+emailSplit[1];
+		}	
+		return {"email":email,"masked":maskedEmailAddress};
 	}
 };
-
-function emailDummyMask(emailAddress,maskCharacter){
-	var email = emailAddress;
-	var maskedPart = '';	
-	var maskChar = maskCharacter;
-	var emailSplit = email.split('@');
-	var emailAddressLegth = emailSplit[0].length;
-	var maskedEmailAddress = maskedPart+'@'+emailSplit[1];
-	if(emailAddressLegth<=3){		
-		var emailArr = emailSplit[0].split("");
-		for(i=0; i<emailAddressLegth; i++){
-			if(i != 0){
-				emailArr[i] = maskChar;
-			}
-		}
-		maskedPart = emailArr.join("");
-		maskedEmailAddress = maskedPart+'@'+emailSplit[1];		
-	}
-	else{		
-		var emailArr = emailSplit[0].split("");
-		for(i=0; i<emailAddressLegth; i++){
-			if(i != 0 && i != (emailAddressLegth-1)){
-				emailArr[i] = maskChar;
-			}
-		}
-		maskedPart = emailArr.join("");
-		maskedEmailAddress = maskedPart+'@'+emailSplit[1];
-	}	
-	return {"email":email,"masked":maskedEmailAddress};
-}
 
 
 
 //######################################################################//
-//############### DOM Interaction (Click, Hover, Change) ###############//
+//########################### jQuery AJAX API ##########################//
+//######################################################################//
+$.ajax({
+	type: 'POST', //post|get|put|delete|option
+	url: 'http://api.something.com/registration', //api url
+	data: {}, //{"name":"john","email":"john@ex.com"}
+	dataType: 'json', // json|jsonp|html|text
+	async: true, //true | false
+	processData: true, // true | false
+	// beforeSend : function(){} to show ajax loader
+	beforeSend: function(){
+		//show ajax loader
+	},
+	// success: function(){} when status 200 OK, then success
+	success: function(data){
+		console.log(data);
+	},
+	// complete: function(){} whether call fails or not this will be execute always
+	complete: function(data){
+		//hide ajax loader
+	}, 
+	// error: function(){} to show ajax error
+	error: function(xhr, ajaxOptions, thrownError){
+		console.log(xhr,thrownError);
+	} 
+});
+
+
+
+
+//######################################################################//
+//######## DOM Interaction (Ready/Load, Click, Hover, Change) ##########//
 //######################################################################//
 
 
