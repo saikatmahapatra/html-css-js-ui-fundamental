@@ -165,7 +165,7 @@ $.mainApp = {
 			numeric: {count: 0,weight:0},
 			special: {count: 0,weight:0},
 		}
-		while(i<=str.length){
+		while(i<str.length){
 			var strChar = str.charAt(i);
 			i++;
 			if ($.mainApp.regEx.alpha_upper.test(strChar)) {
