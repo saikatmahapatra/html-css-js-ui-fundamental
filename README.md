@@ -17,3 +17,10 @@ Sample web application using twitter bootstrap, javascript, jquery, html5, less,
 2. Any Web Server
 
 ## Regular Epressions Used
+
+
+## Contributions
+
+This project was originally written by Saikat Mahapatra.
+Pull Requests are the best way to fix bugs or add features. I know lots of you use this, so please
+contribute if you have improvements to be made and I'll keep releasing versions over time.
