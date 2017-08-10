@@ -52,7 +52,19 @@ module.exports = function (grunt) { // jshint ignore:line
         }
       }
     },
-
+	
+	//Copy 
+	copy: {
+	  main: {
+		expand: true,
+		cwd: 'assets/build/js2/',
+		src: '**',
+		dest: 'assets/dist/js/',
+		flatten: true,
+		filter: 'isFile',
+	  },
+	},
+	
     // Uglify task info. Compress the js files.
     uglify: {
       options   : {
@@ -224,11 +236,12 @@ module.exports = function (grunt) { // jshint ignore:line
   grunt.loadNpmTasks('grunt-notify')
   // Replace
   grunt.loadNpmTasks('grunt-text-replace')
-
+  // Copy
+  grunt.loadNpmTasks('grunt-contrib-copy');
   // Linting task
   grunt.registerTask('lint', ['jshint', 'csslint', 'bootlint'])
   // JS task
-  grunt.registerTask('js', ['concat', 'uglify'])
+  grunt.registerTask('js', ['copy', 'concat', 'uglify'])
   // CSS Task
   grunt.registerTask('css', ['less:development', 'less:production', 'replace'])
 

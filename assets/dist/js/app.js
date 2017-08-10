@@ -20,6 +20,7 @@ throw new Error('SampleWebApp requires jQuery')
 //######################################################################//
 //######################### Main Application Object ####################//
 //######################################################################//
+
 $.mainApp = {
 	validOTP: 1987,
 	countCheckedCheckbox: function(){
