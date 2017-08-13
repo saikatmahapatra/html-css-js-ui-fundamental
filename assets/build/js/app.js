@@ -319,7 +319,11 @@ function deleteFile(){
 		//show failure message
 	});
 	promise.always(function(){
-		//hide ajax loader
+		//always will be executed whether success or failue
+		//do some thing
+	});
+	promise.always(function(){
+		//do more on complete
 	});
 }
 	
