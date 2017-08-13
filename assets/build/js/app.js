@@ -2,37 +2,17 @@
 //######################### Main Application Object ####################//
 //######################################################################//
 
-$.mainApp = {
-	validOTP: 1987,
-	countCheckedCheckbox: function(){
+
+var mainApp = function(){
+	this.validOTP = 1987;
+	this.countCheckedCheckbox = function(el_class){
 		var c = $('input[type="checkbox"][class="rc-checkbox"]:checked').length;
-		$('#cb_counter').html(c);
-	},
-	renderControl: function(type){
-		switch(type){
-			case 'textbox':
-				var html = '<div class="form-group control-'+type+'" data-controltype="'+type+'">';
-				html+='<div class="col-md-8">';
-				html+='<input type="text" name="demoname[]" class="form-control" placeholder="Enter text here"/>';					
-				html+='</div>';
-				html+='<div class="">';
-				html+='<a href="#" class="remove-control">Remove</a>';
-				
-				html+='</div>';
-				html+='</div>';
-				return html;
-				break;
-			default:
-				return '<div class="alert alert-danger">No data-controltype attribute found in the selected checkbox</div>';
-		}
-	},
-	removeDomObj: function(obj){
-		$(obj).remove();
-	},
-	countControl: function(type){
-		var c = $('div.control-'+type).length;
-	},
-	regEx: {
+		return c;
+	};
+	this.removeDomElement = function(el){
+		$(el).remove();
+	};
+	this.regEx = {
 		user_id: /^[0-9\sA-Za-z\u00C0-\u00FF\~\#\";\/!@$%^&*()_\+\{\}\?\-\[\]\\,.\u0152\u0153\u20A0\u20A3\u0178\u20AC\u2013\u2014\u00C6\u00E6\u00C4\u00E4\u20A3]{5,32}$/,
         password: /^[^|]{6,32}$/,
         email: /^(?!.*([.])\1{1})([\w\.\-\+\<\>\{\}\=\`\|\?]+)@(?![.-])([a-zA-Z\d.-]+)\.([a-zA-Z.][a-zA-Z]{1,6})$/,
@@ -78,40 +58,41 @@ $.mainApp = {
         dispute_charge_text: /^[^<>\"%]*$/,
         message_subject: /^[^=\"'<>]*$/,
         message_body: /^[^=\"'<>]*$/
-		
-	},
-	maskAll: function(){},
-	digitMask: function(){},
-	emailMask: function(emailAddress,maskCharacter){
-		var email = emailAddress;
-		var maskedPart = '';	
-		var maskChar = maskCharacter;
-		var emailSplit = email.split('@');
-		var emailAddressLegth = emailSplit[0].length;
-		var maskedEmailAddress = maskedPart+'@'+emailSplit[1];
-		if(emailAddressLegth<=3){		
-			var emailArr = emailSplit[0].split("");
-			for(i=0; i<emailAddressLegth; i++){
-				if(i != 0){
-					emailArr[i] = maskChar;
-				}
-			}
-			maskedPart = emailArr.join("");
-			maskedEmailAddress = maskedPart+'@'+emailSplit[1];		
+	};
+	this.countStringStrength = function(str){			
+		var i = 0;
+		var total_strength = 0;
+		var strWeight = {
+			string:str,
+			length:str.length,
+			upper: {count: 0,weight:0},
+			lower: {count: 0,weight:0},
+			numeric: {count: 0,weight:0},
+			special: {count: 0,weight:0},
 		}
-		else{		
-			var emailArr = emailSplit[0].split("");
-			for(i=0; i<emailAddressLegth; i++){
-				if(i != 0 && i != (emailAddressLegth-1)){
-					emailArr[i] = maskChar;
-				}
+		while(i<str.length){
+			var strChar = str.charAt(i);
+			i++;
+			if (app.regEx.alpha_upper.test(strChar)) {
+			 strWeight.upper.count++;
+			 strWeight.upper.weight++;
 			}
-			maskedPart = emailArr.join("");
-			maskedEmailAddress = maskedPart+'@'+emailSplit[1];
-		}	
-		return {"email":email,"masked":maskedEmailAddress};
-	},
-	readMultipleFiles: function(evt) {
+			else if (app.regEx.alpha_lower.test(strChar)){
+			 strWeight.lower.count++;
+			 strWeight.lower.weight++;
+			}
+			else if (app.regEx.numeric_only.test(strChar)){
+			 strWeight.numeric.count++;
+			 strWeight.numeric.weight++;
+			}
+			else if (app.regEx.is_special_char.test(strChar)){
+			 strWeight.special.count++;
+			 strWeight.special.weight++;
+			}			
+		}				
+		return strWeight;		
+	};
+	this.readMultipleFiles = function(evt) {
 		//Retrieve all the files from the FileList object
 		var files = evt.target.files;     		
 		if (files) {
@@ -135,43 +116,8 @@ $.mainApp = {
 		} else {
 			  alert("Failed to load files"); 
 		}
-	},
-	countStringStrength: function(str){			
-		var i = 0;
-		var total_strength = 0;
-		var strWeight = {
-			string:str,
-			length:str.length,
-			upper: {count: 0,weight:0},
-			lower: {count: 0,weight:0},
-			numeric: {count: 0,weight:0},
-			special: {count: 0,weight:0},
-		}
-		while(i<str.length){
-			var strChar = str.charAt(i);
-			i++;
-			if ($.mainApp.regEx.alpha_upper.test(strChar)) {
-			 strWeight.upper.count++;
-			 strWeight.upper.weight++;
-			}
-			else if ($.mainApp.regEx.alpha_lower.test(strChar)){
-			 strWeight.lower.count++;
-			 strWeight.lower.weight++;
-			}
-			else if ($.mainApp.regEx.numeric_only.test(strChar)){
-			 strWeight.numeric.count++;
-			 strWeight.numeric.weight++;
-			}
-			else if ($.mainApp.regEx.is_special_char.test(strChar)){
-			 strWeight.special.count++;
-			 strWeight.special.weight++;
-			}			
-		}				
-		return strWeight;		
 	}
-  
 };
-
 
 
 //######################################################################//
@@ -208,7 +154,7 @@ $.mainApp = {
 //######################################################################//
 //######## DOM Interaction (Ready/Load, Click, Hover, Change) ##########//
 //######################################################################//
-
+var app = new mainApp();
 //***********************************************//
 // Initiate Nanobar 
 //***********************************************//
@@ -220,29 +166,27 @@ var nanobar = new Nanobar();
 //***********************************************//
 //Document Ready
 //***********************************************//
-$(document).ready(function(e){
-	//var eml = 'saikat.mahapatra@citi.com'
-	//var maskedEmail = emailDummyMask(eml,'*');
-	//console.log(maskedEmail);
-	nanobar.go(100);
+$(initPage);
+
+function initPage(){		
+	nanobar.go(100);//show nanobar	
 	
 	//***********************************************//
 	// Render HTML Control 
 	//***********************************************//
-	$.mainApp.countCheckedCheckbox();
+	app.countCheckedCheckbox();
 	//Count Checked Items
 	$('input[type="checkbox"][class="rc-checkbox"]').on('click',function(){
-		$.mainApp.countCheckedCheckbox();
+		app.countCheckedCheckbox();
 		var contolType = $(this).attr('data-controltype');
 		if($(this).prop('checked')===true){				
-			var html = $.mainApp.renderControl(contolType);
+			var html = app.renderControl(contolType);
 			$('#control-container').append(html);
 		}else{
 			$('.control-'+contolType).remove();
 		}
 	});
-	
-});
+}
 
 
 //***********************************************//
@@ -263,7 +207,7 @@ $("#encryptBtn").on("click",function(){
 //***********************************************//
 //Validate OTP Form
 //***********************************************//
-var  otp = $.mainApp.validOTP;
+var  otp = app.validOTP;
 //Auto move to next textbox
 $('.form-control-custom').on('keyup',function(e){
 	var len = $(this).val();
@@ -277,9 +221,7 @@ $('#btn-validate-otp').on('click',function(e){
 	$('.pin').each(function(){
 		pin+=$(this).val();
 	});
-
 	console.log(pin);
-
 	if(pin != otp){
 		alert("Invalid OTP");
 		$('.pin').val('');
@@ -295,7 +237,7 @@ $('#btn-validate-otp').on('click',function(e){
 //***********************************************//
 $(document).on('click','a.remove-control',function(e){
 	var domObj = $(this).parents('div[class*="control-"]');
-	$.mainApp.removeDomObj(domObj);		
+	app.removeDomElement(domObj);		
 });
 
 
@@ -303,7 +245,7 @@ $(document).on('click','a.remove-control',function(e){
 // Read File Content
 //***********************************************//
 $('#fileinput').on('change',function(e){	
-	$.mainApp.readMultipleFiles(e);		
+	app.readMultipleFiles(e);		
 });
 
 //***********************************************//
@@ -312,7 +254,7 @@ $('#fileinput').on('change',function(e){
 $('#btn-count-strength').on('click',function(e){
 	var username = $('#username').val();
 	if(username.length>0){
-		var username_weight = $.mainApp.countStringStrength(username);	
+		var username_weight = app.countStringStrength(username);	
 		$('#username_weight').html(JSON.stringify(username_weight));
 	}
 	
