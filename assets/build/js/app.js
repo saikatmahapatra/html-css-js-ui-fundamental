@@ -1,8 +1,6 @@
-//######################################################################//
-//######################### Main Application Object ####################//
-//######################################################################//
-
-
+//----------------------------------------------------------------------//
+// Main Application Object
+//----------------------------------------------------------------------//
 var mainApp = function(){
 	this.validOTP = 1987;
 	this.countCheckedCheckbox = function(el_class){
@@ -120,9 +118,9 @@ var mainApp = function(){
 };
 
 
-//######################################################################//
-//########################### jQuery AJAX API ##########################//
-//######################################################################//
+//----------------------------------------------------------------------//
+// jQuery AJAX API
+//----------------------------------------------------------------------//
 /*$.ajax({
 	type: 'POST', //post|get|put|delete|option
 	url: 'http://api.something.com/registration', //api url
@@ -149,31 +147,66 @@ var mainApp = function(){
 });*/
 
 
+//-----------------------------------------------------------//
+// jQuery AJAX API Promise Handler
+//-----------------------------------------------------------//
+var Ajax = function(){
+	this.type = 'GET', //http methods. post|get|put|delete|option
+	this.url = '', // API url
+	this.data = {}, // add your request parameters in the data object. {"name"="john","email":"john@ex.com"}
+	this.dataType = 'json', // specify the dataType for future reference. json|jsonp|html|text
+	this.async = true, // async. true|false
+	this.processData = true, // true|false
+	this.cache = true, // default is true, but false for dataType 'script' and 'jsonp', so set it on need basis.
+	this.jsonp = 'callback', // only specify this to match the name of callback parameter your API is expecting for JSONP requests.
+	this.statusCode = { // if you want to handle specific error codes, use the status code mapping settings.
+		404: this.handler404,
+		500: this.handler500
+	}
+	this.handler404 = function(){};
+	this.handler500 = function(){};
+	this.beforeSend = function(){
+		//show ajax loader
+	};
+	
+	//return promise
+	this.init = function(){
+		return $.ajax({
+			type: this.type,
+			url: this.url,
+			data: this.data,
+			dataType: this.dataType,
+			async: this.async,
+			processData: this.processData,
+			//cache: this.cache,
+			//jsonp: this.jsonp,
+			//statusCode:this.statusCode,
+			beforeSend: this.beforeSend
+		});		
+	}	
+};
 
 
-//######################################################################//
-//######## DOM Interaction (Ready/Load, Click, Hover, Change) ##########//
-//######################################################################//
-var app = new mainApp();
-//***********************************************//
-// Initiate Nanobar 
-//***********************************************//
+//----------------------------------------------------------------------//
+// DOM Interaction (Ready/Load, Click, Hover, Change)
+//----------------------------------------------------------------------//
+
+var app = new mainApp();// Init mainApp
+
+
 //var options = {target: document.getElementByTagName('bar_holder'),}
 //var nanobar = new Nanobar(options);
-var nanobar = new Nanobar();
+var nanobar = new Nanobar(); // Init Nanobar ajax loader
 
 
-//***********************************************//
-//Document Ready
-//***********************************************//
+// Document Ready Handler
 $(initPage);
-
 function initPage(){		
 	nanobar.go(100);//show nanobar	
 	
-	//***********************************************//
+	//-----------------------------------------------//
 	// Render HTML Control 
-	//***********************************************//
+	//-----------------------------------------------//
 	app.countCheckedCheckbox();
 	//Count Checked Items
 	$('input[type="checkbox"][class="rc-checkbox"]').on('click',function(){
@@ -188,11 +221,10 @@ function initPage(){
 	});
 }
 
-
-//***********************************************//
-//Crypto JS Encryption
-//***********************************************//
-$("#encryptBtn").on("click",function(){
+//-----------------------------------------------//
+// Crypto JS Eample
+//-----------------------------------------------//
+function encryptDecryptTest(){
 	var originalValue = $('input[name="originalValue"]').val();
 	var secretPhrase = $('input[name="secretPhrase"]').val();		
 	encryptedData = CryptoJS.AES.encrypt(originalValue, secretPhrase);
@@ -202,11 +234,12 @@ $("#encryptBtn").on("click",function(){
 	$("#secretPhraseStr").html("Secret Phrase = "+secretPhrase);
 	$("#encryptedDataStr").html("Encrypted Data = "+encryptedData.toString());
 	$("#decryptedDataStr").html("Decrypted Data = "+decryptedData.toString(CryptoJS.enc.Utf8));
-});
+}
+$("#encryptBtn").on("click",encryptDecryptTest);
 
-//***********************************************//
+//-----------------------------------------------//
 //Validate OTP Form
-//***********************************************//
+//-----------------------------------------------//
 var  otp = app.validOTP;
 //Auto move to next textbox
 $('.form-control-custom').on('keyup',function(e){
@@ -232,25 +265,25 @@ $('#btn-validate-otp').on('click',function(e){
 
 
 
-//***********************************************//
+//-----------------------------------------------//
 // Render HTML Control 
-//***********************************************//
+//-----------------------------------------------//
 $(document).on('click','a.remove-control',function(e){
 	var domObj = $(this).parents('div[class*="control-"]');
 	app.removeDomElement(domObj);		
 });
 
 
-//***********************************************//
+//-----------------------------------------------//
 // Read File Content
-//***********************************************//
+//-----------------------------------------------//
 $('#fileinput').on('change',function(e){	
 	app.readMultipleFiles(e);		
 });
 
-//***********************************************//
+//-----------------------------------------------//
 // Read File Content
-//***********************************************//
+//-----------------------------------------------//
 $('#btn-count-strength').on('click',function(e){
 	var username = $('#username').val();
 	if(username.length>0){
@@ -259,3 +292,34 @@ $('#btn-count-strength').on('click',function(e){
 	}
 	
 });
+
+
+//-----------------------------------------------//
+// How to use AJAX 
+//-----------------------------------------------//
+function deleteFile(){
+	var xhr = new Ajax();
+	xhr.type ='POST';
+	xhr.url = SITE_URL+ROUTER_DIRECTORY+ROUTER_CLASS+'/delete_file';
+	xhr.data = {id: upload_id, file_path: file_path};
+	var promise = xhr.init();	
+	
+	promise.done(function(data){
+		if (data == 'success') {
+			data_row.remove();
+		}
+	});
+	promise.done(function(data){
+		//do more
+	});
+	promise.done(function(data){
+		//do another task
+	});
+	promise.fail(function(){
+		//show failure message
+	});
+	promise.always(function(){
+		//hide ajax loader
+	});
+}
+	
