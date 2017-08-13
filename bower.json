@@ -1,18 +1,23 @@
 {
-  "name": "sample-app",
-  "description": "This is a sample app for all kind of ui technologies learning",
+  "name": "sample-web-app-for-poc",
+  "description": "Sample web application with new technologies POC by Saikat",
   "main": "Gruntfile.js",
   "authors": [
     "Saikat Mahapatra"
   ],
   "license": "ISC",
-  "homepage": "https://github.com/saikatmahapatra/sample-app-for-poc",
-  "private": true,
+  "homepage": "https://github.com/saikatmahapatra/sample-web-app-for-poc",
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "devDependencies": {
+    "jquery": "^3.2.1",
+    "bootstrap": "^3.3.7",
+    "cryptojslib": "^3.1.2",
+    "nanobar": "^0.4.2"
+  }
 }
