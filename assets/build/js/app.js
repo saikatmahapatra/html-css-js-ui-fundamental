@@ -60,35 +60,35 @@ var mainApp = function(){
 	this.countStringStrength = function(str){			
 		var i = 0;
 		var total_strength = 0;
-		var strWeight = {
+		var strData = {
 			string:str,
 			length:str.length,
-			upper: {count: 0,weight:0},
-			lower: {count: 0,weight:0},
-			numeric: {count: 0,weight:0},
-			special: {count: 0,weight:0},
+			upper: {count: 0,strength:0},
+			lower: {count: 0,strength:0},
+			numeric: {count: 0,strength:0},
+			special: {count: 0,strength:0},
 		}
 		while(i<str.length){
 			var strChar = str.charAt(i);
 			i++;
 			if (app.regEx.alpha_upper.test(strChar)) {
-			 strWeight.upper.count++;
-			 strWeight.upper.weight++;
+			 strData.upper.count++;
+			 strData.upper.strength++;
 			}
 			else if (app.regEx.alpha_lower.test(strChar)){
-			 strWeight.lower.count++;
-			 strWeight.lower.weight++;
+			 strData.lower.count++;
+			 strData.lower.strength++;
 			}
 			else if (app.regEx.numeric_only.test(strChar)){
-			 strWeight.numeric.count++;
-			 strWeight.numeric.weight++;
+			 strData.numeric.count++;
+			 strData.numeric.strength++;
 			}
 			else if (app.regEx.is_special_char.test(strChar)){
-			 strWeight.special.count++;
-			 strWeight.special.weight++;
+			 strData.special.count++;
+			 strData.special.strength++;
 			}			
 		}				
-		return strWeight;		
+		return strData;		
 	};
 	this.readMultipleFiles = function(evt) {
 		//Retrieve all the files from the FileList object
@@ -282,16 +282,22 @@ $('#fileinput').on('change',function(e){
 });
 
 //-----------------------------------------------//
-// Read File Content
+// String Strength Count
 //-----------------------------------------------//
 $('#btn-count-strength').on('click',function(e){
 	var username = $('#username').val();
 	if(username.length>0){
-		var username_weight = app.countStringStrength(username);	
-		$('#username_weight').html(JSON.stringify(username_weight));
+		var str_strength = app.countStringStrength(username);	
+		$('#username_strength').html(JSON.stringify(str_strength));
 	}
 	
 });
+
+$('#password_strength input[name="password"]').on('keyup',function(e){	
+	var str_strength = app.countStringStrength($(this).val());	
+	$('#password_str_strength').html(JSON.stringify(str_strength));
+});
+
 
 
 //-----------------------------------------------//
