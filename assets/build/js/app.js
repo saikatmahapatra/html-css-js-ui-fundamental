@@ -63,30 +63,54 @@ var mainApp = function(){
 		var strData = {
 			string:str,
 			length:str.length,
+			strength: {value:0,displayText:'',css:''},						
 			upper: {count: 0,strength:0},
 			lower: {count: 0,strength:0},
 			numeric: {count: 0,strength:0},
 			special: {count: 0,strength:0},
 		}
+		
 		while(i<str.length){
 			var strChar = str.charAt(i);
 			i++;
 			if (app.regEx.alpha_upper.test(strChar)) {
 			 strData.upper.count++;
 			 strData.upper.strength++;
+			 total_strength = total_strength+3;
+			 strData.strength.value = total_strength;
 			}
 			else if (app.regEx.alpha_lower.test(strChar)){
 			 strData.lower.count++;
 			 strData.lower.strength++;
+			 total_strength = total_strength+1;
+			 strData.strength.value = total_strength;
 			}
 			else if (app.regEx.numeric_only.test(strChar)){
 			 strData.numeric.count++;
 			 strData.numeric.strength++;
+			 total_strength = total_strength+2;
+			 strData.strength.value = total_strength;
 			}
 			else if (app.regEx.is_special_char.test(strChar)){
 			 strData.special.count++;
 			 strData.special.strength++;
+			 total_strength = total_strength+4;
+			 strData.strength.value = total_strength;
 			}			
+		}	
+		
+		//strength indicator
+		if(strData.strength.value < 6){
+			strData.strength.displayText = 'Very Weak';
+			strData.strength.css = 'danger';
+		}		
+		if(strData.strength.value == 6){
+			strData.strength.displayText = 'Weak';
+			strData.strength.css = 'warning';
+		}		
+		if(strData.strength.value > 6){
+			strData.strength.displayText = 'Strong';
+			strData.strength.css = 'success';
 		}				
 		return strData;		
 	};
@@ -287,15 +311,16 @@ $('#fileinput').on('change',function(e){
 $('#btn-count-strength').on('click',function(e){
 	var username = $('#username').val();
 	if(username.length>0){
-		var str_strength = app.countStringStrength(username);	
-		$('#username_strength').html(JSON.stringify(str_strength));
+		var strData = app.countStringStrength(username);	
+		$('#username_strength').html(JSON.stringify(strData));
 	}
 	
 });
 
 $('#password_strength input[name="password"]').on('keyup',function(e){	
-	var str_strength = app.countStringStrength($(this).val());	
-	$('#password_str_strength').html(JSON.stringify(str_strength));
+	var strData = app.countStringStrength($(this).val());	
+	$('#password_str_strength').html(JSON.stringify(strData));
+	$('#str_strength_indicator').html('<button class="btn btn-xs btn-'+strData.strength.css+'">'+strData.strength.displayText+'</button>');
 });
 
 
