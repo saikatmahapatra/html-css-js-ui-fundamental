@@ -95,44 +95,128 @@ var mainApp = function(){
 			if (app.regEx.alpha_upper.test(strChar)) {
 			 strData.upper.count++;
 			 strData.upper.strength++;
-			 total_strength = total_strength+3;
+			 total_strength+=2;
 			 strData.strength.value = total_strength;
 			}
 			else if (app.regEx.alpha_lower.test(strChar)){
 			 strData.lower.count++;
 			 strData.lower.strength++;
-			 total_strength = total_strength+1;
+			 //total_strength++;
 			 strData.strength.value = total_strength;
 			}
 			else if (app.regEx.numeric_only.test(strChar)){
 			 strData.numeric.count++;
 			 strData.numeric.strength++;
-			 total_strength = total_strength+2;
+			 total_strength+=2;
 			 strData.strength.value = total_strength;
 			}
 			else if (app.regEx.is_special_char.test(strChar)){
 			 strData.special.count++;
 			 strData.special.strength++;
-			 total_strength = total_strength+4;
+			 total_strength+=4;
 			 strData.strength.value = total_strength;
 			}			
 		}	
 		
-		//strength indicator
-		if(strData.strength.value < 6){
+		//strength indicator		
+		if(strData.length <8 || (strData.strength.value >= 8 && strData.strength.value < 14)){
 			strData.strength.displayText = 'Very Weak';
 			strData.strength.css = 'danger';
 		}		
-		if(strData.strength.value == 6){
+		if(strData.length >=8 && strData.strength.value == 6){
 			strData.strength.displayText = 'Weak';
 			strData.strength.css = 'warning';
 		}		
-		if(strData.strength.value > 6){
+		if(strData.length >=8 && strData.strength.value > 6){
 			strData.strength.displayText = 'Strong';
 			strData.strength.css = 'success';
-		}				
+		}			
 		return strData;		
 	};
+	
+	this.getPasswordEntropy = function(password){
+		var strPassword = password;
+		var strPasswordLength = strPassword.length;
+		var minPasswordLength = 8;
+		var initScore = 0, totalScore = 0;
+		
+		var strData = {};
+		strData.value = strPassword;
+		strData.excess = 0;
+		strData.upper = 0;
+		strData.numbers = 0;
+		strData.symbols = 0;
+		strData.score = {};				
+		strData.score.excess = 3;
+		strData.score.upper = 4;
+		strData.score.numbers = 5;
+		strData.score.symbols = 5;
+		strData.score.combo = 0; 
+		strData.score.flatLower = 0;
+		strData.score.flatNumber = 0;				
+		strData.score.indicator = {};
+		strData.score.indicator.totalScore = totalScore;
+		strData.score.indicator.text = '';
+		strData.score.indicator.css = '';
+		
+		
+		if (strPasswordLength >= minPasswordLength){			
+			for (i=0; i<strPasswordLength;i++){
+				if (strPassword[i].match(/[A-Z]/g)) {strData.upper++;}
+				if (strPassword[i].match(/[0-9]/g)) {strData.numbers++;}
+				if (strPassword[i].match(/(.*[!,@,#,$,%,^,&,*,?,_,~])/)) {strData.symbols++;} 
+			}			 
+			strData.excess = strPassword.length - minPasswordLength;
+			 
+			if (strData.upper && strData.numbers && strData.symbols){
+				strData.score.combo = 25; 
+			}		 
+			else if ((strData.upper && strData.numbers) || (strData.upper && strData.symbols) || (strData.numbers && strData.symbols)){
+				strData.score.combo = 15; 
+			}			 
+			if (strPassword.match(/^[\sa-z]+$/)){ 
+				strData.score.flatLower = -15;
+			}			 
+			if (strPassword.match(/^[\s0-9]+$/)){ 
+				strData.score.flatNumber = -35;
+			}		
+			initScore = 50;	
+		}
+		else{
+			initScore = 0;
+		}
+		
+		totalScore = initScore + (strData.excess*strData.score.excess) + (strData.upper*strData.score.upper) + (strData.numbers*strData.score.numbers) + (strData.symbols*strData.score.symbols) + strData.score.combo + strData.score.flatLower + strData.score.flatNumber;
+		strData.score.indicator.totalScore = totalScore;
+		
+		//UI indicator
+		if (strData.value == ""){ 
+			strData.score.indicator.text = 'Please enter a password';
+			strData.score.indicator.css = 'default';
+		}
+		else if (strPassword.length < minPasswordLength){			
+			strData.score.indicator.text = 'Minimum '+minPasswordLength+' chars require';
+			strData.score.indicator.css = 'danger';
+		}
+		else if (totalScore<50){
+			strData.score.indicator.text = 'Weak';
+			strData.score.indicator.css = 'warning';
+		}
+		else if (totalScore>=50 && totalScore<75){
+			strData.score.indicator.text = 'Strong';
+			strData.score.indicator.css = 'success';
+		}
+		else if (totalScore>=75 && totalScore<100){
+			strData.score.indicator.text = 'Stronger';
+			strData.score.indicator.css = 'success';
+		}
+		else if (totalScore>=100){
+			strData.score.indicator.text = 'Strongest';
+			strData.score.indicator.css = 'success';
+		}		
+		return strData;
+	}
+	
 	this.readMultipleFiles = function(evt) {
 		//Retrieve all the files from the FileList object
 		var files = evt.target.files;     		
@@ -337,9 +421,18 @@ $('#btn-count-strength').on('click',function(e){
 });
 
 $('#password_strength input[name="password"]').on('keyup',function(e){	
-	var strData = app.countStringStrength($(this).val());	
+	var strData =  app.getPasswordEntropy($(this).val());
+	//var strData = app.countStringStrength($(this).val());	
 	$('#password_str_strength').html(JSON.stringify(strData));
-	$('#str_strength_indicator').html('<button class="btn btn-xs btn-'+strData.strength.css+'">'+strData.strength.displayText+'</button>');
+	
+	/*if(strData.length<=0){
+		$('#str_strength_indicator').html('');
+	}else{
+		$('#str_strength_indicator').html('<button class="btn btn-block btn-xs btn-'+strData.strength.css+'">'+strData.strength.displayText+'</button>');
+	}	*/
+	
+	$('#str_strength_indicator').html('<button class="btn btn-block btn-xs btn-'+strData.score.indicator.css+'">'+strData.score.indicator.text+'</button>');
+	
 });
 
 

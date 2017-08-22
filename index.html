@@ -171,15 +171,16 @@
 					</div>
 					<div class="form-group">
 						<label>Enter Password</label>
-						<input type="password" class="form-control" id="password" name="password" value="" placeholder="Password" maxlength="16" data-hint="test">
-						<div class="text-muted help-info"></div>
+						<input type="password" class="form-control" id="password" name="password" value="" placeholder="Password" maxlength="32" data-hint="test">
+						<div class="text-muted help-info"><small>A <strong>strong password</strong> contains minimum 8 characters with atleast 1 upper-case letter, 2 special characters, 2 digits</small></div>
+						<div id="str_strength_indicator"></div>
 					</div>								
 					<button class="btn btn-primary" id="btn-count-strength">Submit</button>
 				</div>
 			<div class="col-md-8">
 				<div id="username_strength"></div>
 				<div id="password_str_strength"></div>
-				<div id="str_strength_indicator"></div>
+				
 			</div>
 			</div>
 		</div>
