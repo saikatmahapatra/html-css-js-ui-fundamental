@@ -22,13 +22,16 @@ throw new Error('SampleWebApp requires jQuery')
 //----------------------------------------------------------------------//
 var mainApp = function(){
 	this.validOTP = 1987;
+	
 	this.countCheckedCheckbox = function(el_class){
 		var c = $('input[type="checkbox"][class="rc-checkbox"]:checked').length;
 		return c;
 	};
+	
 	this.removeDomElement = function(el){
 		$(el).remove();
 	};
+	
 	this.regEx = {
 		user_id: /^[0-9\sA-Za-z\u00C0-\u00FF\~\#\";\/!@$%^&*()_\+\{\}\?\-\[\]\\,.\u0152\u0153\u20A0\u20A3\u0178\u20AC\u2013\u2014\u00C6\u00E6\u00C4\u00E4\u20A3]{5,32}$/,
         password: /^[^|]{6,32}$/,
@@ -76,6 +79,7 @@ var mainApp = function(){
         message_subject: /^[^=\"'<>]*$/,
         message_body: /^[^=\"'<>]*$/
 	};
+	
 	this.countStringStrength = function(str){			
 		var i = 0;
 		var total_strength = 0;
@@ -215,7 +219,7 @@ var mainApp = function(){
 			strData.score.indicator.css = 'success';
 		}		
 		return strData;
-	}
+	};
 	
 	this.readMultipleFiles = function(evt) {
 		//Retrieve all the files from the FileList object
@@ -241,7 +245,19 @@ var mainApp = function(){
 		} else {
 			  alert("Failed to load files"); 
 		}
-	}
+	};
+	
+	this.renderInput = function(arr){
+		var html = '';
+		html+='<input ';
+		for (var key in arr) {
+			//console.log("key " + key + " has value " + arr[key]);
+			html+=key;
+			html+='="'+arr[key]+'" ';
+		}
+		html+='>';
+		return html;
+	};
 };
 
 
