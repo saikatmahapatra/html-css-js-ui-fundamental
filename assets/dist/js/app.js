@@ -452,6 +452,23 @@ $('#password_strength input[name="password"]').on('keyup',function(e){
 });
 
 
+//-----------------------------------------------//
+// Chrome Input Type NUmber Issue
+//-----------------------------------------------//
+$('#numberInputChromeIssue #annualIncome').on('keyup',function(e){
+	var maxAllowed = $(this).attr('data-maxlength');
+	var length = $(this).val().length;	
+	console.log(length+'/'+maxAllowed);
+	try{
+		if(length == maxAllowed){
+			 e.preventDefault();
+		}
+	}
+	catch(error){
+		console.log("###########Error"+error.message);
+	}
+});
+
 
 //-----------------------------------------------//
 // How to use AJAX 
