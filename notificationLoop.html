@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bootstrap 3 Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+    <!-- Bootstrap core CSS -->
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" media="screen">
+ 
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.js"></script>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js"></script>
+    <![endif]-->
+	<style>
+	.insight-container{
+		border:1px dotted #999;
+		min-height: 50px;
+		margin: 10px;
+		padding: 5px;
+	}
+	.scrolable-areaX{
+		height: 150px;
+		overflow-y: scroll;	
+	}
+	
+	</style>
+  </head>
+  <body>
+    <div class="container">
+
+      <div class="starter-template">
+        <h1>Bootstrap starter template</h1>
+        
+		
+		<div class="panel-group" id="accordion"></div>
+		
+		
+      </div>
+
+    </div><!-- /.container -->
+ 
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
+
+
+
+<script>
+function convertServerDateToLocal(dateInput) {
+	var offset = 5.0;
+	// var offset = new Date().getTimezoneOffset();
+	serverDate = new Date(dateInput);
+	utc = serverDate.getTime() - (serverDate.getTimezoneOffset() * 60000);
+	clientDate = new Date(utc + (3600000 * offset));
+
+	return clientDate.toLocaleString();
+}
+
+var mockResponse = [
+
+{"id":"501f4bcb-bfa8-4296-b0a6-1a86c8a25f0d","insightId":"UpdateMobile","useCaseId":"UpdateMobile_UC1","generatedDate":"2017-09-10T04:23:59.646Z","presentedDate":"2017-11-20T07:08:26Z","selectedDate":"2017-09-12T03:23:49.296Z","score":1,"category1":"Take action","category2":"","category3":"","insightType":"STORY","status":"read","type":"Take action","highlighted":true,"teaserTemplate":"image","teaserBlocks":[{"blockId":"icon","type":"image","url":"AccountInfo.svg","alt":"Account Information","isAbsoluteURL":false,"absUrl":"account_info"},{"blockId":"date","type":"date-box","date":"2017-09-10T04:24:22.437Z","month":"Sep","day":"09"},{"blockId":"title","type":"txt","text":"Update Information1"},{"blockId":"teaser-text","type":"txt","text":"Please provide your mobile number."},{"blockId":"main-image","type":"image","url":"Citi_Missing_Info","alt":"Citi_Missing_Info","isAbsoluteURL":false,"absUrl":"Citi_Missing_Info"}]},
+
+{"id":"501f4bcb-bfa8-4296-b0a6-1a86c8a25f0d","insightId":"UpdateMobile","useCaseId":"UpdateMobile_UC1","generatedDate":"2017-08-10T04:23:59.646Z","presentedDate":"2017-11-20T07:08:26Z","selectedDate":"2017-08-12T03:23:49.296Z","score":1,"category1":"Take action","category2":"","category3":"","insightType":"STORY","status":"read","type":"Take action","highlighted":true,"teaserTemplate":"image","teaserBlocks":[{"blockId":"icon","type":"image","url":"AccountInfo.svg","alt":"Account Information","isAbsoluteURL":false,"absUrl":"account_info"},{"blockId":"date","type":"date-box","date":"2017-08-10T04:24:22.437Z","month":"Aug","day":"08"},{"blockId":"title","type":"txt","text":"Update Information2"},{"blockId":"teaser-text","type":"txt","text":"Please provide your mobile number."},{"blockId":"main-image","type":"image","url":"Citi_Missing_Info","alt":"Citi_Missing_Info","isAbsoluteURL":false,"absUrl":"Citi_Missing_Info"}]},
+
+
+{"id":"501f4bcb-bfa8-4296-b0a6-1a86c8a25f0f","insightId":"UpdateMobile","useCaseId":"UpdateMobile_UC1","generatedDate":"2017-09-10T04:23:59.646Z","presentedDate":"2017-11-20T07:08:26Z","selectedDate":"2017-09-12T03:23:49.296Z","score":1,"category1":"Take action","category2":"","category3":"","insightType":"STORY","status":"read","type":"Take action","highlighted":true,"teaserTemplate":"image","teaserBlocks":[{"blockId":"icon","type":"image","url":"AccountInfo.svg","alt":"Account Information","isAbsoluteURL":false,"absUrl":"account_info"},{"blockId":"date","type":"date-box","date":"2017-09-10T04:24:22.437Z","month":"Sep","day":"09"},{"blockId":"title","type":"txt","text":"Update Information3"},{"blockId":"teaser-text","type":"txt","text":"Please provide your mobile number."},{"blockId":"main-image","type":"image","url":"Citi_Missing_Info","alt":"Citi_Missing_Info","isAbsoluteURL":false,"absUrl":"Citi_Missing_Info"}]},
+
+{"id":"501f4bcb-bfa8-4296-b0a6-1a86c8a25f0g","insightId":"UpdateMobile","useCaseId":"UpdateMobile_UC1","generatedDate":"2017-09-10T04:23:59.646Z","presentedDate":"2017-11-20T07:08:26Z","selectedDate":"2017-09-12T03:23:49.296Z","score":1,"category1":"Take action","category2":"","category3":"","insightType":"STORY","status":"read","type":"Take action","highlighted":true,"teaserTemplate":"image","teaserBlocks":[{"blockId":"icon","type":"image","url":"AccountInfo.svg","alt":"Account Information","isAbsoluteURL":false,"absUrl":"account_info"},{"blockId":"date","type":"date-box","date":"2017-09-10T04:24:22.437Z","month":"Sep","day":"09"},{"blockId":"title","type":"txt","text":"Update Information4"},{"blockId":"teaser-text","type":"txt","text":"Please provide your mobile number."},{"blockId":"main-image","type":"image","url":"Citi_Missing_Info","alt":"Citi_Missing_Info","isAbsoluteURL":false,"absUrl":"Citi_Missing_Info"}]}
+
+
+];
+
+
+var getInsightsResponse = mockResponse;
+var grouppedInsightResponse = {};
+
+$.each(getInsightsResponse, function(index, insight) {
+			if (insight.generatedDate != '' && insight.generatedDate != undefined){
+				var generateDate = convertServerDateToLocal(insight.generatedDate);
+				//console.log(index+'==>'+generateDate);
+				grouppedInsightResponse[insight.generatedDate] = grouppedInsightResponse[insight.generatedDate] || [];
+				grouppedInsightResponse[insight.generatedDate].push(insight);
+			}
+		});
+	
+
+//console.log(grouppedInsightResponse);
+
+var html = '';
+var outerCount = 0;
+$.each(grouppedInsightResponse, function(genDate, insight) {
+	console.log(insight);
+	var generateDate = convertServerDateToLocal(genDate);
+	html+= '<div class="panel panel-default">';
+	html+='<div class="panel-heading">';
+	html+='<h4 class="panel-title">';
+	html+='<a data-toggle="collapse" data-parent="#accordion" href="#collapse'+outerCount+'">'+generateDate+'</a>';
+	html+='</h4>';
+	html+='</div>';
+	html+='<div id="collapse'+outerCount+'" class="panel-collapse collapse in">';
+	html+='<div class="panel-body scrolable-area">';	
+	$.each(insight,function(index, insightObj){
+		console.log(pol = insightObj);
+		html+='<div class="insight-container" id="'+insightObj.id+'">';
+		html+='<h4>'+insightObj.teaserBlocks[2].text+'</h4>';
+		html+='</div>';
+	});
+	html+='</div>';
+	html+='</div>';
+	html+='</div>';	
+	outerCount++;			
+});
+
+$("#accordion").html(html);
+
+	
+		
+		
+		
+</script>
