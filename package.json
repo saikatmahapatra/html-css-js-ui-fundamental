@@ -17,6 +17,7 @@
     "bootstrap": "^3.3.7",
     "bower": "^1.8.0",
     "crypto-js": "^3.1.9-1",
+    "cryptojs": "^2.5.3",
     "grunt": "^1.0.1",
     "grunt-bootlint": "^0.10.2",
     "grunt-cli": "^1.2.0",
