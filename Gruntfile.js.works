@@ -16,8 +16,7 @@ module.exports = function (grunt) { // jshint ignore:line
         tasks: ['js', 'notify:js']
       }
     },
-    
-	// Notify end of tasks
+    // Notify end of tasks
     notify: {
       less: {
         options: {
@@ -30,29 +29,8 @@ module.exports = function (grunt) { // jshint ignore:line
           title  : 'SampleWebApp',
           message: 'JS bundler finished running'
         }
-      },
-	  svgcss  : {
-        options: {
-          title  : 'SampleWebApp',
-          message: 'Ok..Done! SVG to CSS'
-        }
       }
     },
-	
-	// SVG to CSS content
-	svgcss: {
-		toCrlf: {
-		  options: {
-			eol: 'crlf',
-			previewhtml: 'svg-icon-test.html'
-		  },
-		  files: {
-			'assets/dist/svg_css/svg_styles.css': ['assets/build/svg/*.svg']
-		  }
-		}
-	},	
-	
-	
     // 'less'-task configuration
     // This task will compile all less files upon saving to create both SampleWebApp.css and SampleWebApp.min.css
     less  : {
@@ -260,17 +238,12 @@ module.exports = function (grunt) { // jshint ignore:line
   grunt.loadNpmTasks('grunt-text-replace')
   // Copy
   grunt.loadNpmTasks('grunt-contrib-copy');
-  // SVG to CSS Content
-  grunt.loadNpmTasks('grunt-svg-css');
-  
-  
   // Linting task
   grunt.registerTask('lint', ['jshint', 'csslint', 'bootlint'])
   // JS task
   grunt.registerTask('js', ['copy', 'concat', 'uglify'])
   // CSS Task
   grunt.registerTask('css', ['less:development', 'less:production', 'replace'])
-  
 
   // The default task (running 'grunt' in console) is 'watch'
   grunt.registerTask('default', ['watch'])
