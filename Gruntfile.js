@@ -44,7 +44,8 @@ module.exports = function (grunt) { // jshint ignore:line
 		toCrlf: {
 		  options: {
 			eol: 'crlf',
-			previewhtml: 'svg-icon-test.html'
+			cssprefix: 'glyphicon-', // add this prefix to css class
+			previewhtml: 'svg-icon-test.html' // set null|any name|nay location
 		  },
 		  files: {
 			'assets/dist/svg_css/svg_styles.css': ['assets/build/svg/*.svg']
