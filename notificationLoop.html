@@ -107,6 +107,7 @@ $.each(grouppedInsightResponse, function(genDate, insight) {
 		console.log(pol = insightObj);
 		html+='<div class="insight-container" id="'+insightObj.id+'">';
 		html+='<h4>'+insightObj.teaserBlocks[2].text+'</h4>';
+		html+='<a href="https://www.google.com" id="linkLoop" class="unlinkAnchor" onclick="">Unlink</a>';
 		html+='</div>';
 	});
 	html+='</div>';
@@ -118,7 +119,14 @@ $.each(grouppedInsightResponse, function(genDate, insight) {
 $("#accordion").html(html);
 
 	
-		
+$('.unlinkAnchor').on('click',function(e){
+	e.preventDefault();
+	$(this).attr('href','http://www.citi.com');
+	var conf = confirm("Confirm?");
+	if(conf==true){
+		window.location.href = $(this).attr('href');
+	}
+})
 		
 		
 </script>
