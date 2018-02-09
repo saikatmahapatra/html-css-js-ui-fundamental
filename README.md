@@ -60,9 +60,9 @@ Using Git
 
 ## Authors
 
-* **Saikat Mahapatra** - *Initial work* - [PurpleBooth](https://github.com/saikatmahapatra)
+* **Saikat Mahapatra** - *Initial work* - [WebApp](https://github.com/saikatmahapatra/sample-web-app-for-poc)
 
-See also the list of [contributors](https://github.com/saikatmahapatra) who participated in this project.
+See also the list of [contributors](https://github.com/saikatmahapatra/sample-web-app-for-poc/graphs/contributors) who participated in this project.
 
 ## License
 
