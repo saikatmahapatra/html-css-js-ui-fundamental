@@ -1,22 +1,3 @@
-/*! My App app.js
-* ================
-* Main JS application file for My App v2. This file
-* should be included in all pages. It controls some layout
-* options and implements exclusive My App plugins.
-*
-* @Author  Saikat Mahapatra
-* @Support 
-* @Email   <>
-* @version 1.0.0
-* @repository https://github.com/saikatmahapatra/sample-web-app-for-poc.git
-* @license MIT <http://opensource.org/licenses/MIT>
-*/
-
-// Make sure jQuery has been loaded
-if (typeof jQuery === 'undefined') {
-throw new Error('My App requires jQuery')
-}
-
 /**
  * ------------------------------------------------------------------------------
  * Application Object

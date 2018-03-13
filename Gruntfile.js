@@ -1,4 +1,4 @@
-// SampleWebApp Gruntfile
+// My App Gruntfile
 module.exports = function (grunt) { // jshint ignore:line
   'use strict'
 
@@ -7,12 +7,12 @@ module.exports = function (grunt) { // jshint ignore:line
     watch : {
       less : {
         // Compiles less files upon saving
-        files: ['assets/build/less/*.less'],
+        files: ['assets/src/less/*.less'],
         tasks: ['less:development', 'less:production','notify:less']
       },
       js   : {
         // Compile js files upon saving
-        files: ['assets/build/js/*.js'],
+        files: ['assets/src/js/*.js'],
         tasks: ['js', 'notify:js']
       }
     },
@@ -21,19 +21,19 @@ module.exports = function (grunt) { // jshint ignore:line
     notify: {
       less: {
         options: {
-          title  : 'SampleWebApp',
+          title  : 'My App',
           message: 'LESS finished running'
         }
       },
       js  : {
         options: {
-          title  : 'SampleWebApp',
+          title  : 'My App',
           message: 'JS bundler finished running'
         }
       },
 	  svgcss  : {
         options: {
-          title  : 'SampleWebApp',
+          title  : 'My App',
           message: 'Ok..Done! SVG to CSS'
         }
       }
@@ -48,20 +48,20 @@ module.exports = function (grunt) { // jshint ignore:line
 			previewhtml: 'svg-icon-test.html' // set null|any name|nay location
 		  },
 		  files: {
-			'assets/dist/svg_css/svg_styles.css': ['assets/build/svg/*.svg']
+			'assets/dist/svg_css/svg_styles.css': ['assets/src/svg/*.svg']
 		  }
 		}
 	},	
 	
 	
     // 'less'-task configuration
-    // This task will compile all less files upon saving to create both SampleWebApp.css and SampleWebApp.min.css
+    // This task will compile all less files upon saving to create both My App.css and My App.min.css
     less  : {
       // Development not compressed
       development  : {
         files: {
           // compilation.css  :  source.less
-          'assets/dist/css/styles.css' : 'assets/build/less/styles.less'          
+          'assets/dist/css/styles.css' : 'assets/src/less/styles.less'          
         }
       },
       // Production compressed version
@@ -71,7 +71,7 @@ module.exports = function (grunt) { // jshint ignore:line
         },
         files  : {
           // compilation.css  :  source.less
-          'assets/dist/css/styles.min.css' : 'assets/build/less/styles.less'          
+          'assets/dist/css/styles.min.css' : 'assets/src/less/styles.less'          
         }
       }
     },
@@ -80,7 +80,7 @@ module.exports = function (grunt) { // jshint ignore:line
 	copy: {
 	  main: {
 		expand: true,
-		cwd: 'assets/build/js2/',
+		cwd: 'assets/src/js2/',
 		src: '**',
 		dest: 'assets/dist/js/',
 		flatten: true,
@@ -96,7 +96,8 @@ module.exports = function (grunt) { // jshint ignore:line
       },
       production: {
         files: {
-          'assets/dist/js/app.min.js': ['assets/build/js/app.js']
+          'assets/dist/js/app.min.js': ['assets/src/js/app.js'],
+          'assets/dist/js/ajax.min.js': ['assets/src/js/ajax.js'],
         }
       }
     },
@@ -105,35 +106,35 @@ module.exports = function (grunt) { // jshint ignore:line
     concat: {
       options: {
         separator: '\n\n',
-        banner   : '/*! SampleWebApp app.js\n'
+        banner   : '/*! My App app.js\n'
         + '* ================\n'
-        + '* Main JS application file for SampleWebApp v2. This file\n'
+        + '* Main JS application file for My App v2. This file\n'
         + '* should be included in all pages. It controls some layout\n'
-        + '* options and implements exclusive SampleWebApp plugins.\n'
+        + '* options and implements exclusive My App plugins.\n'
         + '*\n'
         + '* @Author  Saikat Mahapatra\n'
         + '* @Support \n'
-        + '* @Email   <mahapatra.saikat@gmail.com>\n'
+        + '* @Email   <>\n'
         + '* @version <%= pkg.version %>\n'
         + '* @repository <%= pkg.repository.url %>\n'
         + '* @license MIT <http://opensource.org/licenses/MIT>\n'
         + '*/\n\n'
         + '// Make sure jQuery has been loaded\n'
         + 'if (typeof jQuery === \'undefined\') {\n'
-        + 'throw new Error(\'SampleWebApp requires jQuery\')\n'
+        + 'throw new Error(\'My App requires jQuery\')\n'
         + '}\n\n'
       },
       dist   : {
-        src : ['assets/build/js/app.js'],
+        src : ['assets/src/js/app.js'],
         dest: 'assets/dist/js/app.js'
       }
     },
 
-    // Replace image paths in SampleWebApp without plugins
+    // Replace image paths in My App without plugins
     /*replace: {
       withoutPlugins   : {
-        src         : ['assets/dist/css/alt/SampleWebApp-without-plugins.css'],
-        dest        : 'assets/dist/css/alt/SampleWebApp-without-plugins.css',
+        src         : ['assets/dist/css/alt/My App-without-plugins.css'],
+        dest        : 'assets/dist/css/alt/My App-without-plugins.css',
         replacements: [
           {
             from: '../img',
@@ -142,8 +143,8 @@ module.exports = function (grunt) { // jshint ignore:line
         ]
       },
       withoutPluginsMin: {
-        src         : ['assets/dist/css/alt/SampleWebApp-without-plugins.min.css'],
-        dest        : 'assets/dist/css/alt/SampleWebApp-without-plugins.min.css',
+        src         : ['assets/dist/css/alt/My App-without-plugins.min.css'],
+        dest        : 'assets/dist/css/alt/My App-without-plugins.min.css',
         replacements: [
           {
             from: '../img',
@@ -173,7 +174,7 @@ module.exports = function (grunt) { // jshint ignore:line
         files: [
           {
             expand: true,
-            cwd   : 'assets/build/img/',
+            cwd   : 'assets/src/img/',
             src   : ['**/*.{png,jpg,gif,svg,jpeg}'],
             dest  : 'assets/dist/img/'
           }
@@ -184,22 +185,22 @@ module.exports = function (grunt) { // jshint ignore:line
     // Validate JS code
     jshint: {
       options: {
-        jshintrc: 'assets/build/js/.jshintrc'
+        jshintrc: 'assets/src/js/.jshintrc'
       },
       grunt  : {
         options: {
-          jshintrc: 'assets/build/grunt/.jshintrc'
+          jshintrc: 'assets/src/grunt/.jshintrc'
         },
         src    : 'Gruntfile.js'
       },
       core   : {
-        src: 'assets/build/js/*.js'
+        src: 'assets/src/js/*.js'
       }      
     },
 
     jscs: {
       options: {
-        config: 'assets/build/js/.jscsrc'
+        config: 'assets/src/js/.jscsrc'
       },
       core   : {
         src: '<%= jshint.core.src %>'
@@ -209,7 +210,7 @@ module.exports = function (grunt) { // jshint ignore:line
     // Validate CSS files
     csslint: {
       options: {
-        csslintrc: 'assets/build/less/.csslintrc'
+        csslintrc: 'assets/src/less/.csslintrc'
       },
       dist   : [
         'assets/dist/css/styles.css'
@@ -228,7 +229,7 @@ module.exports = function (grunt) { // jshint ignore:line
     // After compressing the images in the build/img dir, there is no need
     // for them
     clean: {
-      build: ['assets/build/img/*']
+      build: ['assets/src/img/*']
     }
   })
 

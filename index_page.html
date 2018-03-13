@@ -35,7 +35,7 @@
 <body>
 
 	<!-- Fixed navbar -->
-	<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+	<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
 		<a class="navbar-brand" href="#">Navbar</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault"
 		 aria-expanded="false" aria-label="Toggle navigation">
@@ -75,7 +75,7 @@
 	<main class="container-fluid">
 
 		<!-- <div class="card mb-3">
-			<div class="card-header"><h5 class="card-title txt-white">Title</h5></div>
+			<div class="card-header"><h5 class="card-title">Title</h5></div>
 			<div class="card-body">
 				<div class="row">
 					<div class="col">
@@ -88,7 +88,7 @@
 
 		<div class="card mb-3" id="cryptojs">
 			<div class="card-header">
-				<h5 class="card-title txt-white">Crypto JS Example</h5>
+				<h5 class="card-title">Crypto JS Example</h5>
 			</div>
 			<div class="card-body">
 				<div class="row">
@@ -116,7 +116,7 @@
 
 		<div class="card mb-3" id="otp_style">
 			<div class="card-header">
-				<h5 class="card-title txt-white">OTP UX</h5>
+				<h5 class="card-title">OTP UX</h5>
 			</div>
 			<div class="card-body">
 				<div class="row">
@@ -139,7 +139,7 @@
 
 		<div class="card mb-3" id="render_control">
 			<div class="card-header">
-				<h5 class="card-title txt-white">Render HTML Controls</h5>
+				<h5 class="card-title">Render HTML Controls</h5>
 			</div>
 			<div class="card-body">
 				<div class="row">
@@ -170,7 +170,7 @@
 
 		<div class="card mb-3" id="password_strength">
 			<div class="card-header">
-				<h5 class="card-title txt-white">Password Strength Indicator</h5>
+				<h5 class="card-title">Password Strength Indicator</h5>
 			</div>
 			<div class="card-body">
 				<div class="row">
@@ -205,7 +205,7 @@
 
 		<div class="card mb-3" id="file_read">
 			<div class="card-header">
-				<h5 class="card-title txt-white">Read File Content</h5>
+				<h5 class="card-title">Read File Content</h5>
 			</div>
 			<div class="card-body">
 				<div class="row">
@@ -225,16 +225,16 @@
 
 		<div class="card mb-3" id="nanobar">
 			<div class="card-header">
-				<h5 class="card-title txt-white">Nanobar - YouTube like progress bar at top or any position</h5>
+				<h5 class="card-title">Nanobar - YouTube like progress bar at top or any position</h5>
 			</div>
 			<div class="card-body">
 				<div id="bar_holder"></div>
 				<div class="row">
 					<div class="col">
 						<div class="general-buttons">
-							<button class="btn btn-default doc_go" onClick="nanobar.go(30)">30</button>
-							<button class="btn btn-default doc_go" onClick="nanobar.go(60)">60</button>
-							<button class="btn btn-default doc_go" onClick="nanobar.go(100)">100</button>
+							<button class="btn btn-secondary doc_go" onClick="nanobar.go(30)">30</button>
+							<button class="btn btn-secondary doc_go" onClick="nanobar.go(60)">60</button>
+							<button class="btn btn-secondary doc_go" onClick="nanobar.go(100)">100</button>
 						</div>
 					</div>
 				</div>
@@ -244,7 +244,7 @@
 
 		<div class="card mb-3" id="numberInputChromeIssue">
 			<div class="card-header">
-				<h5 class="card-title txt-white">Chrome Issue (input type="number")</h5>
+				<h5 class="card-title">Chrome Issue (input type="number")</h5>
 			</div>
 			<div class="card-body">
 				<div class="row">
@@ -255,6 +255,54 @@
 				</div>
 			</div>
 			<!-- <div class="card-footer">Footer</div> -->
+		</div>
+
+		<div class="card mb-3" id="messenger">
+			<div class="card-header bg-primary">
+				<h5 class="card-title text-white">Messenger</h5>
+			</div>
+			<div class="card-body conersationMessages scrollable-b">
+				<div class="row">
+					<div class="col">
+						<well><p>Hi, Are you there?</p></well>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<well><p>Hi, Are you there?</p></well>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<well><p>Hi, Are you there?</p></well>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<well><p>Hi, Are you there?</p></well>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<well><p>Hi, Are you there?</p></well>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<well><p>Hi, Are you there?</p></well>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<well><p>Hi, Are you there? Last mesage</p></well>
+					</div>
+				</div>
+			</div>
+			<div class="card-footer">
+				<form method="post">
+					<input type="text" class="form-control form-control-lg" placeholder="Type your messages..." name="txtMessage" id="txtMessage">
+				</form>
+			</div>
 		</div>
 
 	</main>
