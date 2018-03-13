@@ -25,11 +25,6 @@ throw new Error('My App requires jQuery')
 var App = function () {
 	this.validOTP = 1987;
 
-	this.countElement = function ($el) {
-		var c = $el.length;
-		return c;
-	};
-
 	this.removeDomElement = function (el) {
 		$(el).remove();
 	};
@@ -249,15 +244,11 @@ var App = function () {
 		}
 	};
 
-	this.renderInput = function (arr) {
+	this.renderFormControl = function (type) {
 		var html = '';
-		html += '<input ';
-		for (var key in arr) {
-			//console.log("key " + key + " has value " + arr[key]);
-			html += key;
-			html += '="' + arr[key] + '" ';
+		if (type == 'text') {
+			html += '<input type="text" name="test" class="form-control control-'+type+'" placeholder="Enter your text">';
 		}
-		html += '>';
 		return html;
 	};
 
@@ -286,15 +277,15 @@ $(initPage); // Document Ready Handler
 function initPage() {
 	nanobar.go(100);//show nanobar	
 
-		
+
 	//Render HTML Control on checkbox click
 	$('.rc-checkbox').on('click', function () {
 		var el = $(this);
-		var checkedCb = el.prop(':checked');
-		var checkedCb = myapp.countElement(checkedCb);
+		var checkedCb = $('.rc-checkbox:checked').length;
+		$('#cb_counter').html(checkedCb);
 		var contolType = $(this).attr('data-controltype');
 		if ($(this).prop('checked') === true) {
-			var html = myapp.renderInput(contolType);
+			var html = myapp.renderFormControl(contolType);
 			$('#control-container').append(html);
 		} else {
 			$('.control-' + contolType).remove();
