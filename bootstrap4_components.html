@@ -62,9 +62,79 @@
     </nav>
 
     <main role="main" class="container">
-        <h1>12 Grid xs
-            < 576px, sm>= 576px, md >= 768px, lg >= 992px, xl >= 1200px</h1>
+        <h1>12 Colum Flex Grid</h1>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th class="text-center h3">
+                        xs<br>
+                        <small class="h5">&lt;576px</small>
+                    </th>
+                    <th class="text-center h3">
+                        sm<br>
+                        <small class="h5">≥576px</small>
+                    </th>
+                    <th class="text-center h3">
+                        md<br>
+                        <small class="h5">≥768px</small>
+                    </th>
+                    <th class="text-center h3">
+                        lg<br>
+                        <small class="h5">≥992px</small>
+                    </th>
+                    <th class="text-center h3">
+                        xl<br>
+                        <small class="h5">≥1200px</small>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th class="text-nowrap" scope="row">Max container width</th>
+                    <td>None (auto)</td>
+                    <td>540px</td>
+                    <td>720px</td>
+                    <td>960px</td>
+                    <td>1140px</td>
+                </tr>
+                <tr>
+                    <th class="text-nowrap" scope="row">Class prefix</th>
+                    <td><code>.col-</code></td>
+                    <td><code>.col-sm-</code></td>
+                    <td><code>.col-md-</code></td>
+                    <td><code>.col-lg-</code></td>
+                    <td><code>.col-xl-</code></td>
+                </tr>
+                <tr>
+                    <th class="text-nowrap" scope="row"># of columns</th>
+                    <td colspan="5">12</td>
+                </tr>
+                <tr>
+                    <th class="text-nowrap" scope="row">Gutter width</th>
+                    <td colspan="5">30px (15px on each side of a column)</td>
+                </tr>
+                <tr>
+                    <th class="text-nowrap" scope="row">Nestable</th>
+                    <td colspan="5">Yes</td>
+                </tr>
+                <tr>
+                    <th class="text-nowrap" scope="row">Column ordering</th>
+                    <td colspan="5">Yes</td>
+                </tr>
+            </tbody>
+        </table>
 
+        <h1>Button</h1>
+        <button type="button" class="btn btn-primary">Primary</button>
+        <button type="button" class="btn btn-secondary">Secondary</button>
+        <button type="button" class="btn btn-success">Success</button>
+        <button type="button" class="btn btn-danger">Danger</button>
+        <button type="button" class="btn btn-warning">Warning</button>
+        <button type="button" class="btn btn-info">Info</button>
+        <button type="button" class="btn btn-light">Light</button>
+        <button type="button" class="btn btn-dark">Dark</button>
+        <button type="button" class="btn btn-link">Link</button>
         <h1>Alerts</h1>
 
         <div class="alert alert-primary" role="alert">
@@ -92,17 +162,7 @@
             This is a dark alert—check it out!
         </div>
 
-        <h1>Button</h1>
-        <button type="button" class="btn btn-primary">Primary</button>
-        <button type="button" class="btn btn-secondary">Secondary</button>
-        <button type="button" class="btn btn-success">Success</button>
-        <button type="button" class="btn btn-danger">Danger</button>
-        <button type="button" class="btn btn-warning">Warning</button>
-        <button type="button" class="btn btn-info">Info</button>
-        <button type="button" class="btn btn-light">Light</button>
-        <button type="button" class="btn btn-dark">Dark</button>
 
-        <button type="button" class="btn btn-link">Link</button>
 
         <h1>Card (Panel in Bootstrap 3)</h1>
         <div class="row">
