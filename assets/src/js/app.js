@@ -1,6 +1,6 @@
 /**
  * ------------------------------------------------------------------------------
- * Application Object
+ * Some useful common functions
  * ------------------------------------------------------------------------------
  */
 var App = function () {
@@ -268,6 +268,35 @@ function initPage() {
 	var nanobar = new Nanobar(); // Init Nanobar ajax loader
 	nanobar.go(100);//show nanobar	
 
+	// setTimeout - Call something testAlert fn after x ms time 5000
+	setTimeout(setTimeoutTesting, 5000);
+	function setTimeoutTesting() {
+		console.log("setTimeoutTesting() called after 5000ms");
+	}
+
+	//setInterval - Call something in x ms interval
+	setInterval(setIntervalTesting, 60000);
+
+	function setIntervalTesting() {
+		var d = new Date();
+		var curTime = formatAMPM(d);
+		console.log("# setIntervalTesting() called after 1000ms. Time = " + curTime);
+
+
+	}
+
+	function formatAMPM(date) {
+		var hours = date.getHours();
+		var minutes = date.getMinutes();
+		var seconds = date.getSeconds();
+		var ampm = hours >= 12 ? 'pm' : 'am';
+		hours = hours % 12;
+		hours = hours ? hours : 12; // the hour '0' should be '12'
+		minutes = minutes < 10 ? '0' + minutes : minutes;
+		seconds = seconds < 10 ? '0' + seconds : seconds;
+		var strTime = hours + ':' + minutes + ':' + seconds + ' ' + ampm;
+		return strTime;
+	}
 
 	//Render HTML Control on checkbox click
 	$('.rc-checkbox').on('click', function () {
@@ -287,9 +316,8 @@ function initPage() {
 	myapp.scrollToBottom();
 }
 
-//-----------------------------------------------//
+
 // Crypto JS Eample
-//-----------------------------------------------//
 function encryptDecryptTest() {
 	var originalValue = $('input[name="originalValue"]').val();
 	var secretPhrase = $('input[name="secretPhrase"]').val();
@@ -306,7 +334,7 @@ $("#encryptBtn").on("click", encryptDecryptTest);
 
 //Validate OTP Form
 var otp = myapp.validOTP;
-$('.form-control-custom').on('keyup', function (e) { 
+$('.form-control-custom').on('keyup', function (e) {
 	var len = $(this).val();
 	if (len) {
 		$(this).next('.form-control-custom').focus(); //Auto move to next textbox
