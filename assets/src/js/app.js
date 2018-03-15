@@ -228,7 +228,7 @@ var App = function () {
 	this.renderFormControl = function (type) {
 		var html = '';
 		if (type == 'text') {
-			html += '<input type="text" name="test" class="form-control control-'+type+'" placeholder="Enter your text">';
+			html += '<input type="text" name="test" class="form-control control-' + type + '" placeholder="Enter your text">';
 		}
 		return html;
 	};
@@ -236,7 +236,18 @@ var App = function () {
 	this.scrollToBottom = function (el) {
 		var $scrollableArea = $('.scrollable-b');
 		$scrollableArea.scrollTop($scrollableArea[0].scrollHeight);
-	}
+	};
+
+	this.getQueryString = function () {
+		var vars = [], hash;
+		var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+		for (var i = 0; i < hashes.length; i++) {
+			hash = hashes[i].split('=');
+			vars.push(hash[0]);
+			vars[hash[0]] = hash[1];
+		}
+		return vars;
+	};
 };
 
 
