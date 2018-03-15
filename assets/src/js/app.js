@@ -259,14 +259,13 @@ var App = function () {
  */
 var myapp = new App();
 
-
-//var options = {target: document.getElementByTagName('bar_holder'),}
-//var nanobar = new Nanobar(options);
-var nanobar = new Nanobar(); // Init Nanobar ajax loader
-
 $(initPage); // Document Ready Handler
 
+
 function initPage() {
+	//var options = {target: document.getElementByTagName('bar_holder'),}
+	//var nanobar = new Nanobar(options);
+	var nanobar = new Nanobar(); // Init Nanobar ajax loader
 	nanobar.go(100);//show nanobar	
 
 
@@ -304,18 +303,15 @@ function encryptDecryptTest() {
 }
 $("#encryptBtn").on("click", encryptDecryptTest);
 
-//-----------------------------------------------//
+
 //Validate OTP Form
-//-----------------------------------------------//
 var otp = myapp.validOTP;
-//Auto move to next textbox
-$('.form-control-custom').on('keyup', function (e) {
+$('.form-control-custom').on('keyup', function (e) { 
 	var len = $(this).val();
 	if (len) {
-		$(this).next('.form-control-custom').focus();
+		$(this).next('.form-control-custom').focus(); //Auto move to next textbox
 	}
 });
-
 $('#btn-validate-otp').on('click', function (e) {
 	var pin = '';
 	$('.pin').each(function () {
@@ -331,26 +327,18 @@ $('#btn-validate-otp').on('click', function (e) {
 });
 
 
-
-//-----------------------------------------------//
 // Render HTML Control 
-//-----------------------------------------------//
 $(document).on('click', 'a.remove-control', function (e) {
 	var domObj = $(this).parents('div[class*="control-"]');
 	myapp.removeDomElement(domObj);
 });
 
-
-//-----------------------------------------------//
 // Read File Content
-//-----------------------------------------------//
 $('#fileinput').on('change', function (e) {
 	myapp.readMultipleFiles(e);
 });
 
-//-----------------------------------------------//
 // String Strength Count
-//-----------------------------------------------//
 $('#btn-count-strength').on('click', function (e) {
 	var username = $('#username').val();
 	if (username.length > 0) {
@@ -375,10 +363,7 @@ $('#password_strength input[name="password"]').on('keyup', function (e) {
 
 });
 
-
-//-----------------------------------------------//
 // Chrome Input Type NUmber Issue
-//-----------------------------------------------//
 $('#numberInputChromeIssue #annualIncome').on('keyup', function (e) {
 	var maxAllowed = $(this).attr('data-maxlength');
 	var length = $(this).val().length;
@@ -394,9 +379,8 @@ $('#numberInputChromeIssue #annualIncome').on('keyup', function (e) {
 });
 
 
-//-----------------------------------------------//
-// How to use AJAX 
-//-----------------------------------------------//
+
+// How to use AJAX
 function deleteFile() {
 	var xhr = new Ajax();
 	xhr.type = 'POST';
