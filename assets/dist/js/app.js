@@ -300,10 +300,18 @@ function initPage() {
 		var d = new Date();
 		var curTime = formatAMPM(d);
 		console.log("# setIntervalTesting() called after 1000ms. Time = " + curTime);
-
-
 	}
 
+	//Clock
+	displayClock();
+	setInterval(displayClock, 1000); // refresh clock time in each sec to display second hand
+	function displayClock() {
+		var d = new Date();
+		var curTime = formatAMPM(d);
+		$("#showClock").html(curTime);
+	}
+
+	//Format AM PM
 	function formatAMPM(date) {
 		var hours = date.getHours();
 		var minutes = date.getMinutes();
@@ -313,9 +321,49 @@ function initPage() {
 		hours = hours ? hours : 12; // the hour '0' should be '12'
 		minutes = minutes < 10 ? '0' + minutes : minutes;
 		seconds = seconds < 10 ? '0' + seconds : seconds;
-		//var strTime = hours + ':' + minutes + ':' + seconds + ' ' + ampm;
-		var strTime = hours + ':' + minutes + ': ' + ampm;
+		var strTime = hours + ':' + minutes + ':' + seconds + ' ' + ampm;
+		var strTime = '<span><span class="h1">' + hours + '</span>:<span class="h3">' + minutes + '</span><sup><span class="h6 text-danger">' + seconds + '</span> ' + ampm + '</sup></span>';
+		//var strTime = hours + ':' + minutes + ' ' + ampm;
 		return strTime;
+	}
+
+
+	// Count Down Timer using setInterval, clearInterval
+	var cdt = countDownTimer();
+	function countDownTimer() {
+		//var deadline = new Date("Mar 16, 2018 15:23:59").getTime();
+		var deadline = new Date().getTime()+60000;
+		//var countDown = "initializing timer...";
+		var x = setInterval(function () {
+			var timeDiff = countTimeDifference(deadline);
+			var countDown = timeDiff.days + "d " + timeDiff.hours + "h " + timeDiff.minutes + "m " + timeDiff.seconds + "s ";
+			$("#showCountDown").html('Rocket will be launched in <b>'+countDown+'</b>');
+			if (timeDiff < 0) {
+				clearInterval(x);
+				var countDown = "expired";
+				$("#showCountDown").html(countDown);
+			}
+		}, 1000);
+	}
+
+	function countTimeDifference(deadline) {
+		var res = {};
+		var now = new Date().getTime();
+		var timeDiff = deadline - now;
+		var days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+		var hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+		var minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+		var seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+		res.days = days;
+		res.hours = hours;
+		res.minutes = minutes;
+		res.seconds = seconds;
+		if (timeDiff < 0) {
+			return -1;
+		} else {
+			return res;
+		}
+
 	}
 
 	//Render HTML Control on checkbox click
