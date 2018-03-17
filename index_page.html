@@ -116,16 +116,15 @@
 
 		<div class="card mb-3" id="otp_style">
 			<div class="card-header">
-				<h5 class="card-title">OTP UX</h5>
+				<h5 class="card-title">OTP</h5>
 			</div>
 			<div class="card-body">
 				<div class="row">
 					<div class="col-sm-4">
-						<div class="form-group">
-							<input  type="text" class="form-control" placeholder="Mobile number" minlength="10" maxlength="10">
-							<br>
-							<button class="btn btn-primary" id="sendOTP">Send OTP</button>
+						<div class="form-group">							
+							<button class="btn btn-primary" id="btnSendOTP">Send OTP</button>
 							<p id="sentOTP"></p>
+							<p id="otpCountDown"></p>
 						</div>						
 					</div>
 					<div class="col-sm-8">
@@ -135,7 +134,7 @@
 							<input type="text" maxlength="1" size="1" class="form-control-custom pin" name="pin[]" value="" placeholder="*">
 							<input type="text" maxlength="1" size="1" class="form-control-custom pin" name="pin[]" value="" placeholder="*">
 							<input type="text" maxlength="1" size="1" class="form-control-custom pin" name="pin[]" value="" placeholder="*">
-							<div class="text-muted help-info">(a valid OTP = 1987)</div>
+							<div class="text-muted help-info">enter OTP</div>
 						</div>
 
 						<button id="btn-validate-otp" class="btn btn-primary">Submit</button>

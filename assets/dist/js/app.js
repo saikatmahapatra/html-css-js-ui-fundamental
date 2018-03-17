@@ -394,6 +394,20 @@ function generateBasicRandomNumber(length, type) {
 	return Math.floor(Math.random() * 2000) + 1000;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /**
  * ------------------------------------------------------------------------------
  * DOM Interaction (Ready/Load, Click, Hover, Change)
@@ -464,26 +478,53 @@ $("#encryptBtn").on("click", encryptDecryptTest);
 
 
 //Validate OTP Form
-$("#sendOTP").on("click",function(){
-	validOTP = generateBasicRandomNumber();
-	$("#sentOTP").html(validOTP);
+var otp = null;
+
+var elSendOTP = '#btnSendOTP';
+var elShowOTP = '#sentOTP';
+var elOTPInput = '.form-control-custom';
+var elOTPEachInput = '.pin';
+var elValidateOTP = '#btn-validate-otp';
+
+$(elSendOTP).on("click", function () {
+	otp = generateBasicRandomNumber();
+	$(elSendOTP).addClass('disabled');
+	$(elShowOTP).html('Your One Time Password is ' + otp);
+
+	// Allow to send OTP again after 30 sec
+	var timeLeft = 15;
+	var elResendIn = '#otpCountDown';
+	var resndOTPTimer = setInterval(countdown, 1000);
+	function countdown() {
+		if (timeLeft == 0) {
+			clearTimeout(resndOTPTimer);
+			$(elSendOTP).removeClass('disabled');
+			$(elShowOTP).html('');
+			$(elResendIn).html('');
+			otp = null;
+		} else {
+			$(elResendIn).html('This will expire in ' + timeLeft + ' seconds.');
+			timeLeft--;
+		}
+	}
+
 });
-var otp = validOTP;
-$('.form-control-custom').on('keyup', function (e) {
+
+$(elOTPInput).on('keyup', function (e) {
 	var len = $(this).val();
 	if (len) {
-		$(this).next('.form-control-custom').focus(); //Auto move to next textbox
+		$(this).next(elOTPInput).focus(); //Auto move to next textbox
 	}
 });
-$('#btn-validate-otp').on('click', function (e) {
+$(elValidateOTP).on('click', function (e) {
 	var pin = '';
-	$('.pin').each(function () {
+	$(elOTPEachInput).each(function () {
 		pin += $(this).val();
 	});
 	console.log(pin);
 	if (pin != otp) {
 		alert("Invalid OTP");
-		$('.pin').val('');
+		$(elOTPEachInput).val('');
 	} else {
 		alert('Successful ! Proceed to next action.');
 	}
