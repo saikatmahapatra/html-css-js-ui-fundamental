@@ -120,7 +120,15 @@
 			</div>
 			<div class="card-body">
 				<div class="row">
-					<div class="col-12">
+					<div class="col-sm-4">
+						<div class="form-group">
+							<input  type="text" class="form-control" placeholder="Mobile number" minlength="10" maxlength="10">
+							<br>
+							<button class="btn btn-primary" id="sendOTP">Send OTP</button>
+							<p id="sentOTP"></p>
+						</div>						
+					</div>
+					<div class="col-sm-8">
 						<div class="form-group">
 							<label>Enter OTP </label>
 							<input type="text" maxlength="1" size="1" class="form-control-custom pin" name="pin[]" value="" placeholder="*">
@@ -262,37 +270,51 @@
 			<div class="card-body conersationMessages scrollable-b">
 				<div class="row">
 					<div class="col">
-						<well><p>Hi, Are you there?</p></well>
+						<well>
+							<p>Hi, Are you there?</p>
+						</well>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col">
-						<well><p>Hi, Are you there?</p></well>
+						<well>
+							<p>Hi, Are you there?</p>
+						</well>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col">
-						<well><p>Hi, Are you there?</p></well>
+						<well>
+							<p>Hi, Are you there?</p>
+						</well>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col">
-						<well><p>Hi, Are you there?</p></well>
+						<well>
+							<p>Hi, Are you there?</p>
+						</well>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col">
-						<well><p>Hi, Are you there?</p></well>
+						<well>
+							<p>Hi, Are you there?</p>
+						</well>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col">
-						<well><p>Hi, Are you there?</p></well>
+						<well>
+							<p>Hi, Are you there?</p>
+						</well>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col">
-						<well><p>Hi, Are you there? Last mesage</p></well>
+						<well>
+							<p>Hi, Are you there? Last mesage</p>
+						</well>
 					</div>
 				</div>
 			</div>
@@ -303,18 +325,19 @@
 			</div>
 		</div>
 
-		
+
 		<div class="card mb-3" id="jsTimer">
-			<div class="card-header"><h5 class="card-title">JS Date</h5></div>
+			<div class="card-header">
+				<h5 class="card-title">Date(), setTimeout, setInterval, clearInterval</h5>
+			</div>
 			<div class="card-body">
 				<div class="row">
-					<div class="col">						
+					<div class="col">
 						<div id="showClock"></div>
 						<p id="showCountDown"></p>
 					</div>
 				</div>
 			</div>
-			<div class="card-footer">Footer</div>
 		</div>
 
 	</main>
@@ -325,7 +348,9 @@
 	<!-- Placed at the end of the document so the pages load faster -->
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
 	 crossorigin="anonymous"></script>
-	<script>window.jQuery || document.write('<script src="node_modules/jquery/dist/jquery.slim.min.js"><\/script>')</script>
+	<script>
+		window.jQuery || document.write('<script src="node_modules/jquery/dist/jquery.slim.min.js"><\/script>')
+	</script>
 	<script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
 	<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
