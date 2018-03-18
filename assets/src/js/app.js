@@ -53,7 +53,6 @@ var regEx = {
 	message_subject: /^[^=\"'<>]*$/,
 	message_body: /^[^=\"'<>]*$/
 };
-var validOTP = '';
 
 function countStringStrength(str) {
 	var i = 0;
@@ -395,15 +394,17 @@ function generateBasicRandomNumber(length, type) {
  * ------------------------------------------------------------------------------
  */
 
+//var options = {target: document.getElementByTagName('bar_holder'),}
+//var nanobar = new Nanobar(options);
+var nanobar = new Nanobar(); // Init Nanobar ajax loader
+
 $(initPage); // Document Ready Handler
 
 
 function initPage() {
-	//var options = {target: document.getElementByTagName('bar_holder'),}
-	//var nanobar = new Nanobar(options);
-	var nanobar = new Nanobar(); // Init Nanobar ajax loader
-	nanobar.go(100);//show nanobar	
 
+	nanobar.go(100);//show nanobar	
+	
 	// setTimeout - Call something testAlert fn after x ms time 5000
 	setTimeout(setTimeoutTesting, 5000);
 
