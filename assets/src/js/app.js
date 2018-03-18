@@ -394,9 +394,13 @@ function generateBasicRandomNumber(length, type) {
  * ------------------------------------------------------------------------------
  */
 
-//var options = {target: document.getElementByTagName('bar_holder'),}
-//var nanobar = new Nanobar(options);
-var nanobar = new Nanobar(); // Init Nanobar ajax loader
+var options = {
+	//classname: '',  //classname for nanobar div container
+	//id: 'nanobarCardHeader', //id for nanobar div container
+	//target: document.getElementById('nanobarCardHeader'), //Where to put the progress bar, nanobar will be fixed to top of document if no target is passed
+}
+var nanobar = new Nanobar(options);
+//var nanobar = new Nanobar(); // Init Nanobar ajax loader
 
 $(initPage); // Document Ready Handler
 
@@ -404,7 +408,7 @@ $(initPage); // Document Ready Handler
 function initPage() {
 
 	nanobar.go(100);//show nanobar	
-	
+
 	// setTimeout - Call something testAlert fn after x ms time 5000
 	setTimeout(setTimeoutTesting, 5000);
 
