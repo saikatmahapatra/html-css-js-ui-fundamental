@@ -437,13 +437,13 @@ function initPage() {
 
 
 	//Display clock
-	displayClock();
-	setInterval(displayClock, 1000); // refresh clock time in each sec to display second hand
+	//displayClock();
+	//setInterval(displayClock, 1000); // refresh clock time in each sec to display second hand
 
 
 
 	// Display count down timer
-	displayCountDownTimer();
+	//displayCountDownTimer();
 
 
 
@@ -521,6 +521,7 @@ $(elOTPInput).on('keyup', function (e) {
 		$(this).next(elOTPInput).focus(); //Auto move to next textbox
 	}
 });
+
 $(elValidateOTP).on('click', function (e) {
 	var pin = '';
 	$(elOTPEachInput).each(function () {
@@ -587,6 +588,30 @@ $('#numberInputChromeIssue #annualIncome').on('keyup', function (e) {
 	}
 });
 
+// jQuery get values of multi select
 
+$("#btnTestMultiSelect").on('click', getSelectedCities);
+function getSelectedCities(e) {
 
+	//array
+	var selVal = $("#ddMetroCity option:selected").map(function () { return this.value }).get(); //  ["01", "03", "05"]
+	console.log(selVal);
 
+	//string
+	var selVal = $("#ddMetroCity option:selected").map(function () { return this.value }).get().join(','); //  02,03
+	console.log(selVal);
+
+	//custom json object
+	var jsonObjCity = [];
+	$("#ddMetroCity option:selected").each(function (index, obj) {		
+		var id = $(this).val();
+		var city_code = $(this).attr('data-code');
+		var city_name = $(this).text();
+		item = {}
+		item["id"] = id;
+		item["city_code"] = city_code;
+		item["city_name"] = city_name;
+		jsonObjCity.push(item);
+	});
+	console.log(jsonObjCity);
+}

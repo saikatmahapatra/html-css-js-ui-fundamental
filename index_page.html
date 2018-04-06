@@ -121,11 +121,11 @@
 			<div class="card-body">
 				<div class="row">
 					<div class="col-sm-4">
-						<div class="form-group">							
+						<div class="form-group">
 							<button class="btn btn-primary" id="btnSendOTP">Send OTP</button>
 							<p id="sentOTP"></p>
 							<p id="otpCountDown"></p>
-						</div>						
+						</div>
 					</div>
 					<div class="col-sm-8">
 						<div class="form-group">
@@ -334,6 +334,32 @@
 					<div class="col">
 						<div id="showClock"></div>
 						<p id="showCountDown"></p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="card mb-3" id="jqueryMultiselect">
+			<div class="card-header">
+				<h5 class="card-title">Select Option - Multiselect</h5>
+			</div>
+			<div class="card-body">
+				<div class="row">
+					<div class="col-md-3">
+						<label>Select City (Multiple)</label>
+						<select class="form-control" name="ddMetroCity" id="ddMetroCity" multiple="multiple">
+							<option data-code="" value="">Select</option>
+							<option data-code="CCU" value="01">Kolkata</option>
+							<option data-code="MUM" value="02">Mumbai</option>
+							<option data-code="BLR" value="03">Bangalore</option>
+							<option data-code="MAD" value="04">Chennai</option>
+							<option data-code="HYD" value="05">Hyderabad</option>
+							<option data-code="DEL" value="06">Delhi</option>
+						</select>
+						<button id="btnTestMultiSelect" class="btn btn-primary">Submit</button>
+					</div>
+					<div class="col-md-9">
 					</div>
 				</div>
 			</div>
