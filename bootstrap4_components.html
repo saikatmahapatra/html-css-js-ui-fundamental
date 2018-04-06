@@ -145,7 +145,26 @@
         <button type="button" class="btn btn-light">Light</button>
         <button type="button" class="btn btn-dark">Dark</button>
         <button type="button" class="btn btn-link">Link</button>
-
+		
+		<h1>Tag Cloud</h1>
+		<div class="col-md-12 tagcloud">
+        <a href=""><span>motorola</span><span> | </span><span>12</span></a>
+        <a href=""><span>techies</span><span> | </span><span>25</span></a>
+        <a href=""><span>tatagroup</span><span> | </span><span>45</span></a>
+        <a href=""><span>political</span><span> | </span><span>23</span></a>
+        <a href=""><span>ameria</span><span> | </span><span>112</span></a>
+        <a href=""><span>medicine</span><span> | </span><span>235</span></a>
+        <a href=""><span>impact</span><span> | </span><span>512</span></a>
+        <a href=""><span>India</span><span> | </span><span>225</span></a>
+        <a href=""><span>employee services</span><span> | </span><span>912</span></a>
+        <a href=""><span>donations</span><span> | </span><span>625</span></a>
+        <a href=""><span>bengal</span><span> | </span><span>812</span></a>
+        <a href=""><span>business</span><span> | </span><span>125</span></a>
+        <a href=""><span>financial</span><span> | </span><span>312</span></a>
+        <a href=""><span>world</span><span> | </span><span>425</span></a>
+		</div>
+		
+		
         <h1>Buton Outline</h1>
         <button type="button" class="btn btn-outline-primary">.btn .btn-outline-primary</button>
         <button type="button" class="btn btn-outline-secondary">Secondary</button>
@@ -506,9 +525,15 @@
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script>
         //Document Ready
-        $(function () {
-            $('[data-toggle="tooltip"]').tooltip()
-        })
+        $(initDOM);
+		function initDOM(){
+			$('[data-toggle="tooltip"]').tooltip();
+			var classes = ["badge badge-primary","badge badge-success","badge badge-info","badge badge-warning","badge badge-dark","badge badge-dark","badge badge-danger"];
+			$(".tagcloud a").each(function(){
+				$(this).addClass(classes[~~(Math.random()*classes.length)]);
+			});
+		}
+		
     </script>
 </body>
 

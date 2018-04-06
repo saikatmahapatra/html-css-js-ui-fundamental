@@ -464,7 +464,10 @@ function initPage() {
 
 	//On init scrol chat messeges conversation to bottom
 	scrollToBottom();
-}
+
+	// On page load add tag cloud class randomly
+	addTagsClassRandomly();
+}// end of initPage()
 
 
 // Crypto JS Eample
@@ -603,7 +606,7 @@ function getSelectedCities(e) {
 
 	//custom json object
 	var jsonObjCity = [];
-	$("#ddMetroCity option:selected").each(function (index, obj) {		
+	$("#ddMetroCity option:selected").each(function (index, obj) {
 		var id = $(this).val();
 		var city_code = $(this).attr('data-code');
 		var city_name = $(this).text();
@@ -614,4 +617,11 @@ function getSelectedCities(e) {
 		jsonObjCity.push(item);
 	});
 	console.log(jsonObjCity);
+}
+
+function addTagsClassRandomly() {
+	var classes = ["badge badge-primary", "badge badge-success", "badge badge-info", "badge badge-warning", "badge badge-dark", "badge badge-dark", "badge badge-danger"];
+	$(".tagcloud a").each(function () {
+		$(this).addClass(classes[~~(Math.random() * classes.length)]);
+	});
 }
