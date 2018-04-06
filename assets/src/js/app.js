@@ -602,6 +602,7 @@ function getSelectedCities(e) {
 
 function addTagsClassRandomly() {
 	var classes = ["badge badge-primary", "badge badge-success", "badge badge-info", "badge badge-warning", "badge badge-dark", "badge badge-dark", "badge badge-danger"];
+	var classes = ["btn mb-2 btn-sm btn-outline-primary", "btn mb-2 btn-sm btn-outline-success", "btn mb-2 btn-sm btn-outline-info", "btn mb-2 btn-sm btn-outline-warning", "btn mb-2 btn-sm btn-outline-dark", "btn mb-2 btn-sm btn-outline-dark", "btn mb-2 btn-sm btn-outline-danger"];
 	$(".tagcloud a").each(function () {
 		$(this).addClass(classes[~~(Math.random() * classes.length)]);
 	});
