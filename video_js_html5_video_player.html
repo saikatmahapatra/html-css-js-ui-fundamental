@@ -33,11 +33,20 @@
         img.poster {
             width: 150px;
             height: 150px;
+            min-width: 150px;
+            min-height: 150px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #f1f1f1;
         }
 
         .playerControls {
             margin-top: 5px;
             margin-bottom: 5px;
+        }
+
+        ul>li {
+            cursor: pointer;
         }
     </style>
 </head>
@@ -50,18 +59,18 @@
                 <h4>Please select (click) a video to play</h4>
             </div>
             <ul class="list-inline" id="playlist">
-                <li movieurl="http://www.ioncannon.net/examples/vp8-webm/big_buck_bunny_480p.webm" title="Big Buck Bunny">
-                    <img class="poster" src="assets/src/img/big_buck_bunny.jpg" />
+                <li data-media-url="http://www.ioncannon.net/examples/vp8-webm/big_buck_bunny_480p.webm" title="Big Buck Bunny">
+                    <img class="poster" src="assets/src/img/big_buck_bunny.jpg" alt="POSTER" />
                 </li>
-                <li movieurl="http://video-js.zencoder.com/oceans-clip.mp4" title="Ocean">
-                    <img class="poster" src="assets/src/img/ocean.jpg" />
+                <li data-media-url="http://video-js.zencoder.com/oceans-clip.mp4" title="Ocean">
+                    <img class="poster" src="assets/src/img/ocean.jpg" alt="POSTER" />
                 </li>
-                <li movieurl="http://www.w3schools.com/html/movie.mp4" title="Bear">
-                    <img class="poster" src="assets/src/img/bear.jpg" />
+                <li data-media-url="http://www.w3schools.com/html/movie.mp4" title="Bear">
+                    <img class="poster" src="assets/src/img/bear.jpg" alt="POSTER" />
                 </li>
-                <li movieurl="http://www.fullimpactwebdesign.com/solutions/websiteDevelopment/videoGalleryWebsites/files/echoesPompeii.flv"
+                <li data-media-url="http://www.fullimpactwebdesign.com/solutions/websiteDevelopment/videoGalleryWebsites/files/echoesPompeii.flv"
                     title="Pink Floyd">
-                    <img class="poster" src="assets/src/img/pinkfloyd.png" />
+                    <img class="poster" src="assets/src/img/pinkfloyd.png" alt="POSTER" />
                 </li>
             </ul>
         </div>
@@ -119,22 +128,27 @@
 </body>
 
 </html>
-<script type="text/javascript">
-    var myPlayer
-    var VDO = ["http://www.w3schools.com/html/mov_bbb.mp4",
+<script>
+    var myPlayer;
+    var playList = ["http://www.w3schools.com/html/mov_bbb.mp4",
         "http://www.ioncannon.net/examples/vp8-webm/big_buck_bunny_480p.webm",
         "http://video-js.zencoder.com/oceans-clip.mp4",
         "http://video-js.zencoder.com/tina.mp4",
-        "http://www.w3schools.com/html/movie.mp4"]
+        "http://www.w3schools.com/html/movie.mp4"];
     $(function () {
+        playList = [];
+        $("[data-media-url]").each(function(){
+            //console.log("ok");
+            playList.push($(this).attr('data-media-url'));
+        });
         $("#playerContainer").hide();
         $("#playlist li").on("click", function () {
             $("#playListContainer").hide();
             $("#playerContainer").show();
-            var mediaFileURL = $(this).attr("movieurl");
+            var mediaURL = $(this).attr("data-media-url");
             var videoTitle = $(this).attr("title");
             $(".page-header > .video-title").html(videoTitle);
-            setSource(mediaFileURL);
+            setSource(mediaURL);
         });
 
         $("#watch-another-btn").on("click", function () {
@@ -245,7 +259,7 @@
         var dlPrcnt = chkDlByPercent();
         var dlDur = chkDlByTime();
         if (dlPrcnt > 30) {
-            var nxtVdo = VDO.pop();
+            var nxtVdo = playList.pop();
             setSource(nxtVdo);
         }
     }
