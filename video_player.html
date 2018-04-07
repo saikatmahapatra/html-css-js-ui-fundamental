@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Video JS POC</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <noscript>JavaScript must be enabled</noscript>
+        <!-- Bootstrap core CSS -->
+        <link href="dist/css/bootstrap.min.css" rel="stylesheet">        
+        <!-- Custom CSS -->
+        <link type="text/css" rel="stylesheet" href="css/style.css">        
+        <link href="http://vjs.zencdn.net/4.6/video-js.css" rel="stylesheet">
+
+
+        <script type="text/javascript" src="js/jquery-1.11.1.js"></script>        
+        <!-- Bootstrap core JavaScript--->
+        <script src="dist/js/bootstrap.min.js"></script>        
+        <script type="text/javascript" src="js/jquery-ui.js"></script>
+        <script src="http://vjs.zencdn.net/4.6/video.js"></script>
+        <script type="text/javascript" src="alert/js/alert.js"></script>        
+    </head>
+    <body>
+        <div class="container">
+
+            <div id="playListContainer" class="row col-md-12 text-center">                
+                <div class="page-header">
+                    <h4 class="video-title">HTML 5 Video Player Demo</h4>
+                    <p class="small-txt"><i class="glyphicon glyphicon-list"></i> Select a video</p>
+                </div>
+                <ul class="list-inline" id="playlist">
+                    <li movieurl="http://www.ioncannon.net/examples/vp8-webm/big_buck_bunny_480p.webm" title="Big Buck Bunny"><img class="poster" src="images/big_buck_bunny.jpg"/></li>
+                    <li movieurl="http://video-js.zencoder.com/oceans-clip.mp4" title="Ocean"><img class="poster" src="images/ocean.jpg"/></li>
+                    <li movieurl="http://www.w3schools.com/html/movie.mp4" title="Bear"><img class="poster" src="images/bear.jpg"/></li>
+                    <li movieurl="http://www.fullimpactwebdesign.com/solutions/websiteDevelopment/videoGalleryWebsites/files/echoesPompeii.flv" title="Pink Floyd"><img class="poster" src="images/pinkfloyd.png"/></li>
+                </ul>
+            </div>
+
+
+            <div class="row col-md-12 text-center" id="playerContainer">	
+                <div class="page-header">
+                    <h4 class="video-title">Video Player</h4>
+                    <p class="small-txt now-playing"><i class="glyphicon glyphicon-play"></i> Now Playing</p>
+                </div>
+
+                <div class="html-player">
+                    <video id="player" class="video-js vjs-default-skin" controls preload="auto" width="auto" height="360" poster="images/big_buck_bunny.jpg" data-setup="{}">
+                        <source src="http://www.w3schools.com/html/mov_bbb.mp4" type='video/mp4'>
+                        <!--<track kind="captions" src="http://example.com/path/to/captions.vtt" srclang="en" label="English" default>-->
+                        <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+                    </video>
+                </div><!--/.html-player-->
+
+                <div class="btn-group player-control-btns" role="group">
+                    <button class="btn btn-xs btn-primary" onclick="pausePlay()"><i class="glyphicon glyphicon glyphicon-play"> </i> Play/Pause</button> 
+                    <button class="btn btn-xs btn-primary" onclick="changeVol(1)"><i class="glyphicon glyphicon glyphicon-plus"> </i> Vol</button> 
+                    <button class="btn btn-xs btn-primary" onclick="changeVol(-1)"><i class="glyphicon glyphicon glyphicon-minus"> </i> Vol</button> 
+                    <button class="btn btn-xs btn-primary" onclick="changeVol(0)"><i class="glyphicon glyphicon-volume-off"></i> Mute</button> 
+                    <button class="btn btn-xs btn-primary" onclick="fullScreen()"><i class="glyphicon glyphicon-fullscreen"> </i> Full Screen</button> 
+                    <button class="btn btn-xs btn-primary" onclick="chkDlByPercent()"><i class="glyphicon glyphicon-circle-arrow-down"> </i> Percentage Download</button> 
+                    <button class="btn btn-xs btn-primary" onclick="chkDlByTime()"><i class="glyphicon glyphicon-cloud-download"> </i> Time duration download</button> 
+                    <button class="btn btn-xs btn-primary" onclick="currTime(5)"><i class="glyphicon glyphicon-fast-forward"></i></button> 
+                    <button class="btn btn-xs btn-primary" onclick="currTime(-5)"><i class="glyphicon glyphicon-fast-backward"></i></button> 
+                    <button class="btn btn-xs btn-primary" onclick="changeVdo()"><i class="glyphicon glyphicon-random"></i> Change Video </button>
+                </div><!--/.player-control-btns-->
+                <div class="watch-another-container"><button class="btn btn-xs btn-danger" id="watch-another-btn"><i class="glyphicon glyphicon-chevron-left"> </i> Watch Another Video</button></div>
+            </div><!--#playerContainer-->           
+
+        </div><!--/container-->
+    </body>
+
+</html>	
+<script type="text/javascript">
+    var myPlayer
+    var VDO = ["http://www.w3schools.com/html/mov_bbb.mp4",
+        "http://www.ioncannon.net/examples/vp8-webm/big_buck_bunny_480p.webm",
+        "http://video-js.zencoder.com/oceans-clip.mp4",
+        "http://video-js.zencoder.com/tina.mp4",
+        "http://www.w3schools.com/html/movie.mp4"]
+    $(function () {
+        $("#playlist li").on("click", function () {
+            $("#playListContainer").css("display", "none");
+            $("#playerContainer").css("display", "block");
+            var vdoPth = $(this).attr("movieurl");
+            var videoTitle = $(this).attr("title");
+            $(".page-header > .video-title").html(videoTitle);
+            setSource(vdoPth);
+        });
+
+        $("#watch-another-btn").on("click", function () {
+            $("#playListContainer").css("display", "block");
+            $("#playerContainer").css("display", "none");
+        });
+    })
+
+    videojs("player").ready(function () {
+        myPlayer = this;
+    })
+
+
+    // Pause & Play
+    var pausePlay = function () {
+        var isPaused = myPlayer.paused();
+        var isPlaying = !myPlayer.paused();
+        console.log("IS Pause : " + isPaused + "; isPlaying : " + isPlaying)
+
+        if (isPaused) {
+            myPlayer.play();
+        }
+        if (isPlaying) {
+            myPlayer.pause();
+        }
+    }
+
+    // Set source
+    var setSource = function (uri) {
+        var ext = uri.split(".").slice(-1)[0];
+        var typ = 'video/' + ext.toLowerCase();
+        myPlayer.src({type: typ, src: uri});
+        myPlayer.play();
+    }
+
+    var changeVol = function (ch) {
+        //ch : 0 - mute, 1 - increase, -1 - decrease
+        if (ch == 0) {
+            //Get or set the current volume of the media: 0 is off (muted), 1.0 is all the way up, 0.5 is half way.
+            myPlayer.volume(0);
+        }
+        else if (ch == 1) {
+            var currVol = myPlayer.volume();
+            myPlayer.volume(currVol + 0.1);
+        }
+        else if (ch == -1) {
+            var currVol = myPlayer.volume();
+            myPlayer.volume(currVol - 0.1);
+        }
+    }
+
+    var fullScreen = function () {
+        // get
+        var fullscreenOrNot = myPlayer.isFullscreen();
+        // set
+        //myPlayer.isFullscreen(true); // tell the player it's in fullscreen
+
+        if (!fullscreenOrNot) {
+            //Increase the size of the video to full screen
+            myPlayer.requestFullscreen();
+        }
+    }
+
+    var chkDlByPercent = function () {
+        //Get the percent (as a decimal) of the video that's been downloaded
+        var howMuchIsDownloaded = myPlayer.bufferedPercent() * 100;
+        //0 means none, 1 means all. (This method isn't in the HTML5 spec, but it's very convenient)
+        console.log("Downloaded -> " + howMuchIsDownloaded + "%");
+
+        var lengthOfVideo = myPlayer.duration();
+        console.log("lengthOfVideo -> " + lengthOfVideo);
+
+        return howMuchIsDownloaded.toFixed(2)
+    }
+
+    var chkDlByTime = function () {
+        //Get a TimeRange object with the times of the video that have been downloaded
+        //If you just want the percent of the video that's been downloaded, use bufferedPercent.
+
+        var bufferedTimeRange = myPlayer.buffered();
+        //console.log("Downloaded time range -> "+bufferedTimeRange.toString());
+        // Length in seconds of the first time range
+
+        // Time in seconds when the first range starts. Usually 0.
+        var firstRangeStart = bufferedTimeRange.start(0);
+        // Time in seconds when the first range ends
+        var firstRangeEnd = bufferedTimeRange.end(0);
+
+        firstRangeLength = firstRangeEnd - firstRangeStart; // seconds
+        console.log("Start =>" + firstRangeStart + "; End =>" + firstRangeEnd + ";");
+        console.log("firstRangeLength = " + firstRangeLength);
+
+        var lengthOfVideo = myPlayer.duration();
+        console.log("lengthOfVideo -> " + lengthOfVideo);
+
+        return firstRangeLength.toFixed(2)
+    }
+
+    var currTime = function (sec) {
+        // get
+        var whereYouAt = myPlayer.currentTime();
+        console.log("Curr Tim = " + whereYouAt);
+        // set
+        myPlayer.currentTime(whereYouAt + sec); // seconds into the video
+    }
+
+    var changeVdo = function () {
+        var dlPrcnt = chkDlByPercent();
+        var dlDur = chkDlByTime();
+        if (dlPrcnt > 30) {
+            var nxtVdo = VDO.pop();
+            setSource(nxtVdo);
+        }
+    }
+    //get or set the poster image source url
+    // getting
+    //var currentPoster = myPlayer.poster();
+    // setting
+    //myPlayer.poster('http://example.com/myImage.jpg');
+
+
+    //myPlayer.dispose();
+    //Destroys the video player and does any necessary cleanup
+
+    //var lengthOfVideo = myPlayer.duration();
+    //Get the length in time of the video in seconds
+
+    /////// EVENTS ////////
+    //volumechange :Fired when the volume changes
+    //timeupdate : Fired when the current playback position has changed
+    //             During playback this is fired every 15-250 milliseconds, depending on the playback technology in use.
+    //resize  : Fired when the width and/or height of the component changes
+    //
+
+    //https://github.com/videojs/video.js/blob/stable/docs/api/vjs.Player.md#buffered
+</script>
