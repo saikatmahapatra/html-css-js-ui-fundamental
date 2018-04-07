@@ -1,77 +1,118 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Video JS POC</title>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <noscript>JavaScript must be enabled</noscript>
-        <!-- Bootstrap core CSS -->
-        <link href="dist/css/bootstrap.min.css" rel="stylesheet">        
-        <!-- Custom CSS -->
-        <link type="text/css" rel="stylesheet" href="css/style.css">        
-        <link href="http://vjs.zencdn.net/4.6/video-js.css" rel="stylesheet">
+
+<head>
+    <title>Video JS POC</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <noscript>JavaScript must be enabled</noscript>
+    <!-- Bootstrap core CSS -->
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" media="screen">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.js"></script>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js"></script>
+    <![endif]-->
+
+    <!--Video CDN-->
+    <link href="http://vjs.zencdn.net/4.6/video-js.css" rel="stylesheet">
+    <script src="http://vjs.zencdn.net/4.6/video.js"></script>
+
+    <style>
+    body{
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+    img.poster{
+        width: 150px;
+        height: 150px;
+    }
+    .playerControls{
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="playListContainer" class="row col-md-12 text-center">
+            <div class="page-header">
+                <h1 class="video-title">HTML5 Video Player Demo</h1>
+                <h4>Please select (click) a video to play</h4>
+            </div>
+            <ul class="list-inline" id="playlist">
+                <li movieurl="http://www.ioncannon.net/examples/vp8-webm/big_buck_bunny_480p.webm" title="Big Buck Bunny">
+                    <img class="poster" src="assets/src/img/big_buck_bunny.jpg" />
+                </li>
+                <li movieurl="http://video-js.zencoder.com/oceans-clip.mp4" title="Ocean">
+                    <img class="poster" src="assets/src/img/ocean.jpg" />
+                </li>
+                <li movieurl="http://www.w3schools.com/html/movie.mp4" title="Bear">
+                    <img class="poster" src="assets/src/img/bear.jpg" />
+                </li>
+                <li movieurl="http://www.fullimpactwebdesign.com/solutions/websiteDevelopment/videoGalleryWebsites/files/echoesPompeii.flv"
+                    title="Pink Floyd">
+                    <img class="poster" src="assets/src/img/pinkfloyd.png" />
+                </li>
+            </ul>
+        </div>
 
 
-        <script type="text/javascript" src="js/jquery-1.11.1.js"></script>        
-        <!-- Bootstrap core JavaScript--->
-        <script src="dist/js/bootstrap.min.js"></script>        
-        <script type="text/javascript" src="js/jquery-ui.js"></script>
-        <script src="http://vjs.zencdn.net/4.6/video.js"></script>
-        <script type="text/javascript" src="alert/js/alert.js"></script>        
-    </head>
-    <body>
-        <div class="container">
-
-            <div id="playListContainer" class="row col-md-12 text-center">                
-                <div class="page-header">
-                    <h4 class="video-title">HTML 5 Video Player Demo</h4>
-                    <p class="small-txt"><i class="glyphicon glyphicon-list"></i> Select a video</p>
-                </div>
-                <ul class="list-inline" id="playlist">
-                    <li movieurl="http://www.ioncannon.net/examples/vp8-webm/big_buck_bunny_480p.webm" title="Big Buck Bunny"><img class="poster" src="images/big_buck_bunny.jpg"/></li>
-                    <li movieurl="http://video-js.zencoder.com/oceans-clip.mp4" title="Ocean"><img class="poster" src="images/ocean.jpg"/></li>
-                    <li movieurl="http://www.w3schools.com/html/movie.mp4" title="Bear"><img class="poster" src="images/bear.jpg"/></li>
-                    <li movieurl="http://www.fullimpactwebdesign.com/solutions/websiteDevelopment/videoGalleryWebsites/files/echoesPompeii.flv" title="Pink Floyd"><img class="poster" src="images/pinkfloyd.png"/></li>
-                </ul>
+        <div id="playerContainer" class="row col-md-12 text-center">
+            <div class="page-header">
+                <h1 class="video-title">Video Player</h1>
+                <h4>Now Playing <i class="glyphicon glyphicon-play"></i></h4>
             </div>
 
+            <div class="html-player">
+                <video id="player" class="video-js vjs-default-skin" controls preload="auto" width="auto" height="360" poster="assets/src/img/big_buck_bunny.jpg"
+                    data-setup="{}">
+                    <source src="http://www.w3schools.com/html/mov_bbb.mp4" type='video/mp4'>
+                    <!--<track kind="captions" src="http://example.com/path/to/captions.vtt" srclang="en" label="English" default>-->
+                    <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that
+                        <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                    </p>
+                </video>
+            </div>
+            <!--/.html-player-->
 
-            <div class="row col-md-12 text-center" id="playerContainer">	
-                <div class="page-header">
-                    <h4 class="video-title">Video Player</h4>
-                    <p class="small-txt now-playing"><i class="glyphicon glyphicon-play"></i> Now Playing</p>
-                </div>
+            <div class="btn-group playerControls" role="group">
+                <button class="btn btn-sm btn-default" onclick="pausePlay()">Play/Pause</button>
+                <button class="btn btn-sm btn-default" onclick="changeVol(1)">Vol+</button>
+                <button class="btn btn-sm btn-default" onclick="changeVol(-1)">Vol-</button>
+                <button class="btn btn-sm btn-default" onclick="changeVol(0)">Mute</button>
+                <button class="btn btn-sm btn-default" onclick="fullScreen()">Full Screen</button>
+                <button class="btn btn-sm btn-default" onclick="chkDlByPercent()">Percentage Download</button>
+                <button class="btn btn-sm btn-default" onclick="chkDlByTime()">Time duration download</button>
+                <button class="btn btn-sm btn-default" onclick="currTime(5)">Fast Fwd</button>
+                <button class="btn btn-sm btn-default" onclick="currTime(-5)">Fast Backwd</button>
+                <button class="btn btn-sm btn-default" onclick="changeVdo()">Change Video </button>
+            </div>
+            <!--/.playerControls-->
+            <div class="watch-another-container">
+                <a class="btn btn-sm" href="#" id="watch-another-btn">Watch Another Video</a>
+            </div>
+        </div>
+        <!--#playerContainer-->
 
-                <div class="html-player">
-                    <video id="player" class="video-js vjs-default-skin" controls preload="auto" width="auto" height="360" poster="images/big_buck_bunny.jpg" data-setup="{}">
-                        <source src="http://www.w3schools.com/html/mov_bbb.mp4" type='video/mp4'>
-                        <!--<track kind="captions" src="http://example.com/path/to/captions.vtt" srclang="en" label="English" default>-->
-                        <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
-                    </video>
-                </div><!--/.html-player-->
+    </div>
+    <!--/container-->
 
-                <div class="btn-group player-control-btns" role="group">
-                    <button class="btn btn-xs btn-primary" onclick="pausePlay()"><i class="glyphicon glyphicon glyphicon-play"> </i> Play/Pause</button> 
-                    <button class="btn btn-xs btn-primary" onclick="changeVol(1)"><i class="glyphicon glyphicon glyphicon-plus"> </i> Vol</button> 
-                    <button class="btn btn-xs btn-primary" onclick="changeVol(-1)"><i class="glyphicon glyphicon glyphicon-minus"> </i> Vol</button> 
-                    <button class="btn btn-xs btn-primary" onclick="changeVol(0)"><i class="glyphicon glyphicon-volume-off"></i> Mute</button> 
-                    <button class="btn btn-xs btn-primary" onclick="fullScreen()"><i class="glyphicon glyphicon-fullscreen"> </i> Full Screen</button> 
-                    <button class="btn btn-xs btn-primary" onclick="chkDlByPercent()"><i class="glyphicon glyphicon-circle-arrow-down"> </i> Percentage Download</button> 
-                    <button class="btn btn-xs btn-primary" onclick="chkDlByTime()"><i class="glyphicon glyphicon-cloud-download"> </i> Time duration download</button> 
-                    <button class="btn btn-xs btn-primary" onclick="currTime(5)"><i class="glyphicon glyphicon-fast-forward"></i></button> 
-                    <button class="btn btn-xs btn-primary" onclick="currTime(-5)"><i class="glyphicon glyphicon-fast-backward"></i></button> 
-                    <button class="btn btn-xs btn-primary" onclick="changeVdo()"><i class="glyphicon glyphicon-random"></i> Change Video </button>
-                </div><!--/.player-control-btns-->
-                <div class="watch-another-container"><button class="btn btn-xs btn-danger" id="watch-another-btn"><i class="glyphicon glyphicon-chevron-left"> </i> Watch Another Video</button></div>
-            </div><!--#playerContainer-->           
 
-        </div><!--/container-->
-    </body>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
-</html>	
+
+</body>
+
+</html>
 <script type="text/javascript">
     var myPlayer
     var VDO = ["http://www.w3schools.com/html/mov_bbb.mp4",
@@ -80,13 +121,14 @@
         "http://video-js.zencoder.com/tina.mp4",
         "http://www.w3schools.com/html/movie.mp4"]
     $(function () {
+        $("#playerContainer").hide();
         $("#playlist li").on("click", function () {
-            $("#playListContainer").css("display", "none");
-            $("#playerContainer").css("display", "block");
-            var vdoPth = $(this).attr("movieurl");
+            $("#playListContainer").hide();
+            $("#playerContainer").show();
+            var mediaFileURL = $(this).attr("movieurl");
             var videoTitle = $(this).attr("title");
             $(".page-header > .video-title").html(videoTitle);
-            setSource(vdoPth);
+            setSource(mediaFileURL);
         });
 
         $("#watch-another-btn").on("click", function () {
@@ -118,7 +160,7 @@
     var setSource = function (uri) {
         var ext = uri.split(".").slice(-1)[0];
         var typ = 'video/' + ext.toLowerCase();
-        myPlayer.src({type: typ, src: uri});
+        myPlayer.src({ type: typ, src: uri });
         myPlayer.play();
     }
 
