@@ -18,23 +18,27 @@
       <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js"></script>
     <![endif]-->
 
-    <!--Video CDN-->
-    <link href="http://vjs.zencdn.net/4.6/video-js.css" rel="stylesheet">
-    <script src="http://vjs.zencdn.net/4.6/video.js"></script>
+    <!--Video.js CDN URL. For more details visit https://videojs.com -->
+    <link href="http://vjs.zencdn.net/6.6.3/video-js.css" rel="stylesheet">
+    <!-- If you'd like to support IE8 -->
+    <script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+    <script src="http://vjs.zencdn.net/6.6.3/video.js"></script>
 
     <style>
-    body{
-        margin-top: 10px;
-        margin-bottom: 20px;
-    }
-    img.poster{
-        width: 150px;
-        height: 150px;
-    }
-    .playerControls{
-        margin-top: 5px;
-        margin-bottom: 5px;
-    }
+        body {
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        img.poster {
+            width: 150px;
+            height: 150px;
+        }
+
+        .playerControls {
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
     </style>
 </head>
 
@@ -66,7 +70,9 @@
         <div id="playerContainer" class="row col-md-12 text-center">
             <div class="page-header">
                 <h1 class="video-title">Video Player</h1>
-                <h4>Now Playing <i class="glyphicon glyphicon-play"></i></h4>
+                <h4>Now Playing
+                    <i class="glyphicon glyphicon-play"></i>
+                </h4>
             </div>
 
             <div class="html-player">
