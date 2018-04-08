@@ -25,6 +25,55 @@ throw new Error('My App requires jQuery')
 baseURL = window.location.origin;
 currentURL = document.location.href;
 
+// Make sure jQuery has been loaded
+if (typeof jQuery === 'undefined') {
+	throw new Error('App requires jQuery');
+}
+
+
+/**
+ * Overridden console.log for production
+ * @type Function|common_L4.commonAnonym$0
+ */
+window.console = (function (origConsole) {
+	if (!window.console)
+		console = {};
+	var isDebug = true; // set true to display console in browser console
+	var logArray = {
+		logs: [],
+		errors: [],
+		warns: [],
+		infos: []
+	};
+	return {
+		log: function () {
+			logArray.logs.push(arguments)
+			isDebug && origConsole.log && origConsole.log.apply(origConsole, arguments);
+		},
+		warn: function () {
+			logArray.warns.push(arguments)
+			isDebug && origConsole.warn && origConsole.warn.apply(origConsole, arguments);
+		},
+		error: function () {
+			logArray.errors.push(arguments)
+			isDebug && origConsole.error && origConsole.error.apply(origConsole, arguments);
+		},
+		info: function (v) {
+			logArray.infos.push(arguments)
+			isDebug && origConsole.info && origConsole.info.apply(origConsole, arguments);
+		},
+		debug: function (bool) {
+			isDebug = bool;
+		},
+		logArray: function () {
+			return logArray;
+		}
+	};
+
+}(window.console));
+
+
+
 var regEx = {
 	user_id: /^[0-9\sA-Za-z\u00C0-\u00FF\~\#\";\/!@$%^&*()_\+\{\}\?\-\[\]\\,.\u0152\u0153\u20A0\u20A3\u0178\u20AC\u2013\u2014\u00C6\u00E6\u00C4\u00E4\u20A3]{5,32}$/,
 	password: /^[^|]{6,32}$/,
