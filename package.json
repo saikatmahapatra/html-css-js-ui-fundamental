@@ -40,6 +40,7 @@
     "grunt-notify": "^0.4.5",
     "grunt-svg-css": "^0.2.9",
     "grunt-text-replace": "^0.4.0",
+    "http-server": "^0.11.1",
     "jquery": "^3.2.1",
     "less": "^2.7.2",
     "nanobar": "^0.4.2",
