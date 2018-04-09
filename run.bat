@@ -1,1 +1,1 @@
-http-server ./ -p 8001
+node server.js

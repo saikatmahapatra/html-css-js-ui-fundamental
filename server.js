@@ -8,9 +8,9 @@ app.use(express.static(path.join(__dirname, '/')));
 
 //start listening
 server.listen(process.env.PORT || 3000);
-console.log('Socket Server is running on https://localhost:3000');
+console.log('Server is running on https://localhost:3000');
 
 //app route
 app.get('/', function (req, res) {
-	res.sendFile(__dirname + '/index.html');
+	res.sendFile(__dirname + '/index_page.html');
 });

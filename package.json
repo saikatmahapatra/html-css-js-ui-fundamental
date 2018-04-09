@@ -13,12 +13,12 @@
     "url": "https://github.com/saikatmahapatra/sample-web-app-for-poc.git"
   },
   "devDependencies": {
-    "R2": "^1.4.3",
     "bootstrap": "^4.0.0",
     "bower": "^1.8.0",
     "crypto-js": "^3.1.9-1",
     "cryptojs": "^2.5.3",
     "express": "^4.16.3",
+    "fontawesome": "^4.7.2",
     "grunt": "^1.0.1",
     "grunt-bootlint": "^0.10.2",
     "grunt-cli": "^1.2.0",
@@ -40,12 +40,10 @@
     "grunt-notify": "^0.4.5",
     "grunt-svg-css": "^0.2.9",
     "grunt-text-replace": "^0.4.0",
-    "http-server": "^0.11.1",
     "jquery": "^3.2.1",
-    "json-server": "^0.12.1",
     "less": "^2.7.2",
     "nanobar": "^0.4.2",
     "popper.js": "^1.14.0",
-    "webserver": "^3.1.10"
+    "socket.io": "^2.1.0"
   }
 }

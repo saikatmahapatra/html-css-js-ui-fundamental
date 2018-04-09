@@ -97,6 +97,7 @@ module.exports = function (grunt) { // jshint ignore:line
       production: {
         files: {
           'assets/dist/js/app.min.js': ['assets/src/js/app.js'],
+          'assets/dist/js/chat_app.min.js': ['assets/src/js/chat_app.js'],
           'assets/dist/js/ajax.min.js': ['assets/src/js/ajax.js'],
         }
       }
