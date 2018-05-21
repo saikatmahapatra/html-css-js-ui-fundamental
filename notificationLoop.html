@@ -34,6 +34,10 @@
 		<main class="starter-template">
 			<h1>Bootstrap starter template</h1>
 			<div class="card-group" id="accordion"></div>
+			
+			<button id="btn_flicker_issue" class="btn btn-primary btn-lg">UI Flicker Issue</button>
+			<br><br>
+			<div id="msg_div" class="alert alert-info d-none">Testing JavaScript Issue</div>
 		</main>
 
 	</div>
@@ -52,6 +56,36 @@
 
 
 <script>
+	$(function(){
+		$("#btn_flicker_issue").on("focus click mouseenter hover",function(e){
+			console.log(e.type);
+			var msg = $("#msg_div");
+			/*if(msg.hasClass("d-none")){
+				msg.removeClass("d-none");
+			}else{
+				msg.addClass("d-none");
+			}*/
+			msg.removeClass("d-none");
+		});
+		
+		$("#btn_flicker_issue").on("focusout mouseleave",function(e){
+			console.log(e.type);
+			var msg = $("#msg_div");
+			/*if(msg.hasClass("d-none")){
+				msg.removeClass("d-none");
+			}else{
+				msg.addClass("d-none");
+			}*/
+			msg.addClass("d-none");
+		});
+		function displayMsg(){
+			$("#msg_div").removeClass("d-none");
+		}
+		function HideMsg(){
+			$("#msg_div").removeClass("d-none");
+		}
+	});
+	
 	function convertServerDateToLocal(dateInput) {
 		var offset = 5.0;
 		// var offset = new Date().getTimezoneOffset();
