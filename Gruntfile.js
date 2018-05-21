@@ -1,82 +1,81 @@
 // My App Gruntfile
-module.exports = function (grunt) { // jshint ignore:line
+module.exports = function (grunt) {
   'use strict'
 
   grunt.initConfig({
     pkg   : grunt.file.readJSON('package.json'),
-    watch : {
-      less : {
-        // Compiles less files upon saving
+    
+	watch : {
+      less : {        
         files: ['assets/src/less/*.less'],
         tasks: ['less:development', 'less:production','notify:less']
       },
       js   : {
-        // Compile js files upon saving
         files: ['assets/src/js/*.js'],
         tasks: ['js', 'notify:js']
-      }
-    },
-    
-	// Notify end of tasks
+      },
+	  sass : {        
+        files: ['assets/src/sass/*.scss'],
+        tasks: ['sass','notify:sass']
+      },
+    },    
+	
     notify: {
       less: {
         options: {
           title  : 'My App',
-          message: 'LESS finished running'
+          message: 'Ok. LESS done'
+        }
+      },
+	  sass: {
+        options: {
+          title  : 'My App',
+          message: 'Ok. SASS done'
         }
       },
       js  : {
         options: {
           title  : 'My App',
-          message: 'JS bundler finished running'
+          message: 'Ok. JS done'
         }
       },
 	  svgcss  : {
         options: {
           title  : 'My App',
-          message: 'Ok..Done! SVG to CSS'
+          message: 'Ok. SVG to CSS done'
         }
       }
-    },
+    },	
 	
-	// SVG to CSS content
 	svgcss: {
 		toCrlf: {
 		  options: {
 			eol: 'crlf',
-			cssprefix: 'glyphicon-', // add this prefix to css class
-			previewhtml: 'svg-icon-test.html' // set null|any name|nay location
+			cssprefix: 'glyphicon-',
+			previewhtml: 'svg-icon-test.html'
 		  },
 		  files: {
 			'assets/dist/svg_css/svg_styles.css': ['assets/src/svg/*.svg']
 		  }
 		}
 	},	
-	
-	
-    // 'less'-task configuration
-    // This task will compile all less files upon saving to create both My App.css and My App.min.css
-    less  : {
-      // Development not compressed
+    
+    less  : {      
       development  : {
         files: {
-          // compilation.css  :  source.less
           'assets/dist/css/styles.css' : 'assets/src/less/styles.less'          
         }
       },
-      // Production compressed version
-      production   : {
+	  production   : {
         options: {
           compress: true
         },
         files  : {
-          // compilation.css  :  source.less
           'assets/dist/css/styles.min.css' : 'assets/src/less/styles.less'          
         }
       }
     },
 	
-	//Copy 
 	copy: {
 	  main: {
 		expand: true,
@@ -88,7 +87,6 @@ module.exports = function (grunt) { // jshint ignore:line
 	  },
 	},
 	
-    // Uglify task info. Compress the js files.
     uglify: {
       options   : {
         mangle          : true,
@@ -103,7 +101,6 @@ module.exports = function (grunt) { // jshint ignore:line
       }
     },
 
-    // Concatenate JS Files
     concat: {
       options: {
         separator: '\n\n',
@@ -131,7 +128,7 @@ module.exports = function (grunt) { // jshint ignore:line
       }
     },
 
-    // Replace image paths in My App without plugins
+    
     /*replace: {
       withoutPlugins   : {
         src         : ['assets/dist/css/alt/My App-without-plugins.css'],
@@ -153,10 +150,9 @@ module.exports = function (grunt) { // jshint ignore:line
           }
         ]
       }
-    },*/
-
-    // Build the documentation files
-    /*includes: {
+    },
+	
+	includes: {
       build: {
         src    : ['*.html'], // Source files
         dest   : 'documentation/', // Destination directory
@@ -169,7 +165,6 @@ module.exports = function (grunt) { // jshint ignore:line
       }
     },*/
 
-    // Optimize images
     image: {
       dynamic: {
         files: [
@@ -231,50 +226,63 @@ module.exports = function (grunt) { // jshint ignore:line
     // for them
     clean: {
       build: ['assets/src/img/*']
-    }
+    },
+	
+	// SASS to CSS
+	sass: {
+		dist: {
+			options: {
+				outputStyle: 'expanded',
+				sourceMap: false
+			},
+			files: [{
+				expand: true,
+				cwd: 'assets/src/sass/',
+				src: ['*.scss'],
+				dest: 'assets/dist/css_from_sass/',
+				ext: '.css'
+			}]
+		}
+	},
+	
+	// Post Compilation of CSS
+	postcss: {
+		options: {
+			map: false,
+			processors: [
+				require('autoprefixer')({browsers: 'last 3 versions'})
+			]
+		},
+		dist: {
+			src: ['assets/dist/css_from_sass/*.css']
+		}
+	}
+	
   })
 
-  // Load all grunt tasks
-
-  // LESS Compiler
-  grunt.loadNpmTasks('grunt-contrib-less')
-  // Watch File Changes
-  grunt.loadNpmTasks('grunt-contrib-watch')
-  // Compress JS Files
-  grunt.loadNpmTasks('grunt-contrib-uglify')
-  // Include Files Within HTML
-  grunt.loadNpmTasks('grunt-includes')
-  // Optimize images
-  grunt.loadNpmTasks('grunt-image')
-  // Validate JS code
-  grunt.loadNpmTasks('grunt-contrib-jshint')
-  grunt.loadNpmTasks('grunt-jscs')
-  // Delete not needed files
-  grunt.loadNpmTasks('grunt-contrib-clean')
-  // Lint CSS
-  grunt.loadNpmTasks('grunt-contrib-csslint')
-  // Lint Bootstrap
-  grunt.loadNpmTasks('grunt-bootlint')
-  // Concatenate JS files
-  grunt.loadNpmTasks('grunt-contrib-concat')
-  // Notify
-  grunt.loadNpmTasks('grunt-notify')
-  // Replace
-  grunt.loadNpmTasks('grunt-text-replace')
-  // Copy
-  grunt.loadNpmTasks('grunt-contrib-copy');
-  // SVG to CSS Content
-  grunt.loadNpmTasks('grunt-svg-css');
+  // Load all grunt tasks modules  
+  grunt.loadNpmTasks('grunt-contrib-less');// LESS Compiler  
+  grunt.loadNpmTasks('grunt-contrib-watch'); // Watch File Changes  
+  grunt.loadNpmTasks('grunt-contrib-uglify');// Compress JS Files  
+  grunt.loadNpmTasks('grunt-includes');// Include Files Within HTML   
+  grunt.loadNpmTasks('grunt-image'); // Optimize images  
+  grunt.loadNpmTasks('grunt-contrib-jshint'); // Validate JS code
+  grunt.loadNpmTasks('grunt-jscs');  
+  grunt.loadNpmTasks('grunt-contrib-clean'); // Delete not needed files  
+  grunt.loadNpmTasks('grunt-contrib-csslint'); // Lint CSS  
+  grunt.loadNpmTasks('grunt-bootlint'); // Lint Bootstrap  
+  grunt.loadNpmTasks('grunt-contrib-concat'); // Concatenate JS files  
+  grunt.loadNpmTasks('grunt-notify'); // Notify  
+  grunt.loadNpmTasks('grunt-text-replace'); // Replace  
+  grunt.loadNpmTasks('grunt-contrib-copy'); // Copy  
+  grunt.loadNpmTasks('grunt-svg-css'); // SVG to CSS Content
+  grunt.loadNpmTasks('grunt-sass'); //SASS
+  grunt.loadNpmTasks('grunt-postcss'); // Post compilation of CSS
   
+  // Tasks
+  grunt.registerTask('lint', ['jshint', 'csslint', 'bootlint']); // Linting task    
+  grunt.registerTask('js', ['copy', 'concat', 'uglify']); // JS task  
+  grunt.registerTask('css', ['less:development', 'less:production', 'sass','postcss']);  // CSS Tasks LESS-CSS, SASS-CSS  
+  grunt.registerTask('default', ['watch']); // The default task (running 'grunt' in console) is 'watch'
   
-  // Linting task
-  grunt.registerTask('lint', ['jshint', 'csslint', 'bootlint'])
-  // JS task
-  grunt.registerTask('js', ['copy', 'concat', 'uglify'])
-  // CSS Task
-  grunt.registerTask('css', ['less:development', 'less:production', 'replace'])
-  
-
-  // The default task (running 'grunt' in console) is 'watch'
-  grunt.registerTask('default', ['watch'])
 }
