@@ -17,7 +17,7 @@ console.log('Server is running on https://localhost:3000');
 
 //app route
 app.get('/', function (req, res) {
-	res.sendFile(__dirname + '/');
+	res.sendFile(__dirname + '/index_page.html');
 });
 
 //open a connection with socket.io
