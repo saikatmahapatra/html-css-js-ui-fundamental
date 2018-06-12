@@ -1,0 +1,293 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+   .product-listing .panel-group .panel-heading .panel-title a {
+   display: inline-flex;
+   font-family: open sans;
+   font-size: 14px;
+   padding: 5px;
+   width: 94%;
+   }
+   .product-listing .panel-default .panel-body a {
+   color: #333;
+   display: inline-flex;
+   font-size: 14px;
+   padding: 5px;
+   text-align: left;
+   width: 95%;
+   }
+   .product-listing .panel-group .panel-default .panel-body {
+   background: #eaeaea none repeat scroll 0 0;
+   padding: 5px 15px 5px 30px;
+   }
+   .product-listing .panel-group .panel-body .panel-body {
+   background: #f5f5f5 none repeat scroll 0 0;
+   }
+   .product-listing .panel-default .panel-collapse .panel-body .checkbox {
+   margin: 5px;
+   }
+   .product-listing .accordian-arrow {
+   background: #27a542 none repeat scroll 0 0;
+   color: #fff;
+   height: 15px;
+   margin-left: -5px;
+   margin-right: 5px;
+   padding: 1px 2px;
+   position: relative;
+   transition: all 0.3s ease-in-out 0s;
+   width: 14px;
+   text-align: center;
+   }
+   .hideOverflow
+   {
+   overflow:hidden;
+   white-space:nowrap;
+   text-overflow:ellipsis;
+   display:block;
+   }
+   .product-listing .collapsed .accordian-arrow .fa-plus-square-o, .product-listing .accordian-arrow .fa-minus-square-o {
+   display:block;
+   }
+   .product-listing .accordian-arrow .fa-plus-square-o, .product-listing .collapsed  .accordian-arrow .fa-minus-square-o {
+   display:none;
+   }
+   .nested-accordion .panel-group .panel-body li .panel .panel-heading {
+   padding: 5px;
+   }
+   .nested-accordion .panel-body li .panel-group .panel-collapse .panel-body {
+   padding: 5px 15px;
+   }
+</style>
+<div class="row product-listing">
+   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="panel panel-default">
+         <div class="panel-heading">
+            *Products Segment
+         </div>
+         <div class="panel-body nested-accordion">
+            <div class="row mt-10">
+               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="panel-group" id="level1-accordion">
+                     <div class="panel panel-default">
+                        <div class="panel-heading">
+                           <h4 class="panel-title">								
+                              <a data-toggle="collapse" data-parent="#level1-accordion" href="#plast-pro-1" class="collapsed">
+                              <span class="accordian-arrow">
+                              <i class="fa fa-minus-square-o" aria-hidden="true"></i>
+                              <i class="fa fa-plus-square-o" aria-hidden="true"></i>
+                              </span> 
+                              Level 1
+                              </a>
+                           </h4>
+                        </div>
+                        <div id="plast-pro-1" class="panel-collapse collapse">
+                           <div class="panel-body">
+                              <ul class="list-unstyled">
+                                 <li>
+                                    <div class="checkbox">
+                                       <label>
+                                       <input type="checkbox"> 
+                                       Level 2
+                                       </label>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="checkbox">
+                                       <label>
+                                       <input type="checkbox"> 
+                                       Level 2
+                                       </label>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="panel-group" id="level2-accordion" role="tablist" aria-multiselectable="true">
+                                       <div class="panel panel-default">
+                                          <div class="panel-heading" role="tab" id="headingOne">
+                                             <h4 class="panel-title">
+                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#level2-accordion" href="#plast-pro-2" aria-expanded="true" aria-controls="plast-pro-2">
+                                                <span class="accordian-arrow">
+                                                <i class="fa fa-minus-square-o" aria-hidden="true"></i>
+                                                <i class="fa fa-plus-square-o" aria-hidden="true"></i>
+                                                </span> 
+                                                Level 2
+                                                </a>
+                                             </h4>
+                                          </div>
+                                          <div id="plast-pro-2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                             <div class="panel-body">
+                                                <ul class="list-unstyled">
+                                                   <li>
+                                                      <div class="checkbox">
+                                                         <label>
+                                                         <input type="checkbox"> 
+                                                         Level 3
+                                                         </label>
+                                                      </div>
+                                                   </li>
+                                                   <li>
+                                                      <div class="checkbox">
+                                                         <label>
+                                                         <input type="checkbox"> 
+                                                         Level 3
+                                                         </label>
+                                                      </div>
+                                                   </li>
+                                                   <li>
+                                                      <div class="panel-group" id="level3-accordion" role="tablist" aria-multiselectable="true">
+                                                         <div class="panel panel-default">
+                                                            <div class="panel-heading" role="tab" id="headingOne">
+                                                               <h4 class="panel-title">
+                                                                  <a class="text-left collapsed" role="button" data-toggle="collapse" data-parent="#level3-accordion" href="#plast-pro-3" aria-expanded="true" aria-controls="plast-pro-3">
+                                                                  <span class="accordian-arrow">
+                                                                  <i class="fa fa-minus-square-o" aria-hidden="true"></i>
+                                                                  <i class="fa fa-plus-square-o" aria-hidden="true"></i>
+                                                                  </span> 
+                                                                  Level 3
+                                                                  </a>
+                                                               </h4>
+                                                            </div>
+                                                            <div id="plast-pro-3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                                               <div class="panel-body">
+                                                                  <ul class="list-unstyled">
+                                                                     <li>
+                                                                        <div class="checkbox">
+                                                                           <label>
+                                                                           <input type="checkbox"> 
+                                                                           Level 4
+                                                                           </label>
+                                                                        </div>
+                                                                     </li>
+                                                                     <li>
+                                                                        <div class="checkbox">
+                                                                           <label>
+                                                                           <input type="checkbox"> 
+                                                                           Level 4
+                                                                           </label>
+                                                                        </div>
+                                                                     </li>
+                                                                     <li>
+                                                                        <div class="panel-group" id="level4-accordion" role="tablist" aria-multiselectable="true">
+                                                                           <div class="panel panel-default">
+                                                                              <div class="panel-heading" role="tab" id="headingOne">
+                                                                                 <h4 class="panel-title">
+                                                                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#level4-accordion" href="#plast-pro-4" aria-expanded="true" aria-controls="collapseOne">
+                                                                                    <span class="accordian-arrow">
+                                                                                    <i class="fa fa-minus-square-o" aria-hidden="true"></i>
+                                                                                    <i class="fa fa-plus-square-o" aria-hidden="true"></i>
+                                                                                    </span> 
+                                                                                    Level 4
+                                                                                    </a>
+                                                                                 </h4>
+                                                                              </div>
+                                                                              <div id="plast-pro-4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                                                                 <div class="panel-body">
+                                                                                    <ul class="list-unstyled">
+                                                                                       <li>
+                                                                                          <div class="checkbox">
+                                                                                             <label>
+                                                                                             <input type="checkbox"> 
+                                                                                             Level 5
+                                                                                             </label>
+                                                                                          </div>
+                                                                                       </li>
+                                                                                       <li>
+                                                                                          <div class="checkbox">
+                                                                                             <label>
+                                                                                             <input type="checkbox"> 
+                                                                                             Level 5
+                                                                                             </label>
+                                                                                          </div>
+                                                                                       </li>
+                                                                                       <li>
+                                                                                          <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                                                                             <div class="panel panel-default">
+                                                                                                <div class="panel-heading" role="tab" id="headingOne">
+                                                                                                   <h4 class="panel-title">
+                                                                                                      <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                                                                      <span class="accordian-arrow">
+                                                                                                      <i class="fa fa-minus-square-o" aria-hidden="true"></i>
+                                                                                                      <i class="fa fa-plus-square-o" aria-hidden="true"></i>
+                                                                                                      </span> 
+                                                                                                      Level 5
+                                                                                                      </a>
+                                                                                                   </h4>
+                                                                                                </div>
+                                                                                                <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                                                                                   <div class="panel-body">
+                                                                                                      <ul class="list-unstyled">
+                                                                                                         <li>
+                                                                                                            <div class="checkbox">
+                                                                                                               <label>
+                                                                                                               <input type="checkbox"> 
+                                                                                                               Level 6
+                                                                                                               </label>
+                                                                                                            </div>
+                                                                                                         </li>
+                                                                                                         <li>
+                                                                                                            <div class="checkbox">
+                                                                                                               <label>
+                                                                                                               <input type="checkbox"> 
+                                                                                                               Level 6
+                                                                                                               </label>
+                                                                                                            </div>
+                                                                                                         </li>
+                                                                                                      </ul>
+                                                                                                   </div>
+                                                                                                </div>
+                                                                                             </div>
+                                                                                          </div>
+                                                                                       </li>
+                                                                                    </ul>
+                                                                                 </div>
+                                                                              </div>
+                                                                           </div>
+                                                                        </div>
+                                                                     </li>
+                                                                  </ul>
+                                                               </div>
+                                                            </div>
+                                                         </div>
+                                                      </div>
+                                                   </li>
+                                                </ul>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </li>
+                              </ul>
+                           </div>
+                           <div class="panel-body">
+                              <a class="text-left collapsed" role="button" data-toggle="collapse" href="#product1-02" aria-expanded="false" aria-controls="collapseExample">
+                              <span class="accordian-arrow">
+                              <i class="fa fa-minus-square-o" aria-hidden="true"></i>
+                              <i class="fa fa-plus-square-o" aria-hidden="true"></i>
+                              </span> 
+                              Acrylic
+                              </a>
+                              <div class="collapse" id="product1-02">
+                                 <div class="panel-body">
+                                    <ul class="list-unstyled">
+                                       <li>
+                                          <div class="checkbox">
+                                             <label>
+                                             <input type="checkbox"> Acrylic-imide Copolymers
+                                             </label>
+                                          </div>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
