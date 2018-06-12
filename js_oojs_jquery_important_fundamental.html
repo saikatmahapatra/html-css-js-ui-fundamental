@@ -28,8 +28,9 @@
             throw new Error('App requires jQuery');
         }
         $(initDOM);
+        console_css = 'background: #222; color: #b20000';
         function initDOM() {
-            console.log("#### jQuery ####" + jQuery.fn.jquery);
+            console.log("#### jQuery ####" + jQuery.fn.jquery);            
         }
     </script>
 
@@ -157,7 +158,7 @@
 
             <script>
                 $(document).ready(function (e) {
-                    console.log("********== jQuery Selector ********");
+                    console.log("%c ******** jQuery Selector ********",console_css);
                     console.log("ID Selector = " + $("#email").val());
                     console.log("Input + ID Selector = " + $("input[id='email']").val());
                     console.log("Attribute Selector = " + $("input[data-controlName='email']").val());
@@ -213,7 +214,7 @@
 
             <script>
                 $(document).ready(function (e) {
-                    console.log("********== Count Number of Elements using size() ********");
+                    console.log("******** Count Number of Elements using size() ********");
                     console.log("Count total anchor link in DOM using size() = " + $("a").length);
                     console.log("Count total div having class row in DOM using size() = " + $("div.row").length);
                 });
@@ -320,7 +321,7 @@
 
             <script>
                         $(document).ready(function (e) {
-                            console.log("********== parent(), parents(), closest() ********");
+                            console.log("******** parent(), parents(), closest() ********");
                             var myobj_p = $("#inner-item-b").parent();
                             console.log(myobj_p);
 
@@ -352,7 +353,7 @@
 
             <script>
                 $(document).ready(function (e) {
-                    console.log("********== empty(), remove(), detach() ********");
+                    console.log("******** empty(), remove(), detach() ********");
                 });
             </script>
 
@@ -425,6 +426,21 @@
                 });
             </script>
         </div>
+
+
+        <div class="col-12 demo-container border border-secondary mt-3 mb-3 p-3" id="higher_order_function">
+            <h1>Higher Order Function</h1>
+            <p>A higher-order function is a function which receives a function as parameter or even return a function.</p>
+            <script>
+                // normal simple function
+                var sum = function (n1, n2) {
+                    return n1 + n2;
+                }
+                sum(3, 4);
+            </script>
+        </div>
+
+
     </main>
 </body>
 
