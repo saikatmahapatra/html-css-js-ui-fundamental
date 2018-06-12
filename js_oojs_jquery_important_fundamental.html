@@ -10,29 +10,59 @@
     <meta name="author" content="">
 
 
-    <title>jQuery Fundamental Examples</title>
+    <title>Native JavaScript, jQuery Fundamental</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script>
+        // Make sure jQuery has been loaded
+        if (typeof jQuery === 'undefined') {
+            throw new Error('App requires jQuery');
+        }
+        $(initDOM);
+        function initDOM() {
+            console.log("#### jQuery ####" + jQuery.fn.jquery);
+        }
+    </script>
+
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.js"></script>
       <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js"></script>
     <![endif]-->
     <noscript>JavaScript is disabled at your browser !</noscript>
+    <style>
+        body {
+            font-size: 0.875rem;
+            margin-top: 5rem;
+            margin-bottom: 3rem;
+        }
+
+        .demo-container h1 {
+            font-size: 1.5rem;
+        }
+    </style>
 </head>
 
-<script>console.log("====  ALERT 1  ==== Before <body> Tag");</script>
+<script>
+        console.log("Alert 1:  Before start of body Tag");
 
-<body onload="console.log('====  ALERT 2  ==== <body> Onload');">
-    <div class="container">
-        <h1 class="text-center">jQuery Fundamental Examples</h1>
-        <div class="row demo-container" id="getversion">
-            <h4>Get jQuery Current Version
-                <span id="jq_ver"></span>
-            </h4>
+</script>
+
+<body onload="console.log('Alert 2:  body Onload');">
+    <main class="container-fluid">
+        <h1 class="text-center">Native JavaScript, jQuery Fundamental Examples</h1>
+        <div class="col-12 demo-container border border-secondary mt-3 mb-3 p-3" id="getversion">
+            <h1>Get jQuery Current Version</h1>
+            <div id="jq_ver"></div>
             <p>
                 <code>
                         console.log(jQuery.fn.jquery); // get current jquery version
@@ -50,29 +80,28 @@
             </script>
         </div>
 
-        <div class="row demo-container" id="selector_ex_1">
-            <h4>jQuery Selector-Class,Id,Attribute,Attribute end with, Attribute starts with, attribute has word, parent, child,
-                odd, even</h4>
+        <div class="col-12 demo-container border border-secondary mt-3 mb-3 p-3" id="selector_ex_1">
+            <h1>jQuery Selector-Class,Id,Attribute,Attribute end with, Attribute starts with, attribute has word, parent, child,
+                odd, even</h1>
             <p id="para-myp1" class="apple-mango">my para 1 .... apple mango</p>
             <p id="para-myp2" class="kolkata-dog-apple">my para 2..... apple mango</p>
             <p id="para-myp3" class="mango-banana-apple">my para 3 .... mango banana apple</p>
             <p id="para-myp4" class="cat-apple-dog">my para 4 ..... cat apple dog</p>
             <form id="registration-form">
                 <div class="row">
-                    <div class="col-xs-3">
+                    <div class="col-4">
                         <div class="input-group">
                             Username
                             <input type="text" id="username" class="form-control saikat-form" placeholder="Username" data-controlName="username" value="saikat123">
                         </div>
                     </div>
-                    <div class="col-xs-3">
+                    <div class="col-4">
                         <div class="input-group">
                             Email
                             <input type="text" class="form-control saikat-form" id="email" placeholder="Email" data-controlName="email" value="saikat@domain.com">
                         </div>
                     </div>
-                    <div class="col-xs-3">
-                        Submit Btn
+                    <div class="col-4">
                         <div class="input-group">
                             <button id="regUser" class="btn btn-sm btn-primary">Submit</button>
                         </div>
@@ -128,7 +157,7 @@
 
             <script>
                 $(document).ready(function (e) {
-                    console.log("========== jQuery Selector ========");
+                    console.log("********== jQuery Selector ********");
                     console.log("ID Selector = " + $("#email").val());
                     console.log("Input + ID Selector = " + $("input[id='email']").val());
                     console.log("Attribute Selector = " + $("input[data-controlName='email']").val());
@@ -138,14 +167,14 @@
                     var html = $("p[class^='apple']").html();
                     console.log("Select paragrap whose class starts with class apple = " + html);
                     //Attribute Ends With Selector - - Select paragrap whose class ends with class apple 
-                    var count = $("p[class$='apple']").size();
+                    var count = $("p[class$='apple']").length;
                     console.log("Select paragrap whose class ends with class apple =" + count);
 
                     // Contains selector - count p which contains "pple" substring
-                    var count = $("p[class*='pple']").size();
+                    var count = $("p[class*='pple']").length;
                     console.log("Contains Selector = " + count);
 
-                    var cnt = $("p[id|='para']").size();
+                    var cnt = $("p[id|='para']").length;
                     console.log("para whose id starts with prefix \"para-\" = " + cnt);
                 });
 
@@ -163,38 +192,37 @@
                     // 2nd odd element make bold
                     $("li.sub_cat#2>ul>li:odd:eq(1)").css("font-weight", "bold");
                 })
-
             </script>
 
 
 
         </div>
 
-        <div class="row demo-container" id="element_count">
-            <h4>Count DOM element - size()</h4>
+        <div class="col-12 demo-container border border-secondary mt-3 mb-3 p-3" id="element_count">
+            <h1>Count DOM element - size()</h1>
             <a href="#" class="my-test-link">Link 1</a>
             <a href="#" class="my-test-link">Link 2</a>
             <a href="#" class="my-test-link">Link 3</a>
             <p>
-                <code>$("a").size(); // count number of anchor link in dom</code>
+                <code>$("a").length; // count number of anchor link in dom</code>
                 <br>
-                <code>$("div.row").size(); // count div having class row dom</code>
+                <code>$("div.row").length; // count div having class row dom</code>
                 <br>
             </p>
 
 
             <script>
                 $(document).ready(function (e) {
-                    console.log("========== Count Number of Elements using size() ========");
-                    console.log("Count total anchor link in DOM using size() = " + $("a").size());
-                    console.log("Count total div having class row in DOM using size() = " + $("div.row").size());
+                    console.log("********== Count Number of Elements using size() ********");
+                    console.log("Count total anchor link in DOM using size() = " + $("a").length);
+                    console.log("Count total div having class row in DOM using size() = " + $("div.row").length);
                 });
             </script>
         </div>
 
-        <div class="row demo-container" id="event-bublling">
+        <div class="col-12 demo-container border border-secondary mt-3 mb-3 p-3" id="event-bublling">
 
-            <h4>Event Bubbling & Event Capturing? How to prevent? (Bubble Up, Trickle Down)</h4>
+            <h1>Event Bubbling & Event Capturing? How to prevent? (Bubble Up, Trickle Down)</h1>
             <p>
                 Event bubbling and capturing are two ways of event propagation in the HTML DOM API, when an event occurs in an element inside
                 another element, and both elements have registered a handle for that event. The event propagation mode determines
@@ -203,8 +231,8 @@
 
 
             <p>With bubbling, the event is first captured and handled by the innermost element and then propagated to outer
-                elements. =====> inner->outer in DOM tree</p>
-            <p>With capturing, the event is first captured by the outermost element and propagated to the inner elements. =====>
+                elements. ****=> inner->outer in DOM tree</p>
+            <p>With capturing, the event is first captured by the outermost element and propagated to the inner elements. ****=>
                 outer->inner in DOM tree</p>
             <p>IE
                 < 9 uses only event bubbling, whereas IE9+ and all major browsers support both.</p>
@@ -247,8 +275,8 @@
 
         </div>
 
-        <div class="row demo-container" id="traversing">
-            <h4>DOM Traversing - parent(), parents(), closest()</h4>
+        <div class="col-12 demo-container border border-secondary mt-3 mb-3 p-3" id="traversing">
+            <h1>DOM Traversing - parent(), parents(), closest()</h1>
             <p>
                 <strong>parent() </strong> travels only single level UP DOM tree</p>
             <p>
@@ -281,8 +309,8 @@
                     <code>$("#inner-item-b").parent()</code>---->Object[ul.inner-items-lists]</p>
                 <p> - Find parents of item 4.b
                     <br>
-                    <code>$("#inner-item-b").parents()</code>-----> [ul.inner-items-lists, li#outer-item-4.outer-child-item, ul.outer-items-lists, div.form-group,
-                    form#myform2, div#traversing.row, div.container, body, html]</p>
+                    <code>$("#inner-item-b").parents()</code>-----> [ul.inner-items-lists, li#outer-item-4.outer-child-item,
+                    ul.outer-items-lists, div.form-group, form#myform2, div#traversing.row, div.container, body, html]</p>
                 <br>
                 <code>$("#inner-item-b").parents("ul").first();</code> -->[ul.inner-items-lists]
                 <br>
@@ -291,24 +319,23 @@
             </div>
 
             <script>
-                $(document).ready(function (e) {
-                    console.log("========== parent(), parents(), closest() ========");
-                    var myobj_p = $("#inner-item-b").parent();
-                    console.log(myobj_p);
+                        $(document).ready(function (e) {
+                            console.log("********== parent(), parents(), closest() ********");
+                            var myobj_p = $("#inner-item-b").parent();
+                            console.log(myobj_p);
 
-                    var myobj_parents = $("#inner-item-b").parents();
-                    console.log(myobj_parents);
+                            var myobj_parents = $("#inner-item-b").parents();
+                            console.log(myobj_parents);
 
-                    $("#inner-item-b").parents().first("ul").css("background-color", "#ccc");
-                    console.log($("#inner-item-b").parents("form").attr("id"));
-                });
+                            $("#inner-item-b").parents().first("ul").css("background-color", "#ccc");
+                            console.log($("#inner-item-b").parents("form").attr("id"));
+                        });
             </script>
 
         </div>
 
-
-        <div class="row demo-container" id="empty_remove_detach">
-            <h4>empty(), remove(), detach()</h4>
+        <div class="col-12 demo-container border border-secondary mt-3 mb-3 p-3" id="empty_remove_detach">
+            <h1>empty(), remove(), detach()</h1>
             <p>
                 <strong>empty() --> </strong> will remove only child content.
                 <code>$("#content_p_1").empty();</code> empty the inner content only, black p tag is visible via firebug</p>
@@ -325,14 +352,14 @@
 
             <script>
                 $(document).ready(function (e) {
-                    console.log("========== empty(), remove(), detach() ========");
+                    console.log("********== empty(), remove(), detach() ********");
                 });
             </script>
 
         </div>
 
-        <div class="row demo-container" id="form-controls">
-            <h4>Form Controls - Get Check box, Radio button, Multi Select Values</h4>
+        <div class="col-12 demo-container border border-secondary mt-3 mb-3 p-3" id="form-controls">
+            <h1>Form Controls - Get Check box, Radio button, Multi Select Values</h1>
             <div class="col-md-8">
                 <form name="customer-data" action="#form-controls" method="post" class="" role="form">
 
@@ -398,13 +425,16 @@
                 });
             </script>
         </div>
-
-    </div>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    </main>
 </body>
 
-<script>console.log("====  ALERT 3  ==== After <body> Tag");</script>
+<script>
+                console.log("Alert 3:  After body Tag");
+
+</script>
 
 </html>
-<script>console.log("====  ALERT 4  ==== After <html> Tag");</script>
+<script>
+    console.log("Alert 4:  After html Tag");
+
+</script>
