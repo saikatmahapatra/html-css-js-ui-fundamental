@@ -28,7 +28,7 @@
             throw new Error('App requires jQuery');
         }
         $(initDOM);
-        console_css = 'background: #222; color: #b20000';
+        console_css = 'color: #007bff; font-weight: bold;';
         function initDOM() {
             console.log("#### jQuery ####" + jQuery.fn.jquery);            
         }
@@ -99,7 +99,7 @@
                     <div class="col-4">
                         <div class="input-group">
                             Email
-                            <input type="text" class="form-control saikat-form" id="email" placeholder="Email" data-controlName="email" value="saikat@domain.com">
+                            <input type="text" class="form-control saikat-form"  placeholder="Email" data-controlName="email" value="saikat@domain.com">
                         </div>
                     </div>
                     <div class="col-4">
@@ -214,7 +214,7 @@
 
             <script>
                 $(document).ready(function (e) {
-                    console.log("******** Count Number of Elements using size() ********");
+                    console.log("%c ******** Count Number of Elements using size() ********", console_css);
                     console.log("Count total anchor link in DOM using size() = " + $("a").length);
                     console.log("Count total div having class row in DOM using size() = " + $("div.row").length);
                 });
@@ -321,7 +321,7 @@
 
             <script>
                         $(document).ready(function (e) {
-                            console.log("******** parent(), parents(), closest() ********");
+                            console.log("%c ******** parent(), parents(), closest() ********", console_css);
                             var myobj_p = $("#inner-item-b").parent();
                             console.log(myobj_p);
 
@@ -353,7 +353,7 @@
 
             <script>
                 $(document).ready(function (e) {
-                    console.log("******** empty(), remove(), detach() ********");
+                    console.log("%c ******** empty(), remove(), detach() ********", console_css);
                 });
             </script>
 
@@ -371,7 +371,7 @@
 
                     <div class="form-group">
                         <label for="email">Email:</label>
-                        <input type="email" class="form-control" id="email" placeholder="Enter email">
+                        <input type="email" class="form-control"  placeholder="Enter email">
                     </div>
                     <div class="form-group">
                         <label for="pwd">Password:</label>
