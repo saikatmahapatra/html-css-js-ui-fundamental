@@ -18,13 +18,15 @@
 	}
 	
 	.progress-thin .progress{
-		height: 5px;
-		margin-bottom: 8px;
+		height: 6px;
+		margin-bottom: 3px;
 		background-color: #dee2e6;
 		overflow: hidden;
-    }    
+    }
 	.progress-thin .text-sm{
 		font-size: 12px;
+	}
+	.progress-thin .text-bold{		
 		font-weight: bold;
 	}
 	
@@ -59,60 +61,7 @@
     <div class="container">
 		
 		
-		<div class="col-md-4 progress-thin">
-			<h4>Downloading...</h4>
-			
-			<div class="row">
-				<div class="col-xs-12 text-sm">70%</div>
-				<div class="col-xs-12">
-					<div class="progress">
-					  <div class="progress-bar bg-success" role="progressbar" aria-valuenow="70"
-					  aria-valuemin="0" aria-valuemax="100" style="width:70%"></div>
-					</div>
-				</div>
-			</div>
-			
-			<div class="row">
-				<div class="col-xs-12 text-sm">60%</div>
-				<div class="col-xs-12">
-					<div class="progress">
-					  <div class="progress-bar bg-info" role="progressbar" aria-valuenow="60"
-					  aria-valuemin="0" aria-valuemax="100" style="width:60%"></div>
-					</div>
-				</div>
-			</div>
-			
-			<div class="row">
-				<div class="col-xs-12 text-sm">50%</div>
-				<div class="col-xs-12">
-					<div class="progress">
-					  <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="50"
-					  aria-valuemin="0" aria-valuemax="100" style="width:50%"></div>
-					</div>
-				</div>
-			</div>
-			
-			
-			<div class="row">
-				<div class="col-xs-12 text-sm">20%</div>
-				<div class="col-xs-12">
-					<div class="progress">
-					  <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="20"
-					  aria-valuemin="0" aria-valuemax="100" style="width:20%"></div>
-					</div>
-				</div>
-			</div>
-			
-			<div class="row">
-				<div class="col-xs-12 text-sm">0%</div>
-				<div class="col-xs-12">
-					<div class="progress">
-					  <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="0"
-					  aria-valuemin="0" aria-valuemax="100" style="width:0%"></div>
-					</div>
-				</div>
-			</div>
-		</div>
+		<div class="col-md-4 progress-thin"></div>
 		
 		
 	</div><!-- /.container --> 
@@ -122,8 +71,67 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
 	
 	<script>
-	var stat = [""];
-	
+	var mathches =[
+					{
+						"percentage": "0",
+						"count": "1"
+					},
+					{
+						"percentage": "1-25",
+						"count": "108487"
+					},
+					{
+						"percentage": "26-50",
+						"count": "4"
+					},
+					{
+						"percentage": "51-75",
+						"count": "7"
+					},
+					{
+						"percentage": "76-99",
+						"count": "9"
+					},
+					{
+						"percentage": "100",
+						"count": "0"
+					}
+            ];
+		
+
+		function generateProgressBarIndicator(mathches){
+			var barhtml ='';
+			var array_length = mathches.length;
+			var value = '';
+			$.each(mathches, function(index,obj){			
+				var percentageArr = obj.percentage.split("-");				
+				var valueNow = 0;
+				var matchCount = obj.count;
+				if(percentageArr[1] == undefined){
+					valueNow = percentageArr[0];
+				}else{
+					valueNow = percentageArr[1];
+				}
+				value = index/array_length;
+				barhtml+='<div class="row">';
+				barhtml+='<div class="col-xs-12 text-sm text-right"><span class="per">'+valueNow+'%</span><span class="count"> ('+matchCount+')</span></div>';
+				barhtml+='<div class="col-xs-12">';
+				barhtml+='<div class="progress">';
+				barhtml+='<div class="progress-bar" role="progressbar" aria-valuenow="'+valueNow+'" aria-valuemin="0" aria-valuemax="100" style="width:'+valueNow+'%; background-color:'+getColor(value)+';"></div>';
+				barhtml+='</div>';
+				barhtml+='</div>';
+				barhtml+='</div>';
+			});			
+			$('.progress-thin').html(barhtml);
+		}
+		
+		function getColor(value){
+			//value from 0 to 1
+			var hue=((1-value)*120).toString(10);
+			return ["hsl(",hue,",100%,50%)"].join("");
+		}
+		
+		generateProgressBarIndicator(mathches);
 	</script>
 	
   </body>
