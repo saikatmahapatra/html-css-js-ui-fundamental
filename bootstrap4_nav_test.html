@@ -62,17 +62,18 @@
 			vertical-align: middle;
 		}
 		.circle {			
-			border-radius: 180px;			
-			height: 180px;
-			width: 180px;
+			border-radius: 160px;			
+			height: 160px;
+			width: 160px;
 			display: table;
 			margin: 20px auto;
 			padding:2rem;
 			overflow: hidden;
 		}
-		.circle p {
+		.circle-body{		
 			vertical-align: middle;
-			display: table-cell;			
+			text-align: center;
+			padding-top: 10px;
 		}
 		
     </style>
@@ -81,7 +82,9 @@
 <body>
 	
     <nav class="navbar navbar-expand-md navbar-dark bg-ca fixed-top" id="navbar1">
-        <a class="navbar-brand" href="<?php echo base_url($this->router->directory.'home'); ?>"><?php echo $this->config->item('app_logo_name_dashboard'); ?></a>
+        <a class="navbar-brand" href="">
+			<img width="80px" src="https://online.citi.com/GFC/branding/img/Citi-Enterprise-White.png">
+		</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault"
 			aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -90,7 +93,7 @@
 		<div class="navbar-collapse collapse ">			
             <ul class="navbar-nav mr-auto">                
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><h1>UNet Portal</h1></a>
+                    <a class="nav-link" href="#"><h3>Citi Bank Online</h3></a>
                 </li>
             </ul>
 
@@ -151,7 +154,7 @@
                 </li>
             </ul>
 			<form class="form-inline my-2 my-lg-0">
-			  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+			  <input class="form-control form-control-sm mr-sm-2" type="search" placeholder="Enterprise Search" aria-label="Search">
 			</form>
         </div>
 	</nav>
@@ -160,127 +163,43 @@
 	
     <main role="main" class="container-fluid">        
 		<div class="row justify-content-center">
-			<div class="col-sm-6 col-md-2">
+			<div class="col-sm-6 col-md-3 col-lg-2">
 				<div class="block">
 					<div class="circle bg-ca text-white">
-						<div class="">
-							<i class="fa fa-cloud-download fa-2x" aria-hidden="true"></i>
-							<p>Some Text here Some text here</p>
+						<div class="circle-body">
+							<i class="fa fa-user fa-3x" aria-hidden="true"></i>
+							<p>My Documents</p>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-6 col-md-2">
+			<div class="col-sm-6 col-md-3 col-lg-2">
 				<div class="block">
 					<div class="circle bg-ca text-white">
-						<p>Some Text here Some text here</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-6 col-md-2">
-				<div class="block">
-					<div class="circle bg-ca text-white">
-						<p>Some Text here Some text here</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-6 col-md-2">
-				<div class="block">
-					<div class="circle bg-ca text-white">
-						<p>Some Text here Some text here</p>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row justify-content-center">
-			<div class="col-sm-6 col-md-2">
-				<div class="block">
-					<div class="circle bg-ca text-white">
-						<p>Some Text here Some text here</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-6 col-md-2">
-				<div class="block">
-					<div class="circle bg-ca text-white">
-						<p>Some Text here Some text here</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-6 col-md-2">
-				<div class="block">
-					<div class="circle bg-ca text-white">
-						<p>Some Text here Some text here</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-6 col-md-2">
-				<div class="block">
-					<div class="circle bg-ca text-white">
-						<p>Some Text here Some text here</p>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row justify-content-center">
-			<div class="col-sm-6 col-md-2">
-				<div class="block">
-					<div class="circle bg-ca text-white">
-						<div class="">
-							<i class="fa fa-cloud-download fa-2x" aria-hidden="true"></i>
-							<p>Some Text here Some text here</p>
+						<div class="circle-body">
+							<i class="fa fa-cloud-download fa-3x" aria-hidden="true"></i>
+							<p>My Documents</p>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-6 col-md-2">
+			<div class="col-sm-6 col-md-3 col-lg-2">
 				<div class="block">
 					<div class="circle bg-ca text-white">
-						<p>Some Text here Some text here</p>
+						<div class="circle-body">
+							<i class="fa fa-calendar fa-3x" aria-hidden="true"></i>
+							<p>My Documents</p>
+						</div>
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-6 col-md-2">
+			<div class="col-sm-6 col-md-3 col-lg-2">
 				<div class="block">
 					<div class="circle bg-ca text-white">
-						<p>Some Text here Some text here</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-6 col-md-2">
-				<div class="block">
-					<div class="circle bg-ca text-white">
-						<p>Some Text here Some text here</p>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row justify-content-center">
-			<div class="col-sm-6 col-md-2">
-				<div class="block">
-					<div class="circle bg-ca text-white">
-						<p>Some Text here Some text here</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-6 col-md-2">
-				<div class="block">
-					<div class="circle bg-ca text-white">
-						<p>Some Text here Some text here</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-6 col-md-2">
-				<div class="block">
-					<div class="circle bg-ca text-white">
-						<p>Some Text here Some text here</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-6 col-md-2">
-				<div class="block">
-					<div class="circle bg-ca text-white">
-						<p>Some Text here Some text here</p>
+						<div class="circle-body">
+							<i class="fa fa-cloud-download fa-3x" aria-hidden="true"></i>
+							<p>My Documents</p>
+						</div>
 					</div>
 				</div>
 			</div>
