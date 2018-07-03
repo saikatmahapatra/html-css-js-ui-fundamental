@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+		
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css">
+
+    <title>Datepicker</title>
+    <style>
+        body {
+            margin-top: 5rem;
+            margin-bottom: 5rem;
+        }
+		.datepicker .datepicker-inline{
+			
+		}
+    </style>
+</head>
+
+<body>
+    <main class="container-fluid">
+	
+		<div class="row">
+			<div class="col-md-6" id="inlinedp"></div>
+			<div class="col-md-3" id="sandbox-container">
+				<input type="text" class="form-control">
+			</div>
+		</div>
+    </main>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+		
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.js"></script>
+    <script>
+        $(initDOM);
+        function initDOM() {
+            console.log("#### jQuery ####" + jQuery.fn.jquery);
+        }
+		$('#sandbox-container input').datepicker({
+			weekStart: 1,
+			multidate: false,
+			daysOfWeekDisabled: "0",
+			daysOfWeekHighlighted: "0",
+			calendarWeeks: true,
+			todayHighlight: true,
+			autoclose: true,
+		});
+		
+		$('#inlinedp').datepicker({
+			weekStart: 1,
+			maxViewMode: 1,
+			todayBtn: true,
+			multidate: true,
+			daysOfWeekDisabled: "0",
+			daysOfWeekHighlighted: "0",
+			calendarWeeks: true,
+			autoclose: true,
+			todayHighlight: true,
+			beforeShowDay: function(date){
+						  if (date.getMonth() == (new Date()).getMonth())
+							switch (date.getDate()){
+							  case 4:
+								return {
+								  tooltip: 'Example tooltip',
+								  classes: 'active'
+								};
+							  case 8:
+								return false;
+							  case 12:
+								return "green";
+						  }
+						},
+			datesDisabled: ['06/06/2018', '06/21/2018'],
+			toggleActive: true
+			
+		});
+    </script>
+</body>
+
+</html>
