@@ -527,6 +527,52 @@
 				</script>			
 			</div>
         </div><!--/.example-container-->
+		
+		<div class="row example-container border border-secondary mt-3 mb-3 p-3" id="jquery_clone_element">
+            <div class="col-md-12">
+				<h1>Clone HTML Element : Make value empty & append at last | .not(':first') selector</h1>
+				<div class="row">
+					<div class="col-md-6">
+						<p><code>$(this).parents("div.clonable-element").clone().find("input:text, input:password").val("").end().insertAfter("div.clonable-element:last");</code></p>
+						
+						<div class="form-row clonable-element" style="border:1px dashed #999; padding:5px; margin: 3px;">
+							<div class="col-md-8">
+								<input type="text" name="company_name" placeholder="Company Name" class="form-control">
+							</div>
+							<div class="col-md-4">								
+							<a class="btn btn-sm btn-secondary btn_clone_element" href="#">Add</a>
+							<a class="btn btn-sm btn-secondary btn_remove_cloned_element" href="#">Remove</a>
+							</div>
+						</div>						
+					</div>
+				</div>			
+			</div>
+			
+			<script>
+				// onload hide remove button of first
+				$(function(){
+					$('.btn_remove_cloned_element:first').addClass('d-none');
+				}); 
+				
+				//clone element
+				$('body').on('click','.btn_clone_element', function(e){
+					e.preventDefault();
+					$(this).parents("div.clonable-element").clone().find("input:text, input:password").val("").end().insertAfter("div.clonable-element:last");
+					//if not first element show remove button
+					$('.btn_remove_cloned_element').not(':first').removeClass('d-none');
+				});
+				
+				//remove clonned element
+				$('body').on('click','.btn_remove_cloned_element',function(e){
+					e.preventDefault();	
+					$(this).parents("div.clonable-element").remove();
+					$('.btn_remove_cloned_element').not(':first').removeClass('d-none');					
+				});
+			</script>
+			
+        </div><!--/.example-container-->
+		
+		
     </div><!--/.container-->
 	<button class="btn btn-primary scrollup" data-toggle="tooltip" data-placement="left" data-original-title="Scroll to top">Up</button>
 </body><!--/body-->
