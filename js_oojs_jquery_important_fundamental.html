@@ -443,7 +443,7 @@
 		<div class="col-12 demo-container border border-secondary mt-3 mb-3 p-3" id="multiselect_selectbox_value">
             <h1>Get values from multi select box</h1>
             <div class="row">
-				<div class="col-md-6">
+				<div class="col-md-3">
 					<select class="form-control" name="ddMetroCity" id="ddMetroCity" multiple="multiple">
 						<option data-code="" value="">Select</option>
 						<option data-code="CCU" value="01">Kolkata</option>
@@ -452,10 +452,12 @@
 						<option data-code="MAD" value="04">Chennai</option>
 						<option data-code="HYD" value="05">Hyderabad</option>
 						<option data-code="DEL" value="06">Delhi</option>
+						<option data-code="GGN" value="07">Gurgaon</option>
+						<option data-code="MYS" value="08">Mysore</option>
 					</select>
 					<button id="btnTestMultiSelect" class="btn btn-primary btn-sm">Submit</button>
 					</div>
-					<div class="col-md-6"><span id="multiselect_selected_result"></span></div>
+					<div class="col-md-9"><span id="multiselect_selected_result"></span></div>
 			</div>
             <script>
 				$("#btnTestMultiSelect").on('click', getSelectedCities);
@@ -505,7 +507,14 @@
 					</div>
 					<br>
 					<button id="btn_always_scroll_to_bottom" class="btn btn-primary btn-sm">Add Some Text</button>
-				</div>				
+				</div>
+				<div class="col-md-9"><code>
+				function scrollToBottom(el) {
+					var $scrollableArea = $('.scrollable-b');
+					$scrollableArea.scrollTop($scrollableArea[0].scrollHeight);
+				}
+				scrollToBottom();
+				</code></div>
 			</div>
             <script>
 				function scrollToBottom(el) {
