@@ -6,22 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-
+    <meta name="description" content="Native JavaScript, jQuery Fundamental">
+    <meta name="author" content="Saikat Mahapatra">	
     <title>Native JavaScript, jQuery Fundamental</title>
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script>
         // Make sure jQuery has been loaded
         if (typeof jQuery === 'undefined') {
@@ -30,8 +24,27 @@
         $(initDOM);
         console_css = 'color: #007bff; font-weight: bold;';
         function initDOM() {
-            console.log("#### jQuery ####" + jQuery.fn.jquery);            
+            console.log("#### jQuery ####" + jQuery.fn.jquery);
+			scrollToTop(500,100);
+			
         }
+		
+		
+		function scrollToTop(minHeight, scrollSpeed) {
+			$(window).scroll(function () {
+				if ($(this).scrollTop() > minHeight) {
+					$('.scrollup').fadeIn();
+				} else {
+					$('.scrollup').fadeOut();
+				}
+			});	
+			$('.scrollup').click(function () {
+							$("html, body").animate({
+								scrollTop: 0
+							}, scrollSpeed);
+							return false;
+						});			
+		}
     </script>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -43,13 +56,22 @@
     <style>
         body {
             font-size: 0.875rem;
-            margin-top: 5rem;
-            margin-bottom: 3rem;
+            margin-top: 1.5rem;
+            margin-bottom: 2rem;
         }
-
-        .demo-container h1 {
-            font-size: 1.5rem;
+        .example-container h1 {
+            font-size: 1.25rem;
         }
+		
+		.scrollup {
+		  width: 40px;
+		  height: 40px;
+		  position: fixed;
+		  padding: 6px 12px !important;
+		  bottom: 50px;
+		  right: 5px;
+		  display: none;
+		}
     </style>
 </head>
 
@@ -59,101 +81,90 @@
 </script>
 
 <body onload="console.log('Alert 2:  body Onload');">
-    <main class="container-fluid">
+    <div class="container">
         <h1 class="text-center">Native JavaScript, jQuery Fundamental Examples</h1>
-        <div class="col-12 demo-container border border-secondary mt-3 mb-3 p-3" id="getversion">
-            <h1>Get jQuery Current Version</h1>
-            <div id="jq_ver"></div>
-            <p>
-                <code>
-                        console.log(jQuery.fn.jquery); // get current jquery version
-                    </code>
-            </p>
-            <script>
-                $(document).ready(function (e) {
-                    if (typeof jQuery != 'undefined') {
-                        // jQuery is loaded => print the version
-                        var cur_ver = jQuery.fn.jquery;
-                        $("#jq_ver").html(cur_ver);
-                        console.log("jQuery lib version = " + cur_ver);
-                    }
-                });
-            </script>
-        </div>
+        
+		<div class="row example-container border border-secondary mt-3 mb-3 p-3" id="getversion">            
+            <div class="col-md-12">
+				<h1>Get jQuery Current Version</h1>
+				<div id="jq_ver"></div>
+				<p><code>console.log(jQuery.fn.jquery); // get current jquery version</code></p>
+				<script>
+					$(document).ready(function (e) {
+						if (typeof jQuery != 'undefined') {
+							// jQuery is loaded => print the version
+							var cur_ver = jQuery.fn.jquery;
+							$("#jq_ver").html(cur_ver);
+							console.log("jQuery lib version = " + cur_ver);
+						}
+					});
+				</script>				
+			</div>
+        </div><!--/.example-container-->
 
-        <div class="col-12 demo-container border border-secondary mt-3 mb-3 p-3" id="selector_ex_1">
-            <h1>jQuery Selector-Class,Id,Attribute,Attribute end with, Attribute starts with, attribute has word, parent, child,odd, even</h1>
-            <p id="para-myp1" class="apple-mango">my para 1 .... apple mango</p>
-            <p id="para-myp2" class="kolkata-dog-apple">my para 2..... apple mango</p>
-            <p id="para-myp3" class="mango-banana-apple">my para 3 .... mango banana apple</p>
-            <p id="para-myp4" class="cat-apple-dog">my para 4 ..... cat apple dog</p>
-            <form id="registration-form">
-                <div class="row">
-                    <div class="col-4">
-                        <div class="input-group">
-                            Username
-                            <input type="text" id="username" class="form-control saikat-form" placeholder="Username" data-controlName="username" value="saikat123">
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="input-group">
-                            Email
-                            <input type="text" class="form-control saikat-form"  placeholder="Email" data-controlName="email" value="saikat@domain.com">
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="input-group">
-                            <button id="regUser" class="btn btn-sm btn-primary">Submit</button>
-                        </div>
-                    </div>
-                </div>
-            </form>
-            <br>
-
-            <p>
-                <code>
-                        $("p[class^='apple']"); //Select p whose class STARTS with class apple<br>
-                        $("p[class$='apple']"); //Select p whose class END with class apple</br>
-                        $("p[class*='pple']"); //Select p whose class has substring pple</br>
-                        $("p[id|='para']"); // select p whose id starts with 'para-' as prefix
-                    </code>
-            </p>
-
-            <p>
-                <strong>Odd, Even, Parent, Child, n-th Element</strong>
-                <br> - Find :odd, :even li of women and add text color
-                <br> - Make last li of women Uppercase using :last-child
-                <br> - Make under line 3rd li of women category :eq(2)
-                <br> - Make 2nd odd element bold :odd and :eq(1)
-                <br>
-            </p>
-            <ul class="product_category">
-                <li id="1" class="sub_cat">Men
-                    <ul>
-                        <li id="22">Shirt</li>
-                        <li id="13">Formal Shirt</li>
-                        <li id="14">Trouser</li>
-                        <li id="15">Jeans</li>
-                        <li id="9">LaptopBags</li>
-                        <li id="8">T-Shirt</li>
-                        <li id="7">Shorts</li>
-                        <li id="3">Formal Shoes</li>
-                        <li id="4">Sports Shoe</li>
-                    </ul>
-                </li>
-                <li id="2" class="sub_cat">Women
-                    <ul>
-                        <li id="44">Shirts</li>
-                        <li id="63">Shari</li>
-                        <li id="75">Salwar</li>
-                        <li id="10">Laptop Bags</li>
-                        <li id="19">T-Shirt</li>
-                        <li id="78">Shoes</li>
-                        <li id="79">Wrist Watch</li>
-                        <li id="54">Perfume & Deo</li>
-                    </ul>
-                </li>
-            </ul>
+        <div class="row example-container border border-secondary mt-3 mb-3 p-3" id="selector_ex_1">
+			<div class="col-md-12">
+				<h1>jQuery Selector-Class,Id,Attribute,Attribute end with, Attribute starts with, attribute has word, parent, child,odd, even</h1>
+				
+				<div class="row">
+					<div class="col-md-6">
+						<p id="para-myp1" class="apple-mango">my para 1 .... apple mango</p>
+						<p id="para-myp2" class="kolkata-dog-apple">my para 2..... apple mango</p>
+						<p id="para-myp3" class="mango-banana-apple">my para 3 .... mango banana apple</p>
+						<p id="para-myp4" class="cat-apple-dog">my para 4 ..... cat apple dog</p>
+					</div>
+					<div class="col-md-6">
+						<code>
+						$("p[class^='apple']"); //Select p whose class STARTS with class apple<br>
+						$("p[class$='apple']"); //Select p whose class END with class apple</br>
+						$("p[class*='pple']"); //Select p whose class has substring pple</br>
+						$("p[id|='para']"); // select p whose id starts with 'para-' as prefix
+						</code>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-md-6">
+						<p>
+							<strong>Odd, Even, Parent, Child, n-th Element</strong>
+							<br> - Find :odd, :even li of women and add text color
+							<br> - Make last li of women Uppercase using :last-child
+							<br> - Make under line 3rd li of women category :eq(2)
+							<br> - Make 2nd odd element bold :odd and :eq(1)
+							<br>
+						</p>
+					</div>
+					<div class="col-md-6">
+						<ul class="product_category">
+							<li id="1" class="sub_cat">Men
+								<ul>
+									<li id="22">Shirt</li>
+									<li id="13">Formal Shirt</li>
+									<li id="14">Trouser</li>
+									<li id="15">Jeans</li>
+									<li id="9">LaptopBags</li>
+									<li id="8">T-Shirt</li>
+									<li id="7">Shorts</li>
+									<li id="3">Formal Shoes</li>
+									<li id="4">Sports Shoe</li>
+								</ul>
+							</li>
+							<li id="2" class="sub_cat">Women
+								<ul>
+									<li id="44">Shirts</li>
+									<li id="63">Shari</li>
+									<li id="75">Salwar</li>
+									<li id="10">Laptop Bags</li>
+									<li id="19">T-Shirt</li>
+									<li id="78">Shoes</li>
+									<li id="79">Wrist Watch</li>
+									<li id="54">Perfume & Deo</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>           
 
             <script>
                 $(document).ready(function (e) {
@@ -193,24 +204,21 @@
                     $("li.sub_cat#2>ul>li:odd:eq(1)").css("font-weight", "bold");
                 })
             </script>
+        </div><!--/.example-container-->
 
-
-
-        </div>
-
-        <div class="col-12 demo-container border border-secondary mt-3 mb-3 p-3" id="element_count">
-            <h1>Count DOM element - length property</h1>
-            <a href="#" class="my-test-link">Link 1</a>
-            <a href="#" class="my-test-link">Link 2</a>
-            <a href="#" class="my-test-link">Link 3</a>
-            <p>
-                <code>$("a").length; // count number of anchor link in dom</code>
-                <br>
-                <code>$("div.row").length; // count div having class row dom</code>
-                <br>
-            </p>
-
-
+        <div class="row example-container border border-secondary mt-3 mb-3 p-3" id="element_count">            
+			<div class="col-md-12">
+				<h1>Count DOM element - length property</h1>
+				<a href="#" class="my-test-link">Link 1</a>
+				<a href="#" class="my-test-link">Link 2</a>
+				<a href="#" class="my-test-link">Link 3</a>			
+				<p>
+					<code>$("a").length; // count number of anchor link in dom</code>
+					<br>
+					<code>$("div.row").length; // count div having class row dom</code>
+					<br>
+				</p>
+			</div>
             <script>
                 $(document).ready(function (e) {
                     console.log("%c ******** Count Number of Elements using length property ********", console_css);
@@ -218,322 +226,310 @@
                     console.log("Count total div having class row in DOM using length property = " + $("div.row").length);
                 });
             </script>
-        </div>
+        </div><!--/.example-container-->
 
-        <div class="col-12 demo-container border border-secondary mt-3 mb-3 p-3" id="event-bublling">
-
-            <h1>Event Bubbling & Event Capturing? How to prevent? (Bubble Up, Trickle Down)</h1>
-            <p>
-                Event bubbling and capturing are two ways of event propagation in the HTML DOM API, when an event occurs in an element inside
-                another element, and both elements have registered a handle for that event. The event propagation mode determines
-                in which order the elements receive the event.
-            </p>
-
-
-            <p>With bubbling, the event is first captured and handled by the innermost element and then propagated to outer
-                elements. ****=> inner->outer in DOM tree</p>
-            <p>With capturing, the event is first captured by the outermost element and propagated to the inner elements. ****=>
-                outer->inner in DOM tree</p>
-            <p>IE
-                < 9 uses only event bubbling, whereas IE9+ and all major browsers support both.</p>
-                    <p>
-                        To prevent we have to write
-                        <code>e.stopPropagation();</code>
-                        <br> Also
-                        <code>e.stopImmediatePropagation();</code>
-                    </p>
-
-                    <div id="div1" class="col-md-4" style="padding: 20px; background-color: #269abc;">
+        <div class="row example-container border border-secondary mt-3 mb-3 p-3" id="event-bublling">
+			<div class="col-md-12">
+				<h1>Event Bubbling & Event Capturing? How to prevent? (Bubble Up, Trickle Down)</h1>
+				
+				<p>Event bubbling and capturing are two ways of event propagation in the HTML DOM API, when an event occurs in an element inside another element, and both elements have registered a handle for that event. The event propagation mode determines in which order the elements receive the event.</p>
+				<p>With bubbling, the event is first captured and handled by the innermost element and then propagated to outer elements. ****=> inner->outer in DOM tree</p>
+				<p>IE  < 9 uses only event bubbling, whereas IE9+ and all major browsers support both.</p>
+				<p>To prevent we have to write <code>e.stopPropagation();</code> <br> Also<code></code> e.stopImmediatePropagation();</code></p>
+				
+				<div id="div1" class="col-md-3 text-center" style="padding: 20px; background-color: #269abc;">
                         Div 1
-                        <div id="div2" style="padding: 20px; background-color: #ce8483;">
-                            Div 2
-                            <div id="div3" style="padding: 20px; background-color: #adadad;">
-                                Div 3
-                            </div>
-                        </div>
-                    </div>
-
-                    <script>
-                        $(document).ready(function (e) {
-                            $("#div3").on("click", function (e) {
-                                //Now , prevent event bubbling up
-                                //e.stopPropagation();
-                                alert("Div 3 click");
-                            });
-                            $("#div2").on("click", function (e) {
-                                //Now , prevent event bubbling up
-                                //e.stopPropagation();
-                                alert("Div 2 click");
-                            });
-                            $("#div1").on("click", function (e) {
-                                //Now , prevent event bubbling up
-                                //e.stopPropagation();
-                                alert("Div 1 click");
-                            });
-                        });
-                    </script>
-
-        </div>
-
-        <div class="col-12 demo-container border border-secondary mt-3 mb-3 p-3" id="traversing">
-            <h1>DOM Traversing - parent(), parents(), closest()</h1>
-            <p>
-                <strong>parent() </strong> travels only single level UP DOM tree</p>
-            <p>
-                <strong>parents() </strong> travels all parents UP DOM tree...to root element i.e. body to html</p>
-            <p>
-                <strong>closest() </strong> find closest match item</p>
-
-
-            <form id="myform2">
-                <div class="form-group">
-                    <ul class="outer-items-lists">
-                        <li class="outer-child-item" id="outer-item-1">item 1</li>
-                        <li class="outer-child-item" id="outer-item-2">item 2</li>
-                        <li class="outer-child-item" id="outer-item-3">item 3</li>
-                        <li class="outer-child-item" id="outer-item-4">item 4
-                            <ul class="inner-items-lists">
-                                <li class="inner-child-item" id="inner-item-a">item 4.a</li>
-                                <li class="inner-child-item" id="inner-item-b">item 4.b</li>
-                                <li class="inner-child-item" id="inner-item-c">item 4.c</li>
-                            </ul>
-                        </li>
-                        <li class="outer-child-item" id="outer-item-5">item 5</li>
-                        <li class="outer-child-item" id="outer-item-6">item 6</li>
-                    </ul>
-                </div>
-            </form>
-
-            <div>
-                <p> - Find parent of item 4.b
-                    <code>$("#inner-item-b").parent()</code>---->Object[ul.inner-items-lists]</p>
-                <p> - Find parents of item 4.b
-                    <br>
-                    <code>$("#inner-item-b").parents()</code>-----> [ul.inner-items-lists, li#outer-item-4.outer-child-item,
-                    ul.outer-items-lists, div.form-group, form#myform2, div#traversing.row, div.container, body, html]</p>
-                <br>
-                <code>$("#inner-item-b").parents("ul").first();</code> -->[ul.inner-items-lists]
-                <br>
-
-                <p> - Find closest li of item 4.b</p>
-            </div>
-
-            <script>
-                        $(document).ready(function (e) {
-                            console.log("%c ******** parent(), parents(), closest() ********", console_css);
-                            var myobj_p = $("#inner-item-b").parent();
-                            console.log(myobj_p);
-
-                            var myobj_parents = $("#inner-item-b").parents();
-                            console.log(myobj_parents);
-
-                            $("#inner-item-b").parents().first("ul").css("background-color", "#ccc");
-                            console.log($("#inner-item-b").parents("form").attr("id"));
-                        });
-            </script>
-
-        </div>
-
-        <div class="col-12 demo-container border border-secondary mt-3 mb-3 p-3" id="empty_remove_detach">
-            <h1>empty(), remove(), detach()</h1>
-            <p>
-                <strong>empty() --> </strong> will remove only child content.
-                <code>$("#content_p_1").empty();</code> empty the inner content only, black p tag is visible via firebug</p>
-            <p>
-                <strong>remove() --> </strong> will remove tag+child content.
-                <code>$("#content_p_1").remove();</code> empty the inner content + remove p markup from DOM</p>
-            <div id="mySampleDiv">
-                <h5 class="text-success">This is my sample div... this is my sample div</h5>
-                <p class="content_p" id="content_p_1">
-                    this is a content para. im a javascript programmer !!! here p#content_p_1
-                    <a href="#empty_remove_detach">sample link</a>
-                </p>
-            </div>
-
-            <script>
-                $(document).ready(function (e) {
-                    console.log("%c ******** empty(), remove(), detach() ********", console_css);
-                });
-            </script>
-
-        </div>
-
-        <div class="col-12 demo-container border border-secondary mt-3 mb-3 p-3" id="form-controls">
-            <h1>Form Controls - Get Check box, Radio button, Multi Select Values</h1>
-            <div class="col-md-8">
-                <form name="customer-data" action="#form-controls" method="post" class="" role="form">
-
-                    <div class="form-group">
-                        <label for="email">Name:</label>
-                        <input type="text" class="form-control" id="name" placeholder="Enter name">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="email" class="form-control"  placeholder="Enter email">
-                    </div>
-                    <div class="form-group">
-                        <label for="pwd">Password:</label>
-                        <input type="password" class="form-control" id="pwd" placeholder="Enter password">
-                    </div>
-                    <div class="checkbox form-group">
-                        <label>
-                            <input id="select_all" type="checkbox">All</label>
-                        <label>
-                            <input class="skills_cb" type="checkbox" value="1"> Angular JS</label>
-                        <label>
-                            <input class="skills_cb" type="checkbox" value="2"> Backbone JS</label>
-                        <label>
-                            <input class="skills_cb" type="checkbox" value="3"> HTML5</label>
-                        <label>
-                            <input class="skills_cb" type="checkbox" value="4"> CSS3</label>
-                        <label>
-                            <input class="skills_cb" type="checkbox" value="5"> LESS</label>
-                        <label>
-                            <input class="skills_cb" type="checkbox" value="6"> Node JS</label>
-                        <button type="submit" class="btn btn-primary btn-xs" id="btn_skills">Get Selected</button>
-                        <div id="skills_selected"></div>
-                    </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
-                </form>
-            </div>
-            <div class="col-md-4" id="form-data">
-
-            </div>
-            <script>
-                $("#select_all").on("click", function (e) {
-                    var el = $(this);
-                    var isChecked = el.prop("checked");
-                    var targetCb = $("input:checkbox[class='skills_cb']");
-                    var totalTargetCb = targetCb.length;//6
-                    if (isChecked == true) {
-                        targetCb.each(function (index, cbObj) {
-                            this.checked = true;
-                        });
-                    } else {
-                        targetCb.each(function (index, cbObj) {
-                            this.checked = false;
-                        });
-                    }
-                });
-                $("#btn_skills").on("click", function (e) {
-                    e.preventDefault();
-                    var values = $("input:checkbox[class='skills_cb']:checked").map(function () {
-                        return $(this).val();
-                    }).get();
-                    $('#skills_selected').empty().html("Selected Values=" + values);
-                });
-            </script>
-        </div>
-
-
-        <div class="col-12 demo-container border border-secondary mt-3 mb-3 p-3" id="higher_order_function">
-            <h1>Higher Order Function</h1>
-            <p>A higher-order function is a function which receives a function as parameter or even return a function.</p>
-            <script>
-                // normal simple function
-                var sum = function (n1, n2) {
-                    return n1 + n2;
-                }
-                sum(3, 4);
-            </script>
-        </div>
-		
-		
-		<div class="col-12 demo-container border border-secondary mt-3 mb-3 p-3" id="multiselect_selectbox_value">
-            <h1>Get values from multi select box</h1>
-            <div class="row">
-				<div class="col-md-3">
-					<select class="form-control" name="ddMetroCity" id="ddMetroCity" multiple="multiple">
-						<option data-code="" value="">Select</option>
-						<option data-code="CCU" value="01">Kolkata</option>
-						<option data-code="MUM" value="02">Mumbai</option>
-						<option data-code="BLR" value="03">Bangalore</option>
-						<option data-code="MAD" value="04">Chennai</option>
-						<option data-code="HYD" value="05">Hyderabad</option>
-						<option data-code="DEL" value="06">Delhi</option>
-						<option data-code="GGN" value="07">Gurgaon</option>
-						<option data-code="MYS" value="08">Mysore</option>
-					</select>
-					<button id="btnTestMultiSelect" class="btn btn-primary btn-sm">Submit</button>
+					<div id="div2" style="padding: 20px; background-color: #ce8483;">
+						Div 2
+						<div id="div3" style="padding: 20px; background-color: #adadad;">
+							Div 3
+						</div>
 					</div>
-					<div class="col-md-9"><span id="multiselect_selected_result"></span></div>
-			</div>
-            <script>
-				$("#btnTestMultiSelect").on('click', getSelectedCities);
-				function getSelectedCities(e) {
-
-					//array
-					var selVal = $("#ddMetroCity option:selected").map(function () { return this.value }).get(); //  ["01", "03", "05"]
-					console.log(selVal);
-
-					//string
-					var selVal = $("#ddMetroCity option:selected").map(function () { return this.value }).get().join(','); //  02,03
-					console.log(selVal);
-
-					//custom json object
-					var jsonObjCity = [];
-					$("#ddMetroCity option:selected").each(function (index, obj) {
-						var id = $(this).val();
-						var city_code = $(this).attr('data-code');
-						var city_name = $(this).text();
-						item = {}
-						item["id"] = id;
-						item["city_code"] = city_code;
-						item["city_name"] = city_name;
-						jsonObjCity.push(item);
-					});
-					$("#multiselect_selected_result").html(JSON.stringify(jsonObjCity));
-					console.log(jsonObjCity);
-				}
-			</script>
-        </div>
-		
-		
-		
-		<div class="col-12 demo-container border border-secondary mt-3 mb-3 p-3" id="always_scroll_to_bottom">
-            <h1>Always scrolled to bottom</h1>
-            <div class="row">
-				<div class="col-md-3">
-					<div id="dynamic-msg" class="border border-1 border-primary scrollable-b" style="padding:2px; height: 150px; overflow-y: auto;">
-						<p>Hi, im a bank customer</p>
-						<p>Hi, im a card holder</p>
-						<p>Hi, im a bank customer</p>
-						<p>Hi, im a bank customer</p>
-						<p>Hi, im a test customer</p>
-						<p>Hi, im a bank customer</p>
-						<p>Hi, im a bank customer</p>
-						<p>Hi, im ok</p>
-					</div>
-					<br>
-					<button id="btn_always_scroll_to_bottom" class="btn btn-primary btn-sm">Add Some Text</button>
 				</div>
-				<div class="col-md-9"><code>
-				function scrollToBottom(el) {
-					var $scrollableArea = $('.scrollable-b');
-					$scrollableArea.scrollTop($scrollableArea[0].scrollHeight);
-				}
-				scrollToBottom();
-				</code></div>
+				
 			</div>
-            <script>
-				function scrollToBottom(el) {
-					var $scrollableArea = $('.scrollable-b');
-					$scrollableArea.scrollTop($scrollableArea[0].scrollHeight);
-				}
-				scrollToBottom();
-				$("#btn_always_scroll_to_bottom").on("click",function(e){
-					e.preventDefault();
-					var time = new Date();
-					$("#dynamic-msg").append('<p>'+time+'</p>');
-					scrollToBottom();
+			<script>
+				$(document).ready(function (e) {
+					$("#div3").on("click", function (e) {
+						//Now , prevent event bubbling up
+						//e.stopPropagation();
+						alert("Div 3 click");
+					});
+					$("#div2").on("click", function (e) {
+						//Now , prevent event bubbling up
+						//e.stopPropagation();
+						alert("Div 2 click");
+					});
+					$("#div1").on("click", function (e) {
+						//Now , prevent event bubbling up
+						//e.stopPropagation();
+						alert("Div 1 click");
+					});
 				});
 			</script>
-        </div>
+
+        </div><!--/.example-container-->
+
+        <div class="row example-container border border-secondary mt-3 mb-3 p-3" id="traversing">
+			<div class="col-md-12">
+				<h1>DOM Traversing - parent(), parents(), closest()</h1>
+				<p><strong>parent() </strong> travels only single level UP DOM tree</p>
+				<p><strong>parents() </strong> travels all parents UP DOM tree...to root element i.e. body to html</p>
+				<p><strong>closest() </strong> find closest match item</p>
+				<form id="myform2">
+					<div class="form-group">
+						<ul class="outer-items-lists">
+							<li class="outer-child-item" id="outer-item-1">item 1</li>
+							<li class="outer-child-item" id="outer-item-2">item 2</li>
+							<li class="outer-child-item" id="outer-item-3">item 3</li>
+							<li class="outer-child-item" id="outer-item-4">item 4
+								<ul class="inner-items-lists">
+									<li class="inner-child-item" id="inner-item-a">item 4.a</li>
+									<li class="inner-child-item" id="inner-item-b">item 4.b</li>
+									<li class="inner-child-item" id="inner-item-c">item 4.c</li>
+								</ul>
+							</li>
+							<li class="outer-child-item" id="outer-item-5">item 5</li>
+							<li class="outer-child-item" id="outer-item-6">item 6</li>
+						</ul>
+					</div>
+				</form>
+
+				<div>
+					<p> - Find parent of item 4.b
+						<code>$("#inner-item-b").parent()</code>---->Object[ul.inner-items-lists]</p>
+					<p> - Find parents of item 4.b
+						<br>
+						<code>$("#inner-item-b").parents()</code>-----> [ul.inner-items-lists, li#outer-item-4.outer-child-item,
+						ul.outer-items-lists, div.form-group, form#myform2, div#traversing.row, div.container, body, html]</p>
+					<br>
+					<code>$("#inner-item-b").parents("ul").first();</code> -->[ul.inner-items-lists]
+					<br>
+
+					<p> - Find closest li of item 4.b</p>
+				</div>
+
+				<script>
+					$(document).ready(function (e) {
+						console.log("%c ******** parent(), parents(), closest() ********", console_css);
+						var myobj_p = $("#inner-item-b").parent();
+						console.log(myobj_p);
+
+						var myobj_parents = $("#inner-item-b").parents();
+						console.log(myobj_parents);
+
+						$("#inner-item-b").parents().first("ul").css("background-color", "#ccc");
+						console.log($("#inner-item-b").parents("form").attr("id"));
+					});
+				</script>			
+			</div>
+        </div><!--/.example-container-->
+
+        <div class="row example-container border border-secondary mt-3 mb-3 p-3" id="empty_remove_detach">
+			<div class="col-md-12">
+				<h1>Difference: empty(), remove(), detach()</h1>
+				<p><strong>empty() --> </strong> will remove only child content.
+				<code>$("#content_p_1").empty();</code> empty the inner content only, black p tag is visible via firebug</p>
+				<p><strong>remove() --> </strong> will remove tag+child content.
+				<code>$("#content_p_1").remove();</code> empty the inner content + remove p markup from DOM</p>
+				<div id="mySampleDiv">
+					<h5 class="text-success">This is my sample div... this is my sample div</h5>
+					<p class="content_p" id="content_p_1">
+						this is a content para. im a javascript programmer !!! here p#content_p_1
+						<a href="#empty_remove_detach">sample link</a>
+					</p>
+				</div>
+				<script>
+					$(document).ready(function (e) {
+						console.log("%c ******** empty(), remove(), detach() ********", console_css);
+					});
+				</script>
+			</div>
+        </div><!--/.example-container-->
+
+        <div class="row example-container border border-secondary mt-3 mb-3 p-3" id="form-controls">
+            <div class="col-md-12">
+				<h1>Form Controls - Get Check box, Radio button, Multi Select Values</h1>
+				<div class="col-md-8">
+					<form name="customer-data" action="#form-controls" method="post" class="" role="form">
+
+						<div class="form-group">
+							<label for="email">Name:</label>
+							<input type="text" class="form-control" id="name" placeholder="Enter name">
+						</div>
+
+						<div class="form-group">
+							<label for="email">Email:</label>
+							<input type="email" class="form-control"  placeholder="Enter email">
+						</div>
+						<div class="form-group">
+							<label for="pwd">Password:</label>
+							<input type="password" class="form-control" id="pwd" placeholder="Enter password">
+						</div>
+						<div class="checkbox form-group">
+							<label>
+								<input id="select_all" type="checkbox">All</label>
+							<label>
+								<input class="skills_cb" type="checkbox" value="1"> Angular JS</label>
+							<label>
+								<input class="skills_cb" type="checkbox" value="2"> Backbone JS</label>
+							<label>
+								<input class="skills_cb" type="checkbox" value="3"> HTML5</label>
+							<label>
+								<input class="skills_cb" type="checkbox" value="4"> CSS3</label>
+							<label>
+								<input class="skills_cb" type="checkbox" value="5"> LESS</label>
+							<label>
+								<input class="skills_cb" type="checkbox" value="6"> Node JS</label>
+							<button type="submit" class="btn btn-primary btn-xs" id="btn_skills">Get Selected</button>
+							<div id="skills_selected"></div>
+						</div>
+						<button type="submit" class="btn btn-default">Submit</button>
+					</form>
+				</div>
+				<div class="col-md-4" id="form-data">
+
+				</div>
+				<script>
+					$("#select_all").on("click", function (e) {
+						var el = $(this);
+						var isChecked = el.prop("checked");
+						var targetCb = $("input:checkbox[class='skills_cb']");
+						var totalTargetCb = targetCb.length;//6
+						if (isChecked == true) {
+							targetCb.each(function (index, cbObj) {
+								this.checked = true;
+							});
+						} else {
+							targetCb.each(function (index, cbObj) {
+								this.checked = false;
+							});
+						}
+					});
+					$("#btn_skills").on("click", function (e) {
+						e.preventDefault();
+						var values = $("input:checkbox[class='skills_cb']:checked").map(function () {
+							return $(this).val();
+						}).get();
+						$('#skills_selected').empty().html("Selected Values=" + values);
+					});
+				</script>
+			</div>
+        </div><!--/.example-container-->
 
 
-    </main>
-</body>
+        <div class="row example-container border border-secondary mt-3 mb-3 p-3" id="higher_order_function">
+            <div class="col-md-12">
+				<h1>Higher Order Function</h1>
+				<p>A higher-order function is a function which receives a function as parameter or even return a function.</p>
+				<script>
+					// normal simple function
+					var sum = function (n1, n2) {
+						return n1 + n2;
+					}
+					sum(3, 4);
+				</script>
+			</div>
+        </div><!--/.example-container-->
+		
+		
+		<div class="row example-container border border-secondary mt-3 mb-3 p-3" id="multiselect_selectbox_value">
+            <div class="col-md-12">
+				<h1>Get values from multi select box</h1>
+				<div class="row">
+					<div class="col-md-3">
+						<select class="form-control" name="ddMetroCity" id="ddMetroCity" multiple="multiple">
+							<option data-code="" value="">Select</option>
+							<option data-code="CCU" value="01">Kolkata</option>
+							<option data-code="MUM" value="02">Mumbai</option>
+							<option data-code="BLR" value="03">Bangalore</option>
+							<option data-code="MAD" value="04">Chennai</option>
+							<option data-code="HYD" value="05">Hyderabad</option>
+							<option data-code="DEL" value="06">Delhi</option>
+							<option data-code="GGN" value="07">Gurgaon</option>
+							<option data-code="MYS" value="08">Mysore</option>
+						</select>
+						<button id="btnTestMultiSelect" class="btn btn-primary btn-sm">Submit</button>
+						</div>
+						<div class="col-md-9"><span id="multiselect_selected_result"></span></div>
+				</div>
+				<script>
+					$("#btnTestMultiSelect").on('click', getSelectedCities);
+					function getSelectedCities(e) {
+
+						//array
+						var selVal = $("#ddMetroCity option:selected").map(function () { return this.value }).get(); //  ["01", "03", "05"]
+						console.log(selVal);
+
+						//string
+						var selVal = $("#ddMetroCity option:selected").map(function () { return this.value }).get().join(','); //  02,03
+						console.log(selVal);
+
+						//custom json object
+						var jsonObjCity = [];
+						$("#ddMetroCity option:selected").each(function (index, obj) {
+							var id = $(this).val();
+							var city_code = $(this).attr('data-code');
+							var city_name = $(this).text();
+							item = {}
+							item["id"] = id;
+							item["city_code"] = city_code;
+							item["city_name"] = city_name;
+							jsonObjCity.push(item);
+						});
+						$("#multiselect_selected_result").html(JSON.stringify(jsonObjCity));
+						console.log(jsonObjCity);
+					}
+				</script>
+			</div>
+        </div><!--/.example-container-->
+		
+		
+		
+		<div class="row example-container border border-secondary mt-3 mb-3 p-3" id="always_scroll_to_bottom">
+            <div class="col-md-12">
+				<h1>Always scrolled to bottom</h1>
+				<div class="row">
+					<div class="col-md-3">
+						<div id="dynamic-msg" class="border border-1 border-primary scrollable-b" style="padding:2px; height: 150px; overflow-y: auto;">
+							<p>Hi, im a bank customer</p>
+							<p>Hi, im a card holder</p>
+							<p>Hi, im a bank customer</p>
+							<p>Hi, im a bank customer</p>
+							<p>Hi, im a test customer</p>
+							<p>Hi, im a bank customer</p>
+							<p>Hi, im a bank customer</p>
+							<p>Hi, im ok</p>
+						</div>
+						<br>
+						<button id="btn_always_scroll_to_bottom" class="btn btn-primary btn-sm">Add Some Text</button>
+					</div>
+					<div class="col-md-9"><code>
+					function scrollToBottom(el) {
+						var $scrollableArea = $('.scrollable-b');
+						$scrollableArea.scrollTop($scrollableArea[0].scrollHeight);
+					}
+					scrollToBottom();
+					</code></div>
+				</div>
+				<script>
+					function scrollToBottom(el) {
+						var $scrollableArea = $('.scrollable-b');
+						$scrollableArea.scrollTop($scrollableArea[0].scrollHeight);
+					}
+					scrollToBottom();
+					$("#btn_always_scroll_to_bottom").on("click",function(e){
+						e.preventDefault();
+						var time = new Date();
+						$("#dynamic-msg").append('<p>'+time+'</p>');
+						scrollToBottom();
+					});
+				</script>			
+			</div>
+        </div><!--/.example-container-->
+    </div><!--/.container-->
+	<button class="btn btn-primary scrollup" data-toggle="tooltip" data-placement="left" data-original-title="Scroll to top">Up</button>
+</body><!--/body-->
 
 <script>
     console.log("Alert 3:  After body Tag");
