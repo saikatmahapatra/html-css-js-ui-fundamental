@@ -12,6 +12,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="assets/dist/css/styles_bootstrap.css" rel="stylesheet">
+    <link href="assets/vendors/font-awesome/css/font-awesome.css" rel="stylesheet">
 </head>
 
 <body>
@@ -26,7 +27,7 @@
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home
+                    <a class="nav-link" href="#"><i class="fa fa-home" aria-hidden="true"></i> Home
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
@@ -48,27 +49,33 @@
             </ul>
 			
 			  <ul class="navbar-nav my-2 my-lg-0">                
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Technology</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">About Us</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">john@domain.com</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdown01">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
-				<li class="nav-item">
-                    <a class="nav-link btn btn-sm btn-outline-danger" href="#">Administation</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link btn btn-sm btn-outline-secondary" href="#">Sign out</a>
-                </li>
+                <li class="nav-item d-none">
+                    <form class="form-inline">
+					  <input class="form-control form-control-sm mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+					  <button class="btn btn-sm btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+					</form>
+                </li>			
+				
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false">
+					<i class="fa fa-user" aria-hidden="true"></i> 
+					<img data-src="holder.js/30x30" class="rounded" alt="30x30" style="width: 30px; height: 30px;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2275%22%20height%3D%2275%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2075%2075%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_16422628995%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A10pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_16422628995%22%3E%3Crect%20width%3D%2275%22%20height%3D%2275%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2219.34375%22%20y%3D%2242%22%3E75x75%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true">
+					Hi, John Smith
+					</a>
+					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown03">					
+						<div class="dropdown-item welcome-user-container">									
+							<div class="">John Smith</div>
+							<div class="small">john.smith.developer@example.com</div>
+							<div class="small">Role: Super User</div>
+							<div class="small">Last Login: dd/mm/yyyy hh.mm.ss am/pm</div>
+						</div>					
+						<div class="dropdown-divider mt-3"></div>			
+						<a class="dropdown-item"  href="#">Profile</a>
+						<a class="dropdown-item" href="#">Change Password</a>
+						<a class="dropdown-item" href="#">Signout</a>			
+					</div>
+				</li>
             </ul>
 			
         </div>
