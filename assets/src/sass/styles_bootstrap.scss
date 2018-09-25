@@ -261,6 +261,6 @@ select.form-control.dob-inline{
 // Custom Form Control
 .custom-control-label{
 	&::before{
-		
+		border: $input-border-width solid $input-border-color;
 	}
 }

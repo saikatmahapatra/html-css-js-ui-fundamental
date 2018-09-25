@@ -8682,3 +8682,7 @@ select.form-control.dob-inline {
 .pace-inactive {
   display: none;
 }
+
+.custom-control-label::before {
+  border: 1px solid #ced4da;
+}
