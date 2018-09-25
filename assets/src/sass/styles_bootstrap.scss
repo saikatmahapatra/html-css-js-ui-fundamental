@@ -256,3 +256,11 @@ select.form-control.dob-inline{
 	}
 }
 .pace-inactive { display: none }
+
+
+// Custom Form Control
+.custom-control-label{
+	&::before{
+		
+	}
+}
