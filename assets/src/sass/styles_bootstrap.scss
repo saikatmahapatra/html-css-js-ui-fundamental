@@ -18,6 +18,11 @@ h1.page-header{
 	font-size: 1.25rem;
 }
 
+nav.navbar.fixed-top {
+    max-height:100%;
+    overflow-y:auto;
+}
+
 .scrollup {
     width: 40px;
     height: 40px;
