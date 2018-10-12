@@ -8447,8 +8447,8 @@ h1.page-header {
   font-size: 1.25rem;
 }
 
-nav.navbar.fixed-top {
-  max-height: 100%;
+.navbar-collapse {
+  max-height: 340px;
   overflow-y: auto;
 }
 
