@@ -20,6 +20,8 @@ body {
 .bar {
   width: 0;
   height: 100%;
+  -webkit-transition: height .3s;
+  -o-transition: height .3s;
   transition: height .3s;
   background: #b91f1f;
 }
