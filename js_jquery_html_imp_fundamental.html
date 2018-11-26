@@ -8,7 +8,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="Native JavaScript, jQuery Fundamental">
     <meta name="author" content="Saikat Mahapatra">	
-    <title>Native JavaScript, jQuery Fundamental</title>
+    <title>JS JQuery HTML Important Fundamenttal : UI Interview</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -420,8 +420,9 @@
 
         <div class="row example-container border border-secondary mt-3 mb-3 p-3" id="higher_order_function">
             <div class="col-md-12">
-				<h1>Higher Order Function</h1>
+				<h1>Callback Function / Higher Order Function</h1>
 				<p>A higher-order function is a function which receives a function as parameter or even return a function.</p>
+				<p><code>$(button).click(<b>function(){....some code ....}</b>)</code></p>
 				<script>
 					// normal simple function
 					var sum = function (n1, n2) {
@@ -571,6 +572,55 @@
 			</script>
 			
         </div><!--/.example-container-->
+		
+		
+		<div class="row example-container border border-secondary mt-3 mb-3 p-3" id="css_display">
+            <div class="col-md-12">
+				<h1>CSS Display : inline vs block vs inline-block</h1>
+				
+				<h4>display: inline</h4>
+				<p>
+				css width, height property does not apply. top bottom margin padding are not applied but does not render.
+				</p>
+				<span class="bg-success dinline">India</span>
+				<span class="bg-success dinline">Australia</span>
+				<span class="bg-success dinline">United States</span>
+				
+				<h4>display: block</h4>
+				<p></p>
+				<span class="bg-warning dblock">India</span>
+				<span class="bg-warning dblock">Australia</span>
+				<span class="bg-warning dblock">United States</span>
+				
+				<h4>display: inline-block</h4>
+				<span class="bg-info dinlineblock">India</span>
+				<span class="bg-info dinlineblock">Australia</span>
+				<span class="bg-info dinlineblock">United States</span>	
+				<style>
+					.dinline{
+						display: inline;
+						margin: 10px;
+						padding: 5px;
+						height: 100px;
+						width: 100px;
+					}
+					.dblock{
+						display: block;
+						margin: 10px;
+						padding: 5px;
+						height: 100px;
+						width: 100px;
+					}
+					.dinlineblock{
+						display: inline-block;
+						margin: 10px;
+						padding: 5px;
+						height: 100px;
+						width: 100px;
+					}
+				</style>				
+			</div>
+		</div><!--/.example-container-->
 		
 		
     </div><!--/.container-->
