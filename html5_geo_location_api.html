@@ -49,6 +49,8 @@
 					//debugger;
 					console.log(position);
 					$("#geoLocationResult").html('lat = '+position.coords.latitude+' long = '+position.coords.longitude);
+				}, function(){
+					alert("you have denied location access");
 				});
 				console.log(location);
 			}else{
