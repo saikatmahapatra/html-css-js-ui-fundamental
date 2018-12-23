@@ -7,13 +7,12 @@ Roboto,
 "Helvetica Neue",
 Arial,
 sans-serif;
-
 //
 // Color system
 //
 
 // stylelint-disable
-$white:    #fff !default;
+$white: #fff !default;
 $gray-100: #f8f9fa !default;
 $gray-200: #e9ecef !default;
 $gray-300: #dee2e6 !default;
@@ -23,7 +22,7 @@ $gray-600: #6c757d !default;
 $gray-700: #495057 !default;
 $gray-800: #343a40 !default;
 $gray-900: #212529 !default;
-$black:    #000 !default;
+$black: #000 !default;
 
 // BS4 Default
 $blue: #007bff;
@@ -46,10 +45,6 @@ $color_blue: #2672EC;
 $bootstrap3_blue: #337ab7;
 
 
-//Override Default Colors
-$blue: $bootstrap3_blue;
-
-
 //Generate Light Dark Colors
 $gray-lightest: lighten($black, 97.25%);
 $gray-lighter: lighten($black, 93.5%);
@@ -57,20 +52,12 @@ $gray-light: lighten($black, 60%);
 $gray: lighten($black, 33.5%);
 $gray-dark: lighten($black, 20%);
 $gray-darker: lighten($black, 13.5%);
-
-
-
 //Override primary color (Nav, Button, Link)
-$brand-color: #77146c;
-$primary-color: #0b1372;
-
-
+$brand-color: #0b1372;
+$primary-color: $blue;
 // Complementry color is used to indecate the loading bar on the top
 // of the page with pace.js plugin
 $complementry-color: adjust_hue($primary-color, 180);
-
-
-
 //CI Calendar
 $calendar-border: $primary-color;
 $calendar-heading-bg: $primary-color;
@@ -81,8 +68,9 @@ $today-highlight: $color_blue;
 $holiday: lighten($color_red, 40%);
 $leave: lighten($orange, 20%);
 $has-data: lighten($color_green, 50%);
-
-
 // Validation Error Message Colors
 $validation-error-color: $red;
 $mandatory_field_star-color: $red;
+
+//Ajax Loader
+$ajaxloader-color: $primary-color;

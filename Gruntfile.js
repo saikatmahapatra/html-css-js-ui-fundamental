@@ -1,21 +1,19 @@
-// My App Gruntfile
 module.exports = function (grunt) {
   'use strict'
-
   grunt.initConfig({
     pkg   : grunt.file.readJSON('package.json'),
     
 	watch : {
-      less : {        
-        files: ['assets/src/less/*.less'],
-        tasks: ['less:development', 'less:production','notify:less']
-      },
+      // less : {        
+        // files: ['src/less/*.less'],
+        // tasks: ['less:development', 'less:production','notify:less']
+      // },
       js   : {
-        files: ['assets/src/js/*.js'],
+        files: ['src/js/*.js'],
         tasks: ['js', 'notify:js']
       },
 	  sass : {        
-        files: ['assets/src/sass/*.scss'],
+        files: ['src/sass/*.scss'],
         tasks: ['sass','notify:sass']
       },
     },    
@@ -51,11 +49,11 @@ module.exports = function (grunt) {
 		toCrlf: {
 		  options: {
 			eol: 'crlf',
-			cssprefix: 'glyphicon-',
+			cssprefix: 'smui-icon-',
 			previewhtml: 'svg-icon-test.html'
 		  },
 		  files: {
-			'assets/dist/svg_css/svg_styles.css': ['assets/src/svg/*.svg']
+			'dist/svg_css/svg_styles.css': ['src/svg/**/*.svg']
 		  }
 		}
 	},	
@@ -63,7 +61,7 @@ module.exports = function (grunt) {
     less  : {      
       development  : {
         files: {
-          'assets/dist/css/styles.css' : 'assets/src/less/styles.less'          
+          'dist/css/styles.css' : 'src/less/styles.less'          
         }
       },
 	  production   : {
@@ -71,7 +69,7 @@ module.exports = function (grunt) {
           compress: true
         },
         files  : {
-          'assets/dist/css/styles.min.css' : 'assets/src/less/styles.less'          
+          'dist/css/styles.min.css' : 'src/less/styles.less'          
         }
       }
     },
@@ -79,9 +77,9 @@ module.exports = function (grunt) {
 	copy: {
 	  main: {
 		expand: true,
-		cwd: 'assets/src/js2/',
+		cwd: 'src/js2/',
 		src: '**',
-		dest: 'assets/dist/js/',
+		dest: 'dist/js/',
 		flatten: true,
 		filter: 'isFile',
 	  },
@@ -93,46 +91,39 @@ module.exports = function (grunt) {
         preserveComments: 'some'
       },
       production: {
-        files: {
-          'assets/dist/js/app.min.js': ['assets/src/js/app.js'],
-          'assets/dist/js/chat_app.min.js': ['assets/src/js/chat_app.js'],
-          'assets/dist/js/ajax.min.js': ['assets/src/js/ajax.js'],
-        }
+        files: [{
+			expand: true,
+			cwd: 'src/js',
+			src: '**/*.js',
+			dest: 'dist/js',
+			ext: '.min.js'
+		 }]
       }
     },
 
     concat: {
       options: {
-        separator: '\n\n',
-        banner   : '/*! My App app.js\n'
-        + '* ================\n'
-        + '* Main JS application file for My App v2. This file\n'
-        + '* should be included in all pages. It controls some layout\n'
-        + '* options and implements exclusive My App plugins.\n'
-        + '*\n'
-        + '* @Author  Saikat Mahapatra\n'
-        + '* @Support \n'
-        + '* @Email   <>\n'
-        + '* @version <%= pkg.version %>\n'
-        + '* @repository <%= pkg.repository.url %>\n'
-        + '* @license MIT <http://opensource.org/licenses/MIT>\n'
-        + '*/\n\n'
-        + '// Make sure jQuery has been loaded\n'
-        + 'if (typeof jQuery === \'undefined\') {\n'
-        + 'throw new Error(\'My App requires jQuery\')\n'
-        + '}\n\n'
+        separator : '\n\n',
+        banner : '/*! \n'
+				+ '* ================\n'
+				+ '* Main JS file of the application having common functions\n'
+				+ '*\n'
+				+ '* @Author <%= pkg.author %>\n'
+				+ '* @version <%= pkg.version %>\n'
+				+ '* @repository <%= pkg.repository.url %>\n'
+				+ '* @license <%= pkg.license %>\n'
+				+ '*/\n\n'
       },
       dist   : {
-        src : ['assets/src/js/app.js'],
-        dest: 'assets/dist/js/app.js'
+        src : ['src/js/app.js'],
+        dest: 'dist/js/app.js'
       }
     },
 
-    
     /*replace: {
       withoutPlugins   : {
-        src         : ['assets/dist/css/alt/My App-without-plugins.css'],
-        dest        : 'assets/dist/css/alt/My App-without-plugins.css',
+        src         : ['dist/css/alt/My App-without-plugins.css'],
+        dest        : 'dist/css/alt/My App-without-plugins.css',
         replacements: [
           {
             from: '../img',
@@ -141,8 +132,8 @@ module.exports = function (grunt) {
         ]
       },
       withoutPluginsMin: {
-        src         : ['assets/dist/css/alt/My App-without-plugins.min.css'],
-        dest        : 'assets/dist/css/alt/My App-without-plugins.min.css',
+        src         : ['dist/css/alt/My App-without-plugins.min.css'],
+        dest        : 'dist/css/alt/My App-without-plugins.min.css',
         replacements: [
           {
             from: '../img',
@@ -170,46 +161,44 @@ module.exports = function (grunt) {
         files: [
           {
             expand: true,
-            cwd   : 'assets/src/img/',
+            cwd   : 'src/img/',
             src   : ['**/*.{png,jpg,gif,svg,jpeg}'],
-            dest  : 'assets/dist/img/'
+            dest  : 'dist/img/'
           }
         ]
       }
     },
 
-    // Validate JS code
     jshint: {
       options: {
-        jshintrc: 'assets/src/js/.jshintrc'
+        jshintrc: 'src/js/.jshintrc'
       },
       grunt  : {
         options: {
-          jshintrc: 'assets/src/grunt/.jshintrc'
+          jshintrc: 'src/grunt/.jshintrc'
         },
         src    : 'Gruntfile.js'
       },
       core   : {
-        src: 'assets/src/js/*.js'
+        src: 'src/js/*.js'
       }      
     },
 
     jscs: {
       options: {
-        config: 'assets/src/js/.jscsrc'
+        config: 'src/js/.jscsrc'
       },
       core   : {
         src: '<%= jshint.core.src %>'
       }
     },
 
-    // Validate CSS files
     csslint: {
       options: {
-        csslintrc: 'assets/src/less/.csslintrc'
+        csslintrc: 'src/less/.csslintrc'
       },
       dist   : [
-        'assets/dist/css/styles.css'
+        'dist/css/styles.css'
       ]
     },
 
@@ -221,14 +210,10 @@ module.exports = function (grunt) {
       //files  : ['pages/**/*.html', '*.html']
    // },
 
-    // Delete images in build directory
-    // After compressing the images in the build/img dir, there is no need
-    // for them
     clean: {
-      build: ['assets/src/img/*']
+      build: ['src/img/*']
     },
 	
-	// SASS to CSS
 	sass: {
 		dist: {
 			options: {
@@ -237,15 +222,14 @@ module.exports = function (grunt) {
 			},
 			files: [{
 				expand: true,
-				cwd: 'assets/src/sass/',
+				cwd: 'src/sass/',
 				src: ['*.scss'],
-				dest: 'assets/dist/css/',
+				dest: 'dist/css/',
 				ext: '.css'
 			}]
 		}
 	},
 	
-	// Post Compilation of CSS
 	postcss: {
 		options: {
 			map: false,
@@ -254,35 +238,34 @@ module.exports = function (grunt) {
 			]
 		},
 		dist: {
-			src: ['assets/dist/css/*.css']
+			src: ['dist/css/*.css']
 		}
 	}
 	
-  })
+  });
 
-  // Load all grunt tasks modules  
-  grunt.loadNpmTasks('grunt-contrib-less');// LESS Compiler  
-  grunt.loadNpmTasks('grunt-contrib-watch'); // Watch File Changes  
-  grunt.loadNpmTasks('grunt-contrib-uglify');// Compress JS Files  
-  grunt.loadNpmTasks('grunt-includes');// Include Files Within HTML   
-  grunt.loadNpmTasks('grunt-image'); // Optimize images  
-  grunt.loadNpmTasks('grunt-contrib-jshint'); // Validate JS code
+  grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-includes');
+  grunt.loadNpmTasks('grunt-image');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-jscs');  
-  grunt.loadNpmTasks('grunt-contrib-clean'); // Delete not needed files  
-  grunt.loadNpmTasks('grunt-contrib-csslint'); // Lint CSS  
-  grunt.loadNpmTasks('grunt-bootlint'); // Lint Bootstrap  
-  grunt.loadNpmTasks('grunt-contrib-concat'); // Concatenate JS files  
-  grunt.loadNpmTasks('grunt-notify'); // Notify  
-  grunt.loadNpmTasks('grunt-text-replace'); // Replace  
-  grunt.loadNpmTasks('grunt-contrib-copy'); // Copy  
-  grunt.loadNpmTasks('grunt-svg-css'); // SVG to CSS Content
-  grunt.loadNpmTasks('grunt-sass'); //SASS
-  grunt.loadNpmTasks('grunt-postcss'); // Post compilation of CSS
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-csslint');
+  grunt.loadNpmTasks('grunt-bootlint');
+  grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-notify');
+  grunt.loadNpmTasks('grunt-text-replace');
+  grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-svg-css');
+  grunt.loadNpmTasks('grunt-sass');
+  grunt.loadNpmTasks('grunt-postcss');
   
-  // Tasks
-  grunt.registerTask('lint', ['jshint', 'csslint', 'bootlint']); // Linting task    
-  grunt.registerTask('js', ['copy', 'concat', 'uglify']); // JS task  
-  grunt.registerTask('css', ['less:development', 'less:production', 'sass','postcss']);  // CSS Tasks LESS-CSS, SASS-CSS  
-  grunt.registerTask('default', ['watch']); // The default task (running 'grunt' in console) is 'watch'
+  grunt.registerTask('lint', ['jshint', 'csslint', 'bootlint']);
+  grunt.registerTask('img', ['image']);
+  grunt.registerTask('js', ['copy', 'concat', 'uglify']);
+  grunt.registerTask('css', ['less:development', 'less:production', 'sass','postcss']);
+  grunt.registerTask('default', ['watch']);
   
 }

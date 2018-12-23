@@ -56,3 +56,11 @@ $nav-tabs-link-hover-border-color: transparent;
 $navbar-dark-color: $gray-lighter;
 $navbar-dark-hover-color: $white;
 $navbar-dark-active-color: $white;
+$navbar-padding-y: 0.5rem;
+$navbar-padding-x: 0.5rem;
+
+//Nav Bar Light Color
+$navbar-light-color:                rgba($black, .7) !default;
+$navbar-light-hover-color:          rgba($black, .7) !default;
+$navbar-light-active-color:         rgba($black, .9) !default;
+$navbar-light-disabled-color:       rgba($black, .3) !default;

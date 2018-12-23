@@ -1,7 +1,7 @@
 {
   "name": "sample-web-app-for-poc",
   "version": "1.0.0",
-  "description": "This is a sample web app project for any king of rnd of UI technologies using Bootstrap, jquery, HTML5, CSS3",
+  "description": "SMUI is a Bootstrap based UI kit having LESS SASS CSS JS SVG Image Grunt build functionality",
   "main": "Gruntfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
