@@ -77,7 +77,7 @@ module.exports = function (grunt) {
 	copy: {
 	  main: {
 		expand: true,
-		cwd: 'src/js2/',
+		cwd: 'src/js/',
 		src: '**',
 		dest: 'dist/js/',
 		flatten: true,
