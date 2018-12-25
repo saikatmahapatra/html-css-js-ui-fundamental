@@ -1,17 +1,10 @@
-####################################################################
-########### How to User GitHub Repository ##########################
-####################################################################
-
-1. Install git desktop app
-2. Create a project in system
-3. Create a github account
-4. Create a git project after login to github
-5. Go to project directory and run the below commands
-	> git init (first time only)
-	> git remote add origin https://github.com/saikatmahapatra/sample-web-app-for-poc.git (first time only)
-	> git remote set-url origin https://github.com/saikatmahapatra/sample-web-app-for-poc.git (first time only)
-	> touch .gitignore (craete a .gitignore for excluding directories first time only)
-	> git add . (add all untracked files)
-	> git commit -m 'first commit'
-	> git push origin master (to deliver changes into github)
-	> git pull origin master (to pull changes from github)
+### GIT COMMANDS ###
+> git init (first time only)
+> git remote add origin https://github.com/saikatmahapatra/sample-web-app-for-poc.git (first time only)
+> git remote set-url origin https://github.com/saikatmahapatra/sample-web-app-for-poc.git (first time only)
+> touch .gitignore (craete a .gitignore for excluding directories first time only)
+> git add . (add all untracked files)
+> git commit -m 'first commit'
+> git push origin master (to deliver changes into github)
+> git pull origin master (to pull changes from github)
+> git config credential.helper store (to store credential of repository)
