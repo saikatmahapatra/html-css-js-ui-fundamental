@@ -5,15 +5,15 @@ module.exports = function (grunt) {
     
 	watch : {
       // less : {        
-        // files: ['src/less/*.less'],
+        // files: ['src/less/**/*.less'],
         // tasks: ['less:development', 'less:production','notify:less']
       // },
       js   : {
-        files: ['src/js/*.js'],
+        files: ['src/js/**/*.js'],
         tasks: ['js', 'notify:js']
       },
 	  sass : {        
-        files: ['src/sass/*.scss'],
+        files: ['src/sass/**/*.scss'],
         tasks: ['sass','notify:sass']
       },
     },    
@@ -49,11 +49,11 @@ module.exports = function (grunt) {
 		toCrlf: {
 		  options: {
 			eol: 'crlf',
-			cssprefix: 'smui-icon-',
+			cssprefix: 'sm-icon',
 			previewhtml: 'svg-icon-test.html'
 		  },
 		  files: {
-			'dist/svg_css/svg_styles.css': ['src/svg/**/*.svg']
+			'dist/css/svg_to_css.css': ['src/img/**/*.svg']
 		  }
 		}
 	},	
@@ -223,7 +223,7 @@ module.exports = function (grunt) {
 			files: [{
 				expand: true,
 				cwd: 'src/sass/',
-				src: ['*.scss'],
+				src: ['**/*.scss'],
 				dest: 'dist/css/',
 				ext: '.css'
 			}]
@@ -238,8 +238,20 @@ module.exports = function (grunt) {
 			]
 		},
 		dist: {
-			src: ['dist/css/*.css']
+			src: ['dist/css/**/*.css']
 		}
+	},
+	
+	cssmin: {
+	  target: {
+		files: [{
+		  expand: true,
+		  cwd: 'dist/css',
+		  src: ['**/*.css', '!*.min.css'],
+		  dest: 'dist/css',
+		  ext: '.min.css'
+		}]
+	  }
 	}
 	
   });
@@ -261,11 +273,12 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-svg-css');
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-postcss');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
   
   grunt.registerTask('lint', ['jshint', 'csslint', 'bootlint']);
   grunt.registerTask('img', ['image']);
   grunt.registerTask('js', ['copy', 'concat', 'uglify']);
-  grunt.registerTask('css', ['less:development', 'less:production', 'sass','postcss']);
+  grunt.registerTask('css', ['less:development', 'less:production', 'sass','postcss', 'cssmin']);
   grunt.registerTask('default', ['watch']);
   
 }
