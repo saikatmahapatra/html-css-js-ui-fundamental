@@ -8,7 +8,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="Native JavaScript, jQuery Fundamental">
     <meta name="author" content="Saikat Mahapatra">	
-    <title>JS JQuery HTML Important Fundamenttal : UI Interview</title>
+    <title>UI Developer Fundamental of JS, jQuery, HTML, CSS</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -56,13 +56,8 @@
     <style>
         body {
             font-size: 0.875rem;
-            margin-top: 1.5rem;
-            margin-bottom: 2rem;
-        }
-        .example-container h1 {
-            font-size: 1.25rem;
-        }
-		
+            margin-top: 2rem;
+        }	
 		.scrollup {
 		  width: 40px;
 		  height: 40px;
@@ -76,17 +71,16 @@
 </head>
 
 <script>
-        console.log("Alert 1:  Before start of body Tag");
-
+    console.log("Alert 1:  Before start of body Tag");
 </script>
 
 <body onload="console.log('Alert 2:  body Onload');">
     <div class="container">
-        <h1 class="text-center">Native JavaScript, jQuery Fundamental Examples</h1>
+        <h1 class="h3 font-weight-normal text-center">HTML5 CSS3 JS JQuery Fundamental</h1>
         
-		<div class="row example-container border border-secondary mt-3 mb-3 p-3" id="getversion">            
+		<div class="row example-container my-3 p-3" id="getversion">            
             <div class="col-md-12">
-				<h1>Get jQuery Current Version</h1>
+				<h1 class="h4 font-weight-normal">Get jQuery Current Version</h1>
 				<div id="jq_ver"></div>
 				<p><code>console.log(jQuery.fn.jquery); // get current jquery version</code></p>
 				<script>
@@ -102,9 +96,9 @@
 			</div>
         </div><!--/.example-container-->
 
-        <div class="row example-container border border-secondary mt-3 mb-3 p-3" id="selector_ex_1">
+        <div class="row example-container my-3 p-3" id="selector_ex_1">
 			<div class="col-md-12">
-				<h1>jQuery Selector-Class,Id,Attribute,Attribute end with, Attribute starts with, attribute has word, parent, child,odd, even</h1>
+				<h1 class="h4 font-weight-normal">jQuery Selector-Class,Id,Attribute,Attribute end with, Attribute starts with, attribute has word, parent, child,odd, even</h1>
 				
 				<div class="row">
 					<div class="col-md-6">
@@ -206,9 +200,9 @@
             </script>
         </div><!--/.example-container-->
 
-        <div class="row example-container border border-secondary mt-3 mb-3 p-3" id="element_count">            
+        <div class="row example-container my-3 p-3" id="element_count">            
 			<div class="col-md-12">
-				<h1>Count DOM element - length property</h1>
+				<h1 class="h4 font-weight-normal">Count DOM element - length property</h1>
 				<a href="#" class="my-test-link">Link 1</a>
 				<a href="#" class="my-test-link">Link 2</a>
 				<a href="#" class="my-test-link">Link 3</a>			
@@ -228,9 +222,9 @@
             </script>
         </div><!--/.example-container-->
 
-        <div class="row example-container border border-secondary mt-3 mb-3 p-3" id="event-bublling">
+        <div class="row example-container my-3 p-3" id="event-bublling">
 			<div class="col-md-12">
-				<h1>Event Bubbling & Event Capturing? How to prevent? (Bubble Up, Trickle Down)</h1>
+				<h1 class="h4 font-weight-normal">Event Bubbling & Event Capturing? How to prevent? (Bubble Up, Trickle Down)</h1>
 				
 				<p>Event bubbling and capturing are two ways of event propagation in the HTML DOM API, when an event occurs in an element inside another element, and both elements have registered a handle for that event. The event propagation mode determines in which order the elements receive the event.</p>
 				<p>With bubbling, the event is first captured and handled by the innermost element and then propagated to outer elements. ****=> inner->outer in DOM tree</p>
@@ -270,9 +264,9 @@
 
         </div><!--/.example-container-->
 
-        <div class="row example-container border border-secondary mt-3 mb-3 p-3" id="traversing">
+        <div class="row example-container my-3 p-3" id="traversing">
 			<div class="col-md-12">
-				<h1>DOM Traversing - parent(), parents(), closest()</h1>
+				<h1 class="h4 font-weight-normal">DOM Traversing - parent(), parents(), closest()</h1>
 				<p><strong>parent() </strong> travels only single level UP DOM tree</p>
 				<p><strong>parents() </strong> travels all parents UP DOM tree...to root element i.e. body to html</p>
 				<p><strong>closest() </strong> find closest match item</p>
@@ -325,9 +319,9 @@
 			</div>
         </div><!--/.example-container-->
 
-        <div class="row example-container border border-secondary mt-3 mb-3 p-3" id="empty_remove_detach">
+        <div class="row example-container my-3 p-3" id="empty_remove_detach">
 			<div class="col-md-12">
-				<h1>Difference: empty(), remove(), detach()</h1>
+				<h1 class="h4 font-weight-normal">Difference: empty(), remove(), detach()</h1>
 				<p><strong>empty() --> </strong> will remove only child content.
 				<code>$("#content_p_1").empty();</code> empty the inner content only, black p tag is visible via firebug</p>
 				<p><strong>remove() --> </strong> will remove tag+child content.
@@ -347,9 +341,9 @@
 			</div>
         </div><!--/.example-container-->
 
-        <div class="row example-container border border-secondary mt-3 mb-3 p-3" id="form-controls">
+        <div class="row example-container my-3 p-3" id="form-controls">
             <div class="col-md-12">
-				<h1>Form Controls - Get Check box, Radio button, Multi Select Values</h1>
+				<h1 class="h4 font-weight-normal">Form Controls - Get Check box, Radio button, Multi Select Values</h1>
 				<div class="col-md-8">
 					<form name="customer-data" action="#form-controls" method="post" class="" role="form">
 
@@ -418,9 +412,9 @@
         </div><!--/.example-container-->
 
 
-        <div class="row example-container border border-secondary mt-3 mb-3 p-3" id="higher_order_function">
+        <div class="row example-container my-3 p-3" id="higher_order_function">
             <div class="col-md-12">
-				<h1>Callback Function / Higher Order Function</h1>
+				<h1 class="h4 font-weight-normal">Callback Function / Higher Order Function</h1>
 				<p>A higher-order function is a function which receives a function as parameter or even return a function.</p>
 				<p><code>$(button).click(<b>function(){....some code ....}</b>)</code></p>
 				<script>
@@ -434,9 +428,9 @@
         </div><!--/.example-container-->
 		
 		
-		<div class="row example-container border border-secondary mt-3 mb-3 p-3" id="multiselect_selectbox_value">
+		<div class="row example-container my-3 p-3" id="multiselect_selectbox_value">
             <div class="col-md-12">
-				<h1>Get values from multi select box</h1>
+				<h1 class="h4 font-weight-normal">Get values from multi select box</h1>
 				<div class="row">
 					<div class="col-md-3">
 						<select class="form-control" name="ddMetroCity" id="ddMetroCity" multiple="multiple">
@@ -487,9 +481,9 @@
 		
 		
 		
-		<div class="row example-container border border-secondary mt-3 mb-3 p-3" id="always_scroll_to_bottom">
+		<div class="row example-container my-3 p-3" id="always_scroll_to_bottom">
             <div class="col-md-12">
-				<h1>Always scrolled to bottom</h1>
+				<h1 class="h4 font-weight-normal">Always scrolled to bottom</h1>
 				<div class="row">
 					<div class="col-md-3">
 						<div id="dynamic-msg" class="border border-1 border-primary scrollable-b" style="padding:2px; height: 150px; overflow-y: auto;">
@@ -529,9 +523,9 @@
 			</div>
         </div><!--/.example-container-->
 		
-		<div class="row example-container border border-secondary mt-3 mb-3 p-3" id="jquery_clone_element">
+		<div class="row example-container my-3 p-3" id="jquery_clone_element">
             <div class="col-md-12">
-				<h1>Clone HTML Element : Make value empty & append at last | .not(':first') selector</h1>
+				<h1 class="h4 font-weight-normal">Clone HTML Element : Make value empty & append at last | .not(':first') selector</h1>
 				<div class="row">
 					<div class="col-md-6">
 						<p><code>$(this).parents("div.clonable-element").clone().find("input:text, input:password").val("").end().insertAfter("div.clonable-element:last");</code></p>
@@ -574,83 +568,67 @@
         </div><!--/.example-container-->
 		
 		
-		<div class="row example-container border border-secondary mt-3 mb-3 p-3" id="css_display">
+		<div class="row example-container my-3 p-3" id="css_display">
             <div class="col-md-12">
-				<h1>CSS Display : inline vs block vs inline-block, flex</h1>
-				
-				<h4>display: inline</h4>
-				<p>
-				css width, height property does not apply. top bottom margin padding are not applied but does not render.
-				</p>
-				<span class="bg-success dinline">India</span>
-				<span class="bg-success dinline">Australia</span>
-				<span class="bg-success dinline">United States</span>
-				
-				<h4>display: block</h4>
-				<p></p>
-				<span class="bg-warning dblock">India</span>
-				<span class="bg-warning dblock">Australia</span>
-				<span class="bg-warning dblock">United States</span>
-				
-				<h4>display: inline-block</h4>
-				<span class="bg-info dinlineblock">India</span>
-				<span class="bg-info dinlineblock">Australia</span>
-				<span class="bg-info dinlineblock">United States</span>
-				
-				<h4>display: flex</h4>
-				
-				<div class="f-container">
-					<div class="bg-info f-item">1</div>
-					<div class="bg-info f-item">2</div>
-					<div class="bg-info f-item">3</div>
-					<div class="bg-info f-item">4</div>
-					<div class="bg-info f-item">5</div>
-					<div class="bg-info f-item">6</div>
-					<div class="bg-info f-item">7</div>
-					<div class="bg-info f-item">8</div>
-					<div class="bg-info f-item">9</div>
-					<div class="bg-info f-item">10</div>
-				</div>
+				<h1 class="h4 font-weight-normal">CSS Display : inline vs block vs inline-block</h1>
 				
 				<style>
-					.f-container{
-						display: flex;
-						flex-direction: column;
-					}
-					.f-item{
-						height: 120px;
-						width: 120px;
-						margin: 5px;
-						padding: 5px;
-					}
-					.dinline{
-						display: inline;
-						margin: 10px;
-						padding: 5px;
-						height: 100px;
-						width: 100px;
-					}
-					.dblock{
-						display: block;
-						margin: 10px;
-						padding: 5px;
-						height: 100px;
-						width: 100px;
-					}
-					.dinlineblock{
-						display: inline-block;
-						margin: 10px;
-						padding: 5px;
-						height: 100px;
-						width: 100px;
-					}
-				</style>				
+				.display-inline{
+					display: inline;
+					height: 80px;
+					width:150px;
+					margin-top: 15px;
+					margin-right: 15px;
+					margin-bottom: 15px;
+					margin-left: 15px;
+					padding-top: 15px;
+					padding-right: 15px;
+					padding-bottom: 15px;
+					padding-left: 15px;
+				}
+				.display-block{
+					display: block;
+					height: 80px;
+					width:150px;
+					margin-top: 15px;
+					margin-right: 15px;
+					margin-bottom: 15px;
+					margin-left: 15px;
+					padding-top: 15px;
+					padding-right: 15px;
+					padding-bottom: 15px;
+					padding-left: 15px;
+				}
+				.display-inline-block{
+					display: inline-block;
+					height: 80px;
+					width:150px;
+					margin-top: 15px;
+					margin-right: 15px;
+					margin-bottom: 15px;
+					margin-left: 15px;
+					padding-top: 15px;
+					padding-right: 15px;
+					padding-bottom: 15px;
+					padding-left: 15px;
+				}
+				</style>
+				
+				<h5>display: inline</h5>
+				<p>India is a vast South Asian country with diverse terrain – from <span class="bg-info display-inline">Himalayan</span> peaks to Indian Ocean coastline – and history reaching back 5 millennia. In the north, Mughal Empire landmarks include Delhi’s Red Fort complex and massive Jama Masjid mosque, plus Agra’s iconic <span class="bg-info display-inline">Taj Mahal</span> mausoleum. Pilgrims bathe in the Ganges in Varanasi, and Rishikesh is a yoga centre and base for Himalayan trekking</p>
+				
+				<h5>display: block</h5>
+				<p>India is a vast South Asian country with diverse terrain – from <span class="bg-info display-block">Himalayan</span> peaks to Indian Ocean coastline – and history reaching back 5 millennia. In the north, Mughal Empire landmarks include Delhi’s Red Fort complex and massive Jama Masjid mosque, plus Agra’s iconic <span class="bg-info display-block">Taj Mahal</span> mausoleum. Pilgrims bathe in the Ganges in Varanasi, and Rishikesh is a yoga centre and base for Himalayan trekking</p>
+				
+				<h5>display: inline-block</h5>
+				<p>India is a vast South Asian country with diverse terrain – from <span class="bg-info display-inline-block">Himalayan</span> peaks to Indian Ocean coastline – and history reaching back 5 millennia. In the north, Mughal Empire landmarks include Delhi’s Red Fort complex and massive Jama Masjid mosque, plus Agra’s iconic <span class="bg-info display-inline-block">Taj Mahal</span> mausoleum. Pilgrims bathe in the Ganges in Varanasi, and Rishikesh is a yoga centre and base for Himalayan trekking</p>								
 			</div>
 		</div><!--/.example-container-->
 		
 		
     </div><!--/.container-->
 	<button class="btn btn-primary scrollup" data-toggle="tooltip" data-placement="left" data-original-title="Scroll to top">Up</button>
+	<footer class="text-center">Owner & Developed By - Saikat Mahapatra</footer>
 </body><!--/body-->
 
 <script>
