@@ -23,11 +23,10 @@
     "socket.io": "^2.1.1"
   },
   "devDependencies": {
-    "@ckeditor/ckeditor5-build-classic": "^11.0.1",
     "autoprefixer": "^8.6.5",
     "express": "^4.16.3",
-    "grunt": "^1.0.1",
-    "grunt-bootlint": "^0.10.2",
+    "grunt": "^1.0.3",
+    "grunt-bootlint": "^0.11.1",
     "grunt-cli": "^1.2.0",
     "grunt-contrib-clean": "^1.1.0",
     "grunt-contrib-concat": "^1.0.1",
@@ -38,7 +37,7 @@
     "grunt-contrib-less": "^1.4.1",
     "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-uglify": "^3.0.1",
-    "grunt-contrib-watch": "^1.0.0",
+    "grunt-contrib-watch": "^1.1.0",
     "grunt-cssjanus": "^0.4.0",
     "grunt-image": "^2.5.0",
     "grunt-includes": "^1.0.0",
