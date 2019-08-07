@@ -17,16 +17,16 @@
         body {
             margin-top: 5rem;
         }
-
+        
         .chatWindowX {
             bottom: 0;
             position: fixed;
         }
-
+        
         .txt-white {
             color: #fff;
         }
-
+        
         .bg-cux {
             background: linear-gradient(to bottom, #0256A0, #0D2B48);
             background: -moz-linear-gradient(top, #0256A0, #0D2B48);
@@ -35,11 +35,11 @@
             background: -webkit-linear-gradient(top, #0256A0, #0D2B48);
             background: -webkit-gradient(linear, left top, left bottom, from(#0256A0), to(#0D2B48));
         }
-
+        
         .msg-txt {
             padding: 0;
         }
-
+        
         .messageContainer {
             margin: 0;
             padding: 0 10px 10px;
@@ -47,17 +47,17 @@
             min-height: 300px;
             overflow-y: auto;
         }
-
+        
         .sent-msg-txt {
             padding-left: 0;
             margin-left: 0;
         }
-
+        
         .receive-msg-txt {
             padding-bottom: 20px !important;
             margin-right: 0;
         }
-
+        
         .messages {
             background: #e1e1e1;
             padding: 10px;
@@ -65,21 +65,21 @@
             /* box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); */
             max-width: 100%;
         }
-
+        
         .sent-msg-container .messages {
             background: #dcf8c6;
         }
-
+        
         .messages>p {
             font-size: 13px;
             margin: 0 0 0.2rem 0;
         }
-
+        
         .messages>time {
             font-size: 11px;
             color: #999;
         }
-
+        
         .chat-msg-container {
             padding: 10px;
             overflow: hidden;
@@ -87,16 +87,16 @@
             margin-left: 0px;
             margin-right: 0px;
         }
-
+        
         img {
             display: block;
             width: 100%;
         }
-
+        
         .avatar {
             position: relative;
         }
-
+        
         .receive-msg-container>.avatar:after {
             content: "";
             position: absolute;
@@ -108,12 +108,12 @@
             border-left-color: rgba(0, 0, 0, 0);
             border-bottom-color: rgba(0, 0, 0, 0);
         }
-
+        
         .sent-msg-container {
             justify-content: flex-end;
             align-items: flex-end;
         }
-
+        
         .sent-msg-container>.avatar:after {
             content: "";
             position: absolute;
@@ -126,7 +126,7 @@
             border-top-color: transparent;
             box-shadow: 1px 1px 2px rgba(black, 0.2);
         }
-
+        
         .receive-msg-container>.msg-txt:after {
             content: "";
             position: absolute;
@@ -139,7 +139,7 @@
             border-left-color: rgba(0, 0, 0, 0);
             border-bottom-color: rgba(0, 0, 0, 0);
         }
-
+        
         .sent-msg-container>.msg-txt:after {
             content: "";
             position: absolute;
@@ -156,32 +156,32 @@
             top: 0;
             right: -10px; */
         }
-
+        
         .receive-msg-txt>time {
             float: right;
         }
-
+        
         .messageContainer::-webkit-scrollbar-track {
             -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
             background-color: #F5F5F5;
         }
-
+        
         .messageContainer::-webkit-scrollbar {
             width: 12px;
             background-color: #F5F5F5;
         }
-
+        
         .messageContainer::-webkit-scrollbar-thumb {
             -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
             background-color: #555;
         }
-
+        
         .btn-group.dropup {
             position: fixed;
             left: 0px;
             bottom: 0;
         }
-
+        
         a.chat-action {
             color: #fff;
         }
@@ -189,7 +189,7 @@
 </head>
 
 <body>
-    <main role="main" class="container">        
+    <main role="main" class="container">
         <div id="loginFormContainer" class="row justify-content-center">
             <div class="col-xs-12 col-sm-8 col-md-4">
                 <div class="card">
@@ -200,8 +200,7 @@
                         <form id="loginForm">
                             <div class="form-group">
                                 <label>Nickname</label>
-                                <input type="text" class="form-control" maxlength="15" name="username" id="username" placeholder="Please enter your username"
-                                    required>
+                                <input type="text" class="form-control" maxlength="15" name="username" id="username" placeholder="Please enter your username" required>
                                 <br>
                                 <button type="submit" class="btn btn-primary"><i class="fa fa-fw fa-check-circle"></i> Login</button>
                             </div>
@@ -247,7 +246,7 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="node_modules/socket.io-client/dist/socket.io.js"></script>
-    <script src="../src/js/chat_app.js"></script>
+    <script src="assets/src/js/chat_app.js"></script>
 </body>
 
 </html>
