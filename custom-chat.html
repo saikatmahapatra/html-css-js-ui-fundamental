@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>CitiChat</title>
+    <title>LiveChat</title>
     <meta charset="UTF-8" />
     <meta name="referrer" content="no-referrer" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -1123,11 +1123,11 @@
     <div id="webChatBoxwebchat" class="web-chat">
         <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, height=device-height">
         <div class="web-chat-header" id="webChatBoxchatheader" style="top: 0px; bottom: inherit;">
-            <a onclick="CitiChatService.action('close', 'webChatBox')">
+            <a onclick="LiveChatService.action('close', 'webChatBox')">
                 <div class="web-chat-header-cross" id="webChatBoxheadercrossbtn" title="Close" style="visibility: visible;">✕</div>
             </a>
-            <div class="web-chat-header-label" style="width: 70%" id="webChatBoxheaderlabel">Citi Bot</div>
-            <a onclick="CitiChatService.action('maxmin', 'webChatBox')">
+            <div class="web-chat-header-label" style="width: 70%" id="webChatBoxheaderlabel">Live Bot</div>
+            <a onclick="LiveChatService.action('maxmin', 'webChatBox')">
                 <div class="web-chat-header-maxmin" id="webChatBoxheadermaxminbtn" title="Minimize">➖</div>
             </a>
         </div>
@@ -1139,7 +1139,7 @@
                 <div class="web-chat-date-separate"> <span> Today </span> </div>
             </div>
             <div class="web-chat-body-message ">
-                <div class="web-chat-body-message-timestamp-chatbot"> <span><span>Citi Bot</span> 5:32 PM</span>
+                <div class="web-chat-body-message-timestamp-chatbot"> <span><span>Live Bot</span> 5:32 PM</span>
                 </div>
             </div>
 			
@@ -1168,10 +1168,10 @@
         <div class="web-chat-footer" id="webChatBoxchatfooter" style="display: block; height: 70px;">
             <div class="web-chat-footer-agent-typing"><span id="webChatBoxagenttyping">Agent is typing<label class="web-chat-footer-agent-typing-text" id="webChatBoxagenttypingspan">......</label></span></div>
             <div class="web-chat-footer-first-div" id="webChatBoxchatfooterfirstdiv" style="width: 100%;">
-                <textarea placeholder="Type a message" title="Type a message" class="web-chat-textarea" id="webChatBoxtextinput" onkeypress="return CitiChatService.action('keypress', 'webChatBox', event);" onkeyup="return CitiChatService.action('keyup', 'webChatBox', event);" onpaste="return CitiChatService.action('paste', 'webChatBox', event);" cols="20" rows="2" style="overflow-y: hidden; height: 35px;"></textarea>
+                <textarea placeholder="Type a message" title="Type a message" class="web-chat-textarea" id="webChatBoxtextinput" onkeypress="return LiveChatService.action('keypress', 'webChatBox', event);" onkeyup="return LiveChatService.action('keyup', 'webChatBox', event);" onpaste="return LiveChatService.action('paste', 'webChatBox', event);" cols="20" rows="2" style="overflow-y: hidden; height: 35px;"></textarea>
             </div>
             <div class="web-chat-footer-second-div" id="webChatBoxchatfooterseconddiv">
-                <a onclick="CitiChatService.action('send', 'webChatBox')">
+                <a onclick="LiveChatService.action('send', 'webChatBox')">
                     <div class="web-chat-footer-sendbtn" id="webChatBoxsendbtn" title="Send" style="display: none;"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAABX0lEQVRIS7XVu0oDQRQG4P9ns0GjkKhd0mgjai1YWVgGlMQ30AeImMoLBAIBL1XAF/AN3ASFlBZWQmpvjTZJpyZ4C0mWI7O6EkNidpHZ8szw7Zk5c2aIPl94+2zsvdFK0EYCwJxAomoqwSqAKzFQDA2ZxfrB8nMvgt3Byez5UPWplhaRLQDhfj/+jtdJHkbHI/mH7FKjc+4veDh9Gmu32wVA5geAXcMsBwKB5Ed+peIO/MAKte3WpQhi/tCv2SQqhmEuuLgDq+VXHmsX/jPtToHl2ERkUW2LAwc3rB0R2euVaSY+44RzpRtPCyG52zxa3adT/bfmfb9CKTgTn0WudO0Vr4dGglM0N6012HL8Vzq+cYPrDKYsSyDJQev0gxMsKPhWINODYDXuFSd4RzN18gJg1AvsA3/VB2vbCi3FIyx9x01bg2hraa2XkMK1XJtuc2i56F1cy9PU2db/fUw/AQlU93RNQiyZAAAAAElFTkSuQmCC" title="Send"> </div>
                 </a>
             </div>
