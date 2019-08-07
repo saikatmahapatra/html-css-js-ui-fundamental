@@ -1,3 +1,3 @@
-# Twitter Bootstrap Demo App
+# Bootstrap demo web app
 
-Web application using twitter bootstrap, javascript, jquery, html5, less, sass, node.js, grunt etc web technologies. This app is basically developed for self learning and PoC purpose
+Web app developed using bootstrap, javascript, jquery, html5, less, sass, node.js, grunt etc. This app is basically developed for self learning and PoC purpose
