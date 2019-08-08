@@ -19,12 +19,12 @@ module.exports = function(grunt) {
         },
 
         notify: {
-            less: {
-                options: {
-                    title: 'My App',
-                    message: 'Ok. LESS done'
-                }
-            },
+            // less: {
+            //     options: {
+            //         title: 'My App',
+            //         message: 'Ok. LESS done'
+            //     }
+            // },
             sass: {
                 options: {
                     title: 'My App',
@@ -58,21 +58,21 @@ module.exports = function(grunt) {
             }
         },
 
-        less: {
-            development: {
-                files: {
-                    'assets/dist/css/styles.css': 'assets/src/less/styles.less'
-                }
-            },
-            production: {
-                options: {
-                    compress: true
-                },
-                files: {
-                    'assets/dist/css/styles.min.css': 'assets/src/less/styles.less'
-                }
-            }
-        },
+        // less: {
+        //     development: {
+        //         files: {
+        //             'assets/dist/css/styles.css': 'assets/src/less/styles.less'
+        //         }
+        //     },
+        //     production: {
+        //         options: {
+        //             compress: true
+        //         },
+        //         files: {
+        //             'assets/dist/css/styles.min.css': 'assets/src/less/styles.less'
+        //         }
+        //     }
+        // },
 
         copy: {
             main: {
@@ -276,7 +276,7 @@ module.exports = function(grunt) {
     grunt.registerTask('lint', ['jshint', 'csslint', 'bootlint']);
     grunt.registerTask('img', ['image']);
     grunt.registerTask('js', ['copy', 'concat', 'uglify']);
-    grunt.registerTask('css', ['less:development', 'less:production', 'sass', 'postcss', 'cssmin']);
+    grunt.registerTask('css', ['sass', 'postcss', 'cssmin']);
     grunt.registerTask('default', ['watch']);
 
 }

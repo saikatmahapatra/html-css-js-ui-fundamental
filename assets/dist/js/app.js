@@ -4,7 +4,7 @@
 *
 * @Author Saikat Mahapatra
 * @version 1.0.0
-* @repository https://github.com/saikatmahapatra/sample-web-app-for-poc.git
+* @repository https://github.com/saikatmahapatra/bootstrap-demo-app.git
 * @license ISC
 */
 
