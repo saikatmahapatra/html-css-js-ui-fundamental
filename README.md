@@ -1,3 +1,7 @@
-# Bootstrap demo web app
+# Bootstrap UI Library
 
-Web app developed using bootstrap, javascript, jquery, html5, less, sass, node.js, grunt etc. This app is basically developed for self learning and PoC purpose
+Core UI library for staring any project. Its having features like bootstrap SCSS theme customization, front end build tool gulp (old grunt removed).
+
+Other out the box features -
+1) Jquery, JavaScript Core conceptual example
+2) Video JS project - HTML5 video player
