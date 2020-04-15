@@ -1,3 +1,4 @@
 /node_modules
 package-lock.json
 /.vscode
+/proxy-mock-server/node_modules/
