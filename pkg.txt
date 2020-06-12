@@ -24,6 +24,7 @@
     "moment": "2.x",
     "node-sass": "3.x",
     "node-yaml": "2.x",
+    "path": "^0.12.7",
     "pdfkit": "0.8.0",
     "progress": "1.1.8",
     "simple-server": "1.0.1",
