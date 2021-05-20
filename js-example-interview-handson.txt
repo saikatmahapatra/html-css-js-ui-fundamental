@@ -1,3 +1,68 @@
+===================================================================================
+AMDOCS, Pune Glassdoor Rating 3.9
+===================================================================================
+//Write a function that will return sum of values inside the array.
+var array1 = [1,2,3,[4,5,[6,7,[8,9]]],[10,11,[12,13]]];
+
+console.log(newArr);
+
+function findDepth(array, depth){
+	if(depth >0) {
+		var newArr = array1.flat(3).reduce(function(item, currentval){
+		if(item.isArray)
+		return item+currentval;
+	}
+});
+	
+}
+
+
+// Count array elementFromPoint
+
+var arr = ['a', 'b', 'c', 'd', 'a', 'd', 'a', 'm', 'k'];
+arr.sort();
+var count = 0;
+var currElm = null;
+for(var i = 0 ; i<arr.length; i++) {
+    
+    if(arr[i] != currElm){
+        if(count>0){
+            console.log('in for curr '+currElm+' count =='+count);
+        }
+         currElm = arr[i];
+         count = 1;
+    } else {
+        count++;
+    }
+    currElm = arr[i];
+}
+if(count>0){
+            console.log('curr '+currElm+' count =='+count);
+        }
+
+
+
+var fruits = ['apple', 'mango', 'banana', 'strawberry', 'orange'];
+fruits.forEach(function(item, index, array){
+	console.log(item, index, array);
+})
+
+fruits.splice()
+
+
+
+
+let users = [{name: 'john', age: 30}, {name: 'doe', age: 31}, {name: 'pal', age: 32}];
+let newUsers = users.map((currVal, index, arr)=>{
+	return [currVal.age]+1;
+});
+
+
+
+===================================================================================
+Luxoft, Bangalore, Glasdoor Rating 4.2
+===================================================================================
+
 // Arrow Function
 function add(a,b) {
 	console.log(a+b);
@@ -78,127 +143,9 @@ var name2 = {
 name2.myGetName = name.getName.bind(name2);
 
 
-
-
-
-
-
-AMDOCS
-
-===========================================
-//Write a function that will return sum of values inside the array.
-var array1 = [1,2,3,[4,5,[6,7,[8,9]]],[10,11,[12,13]]];
-
-console.log(newArr);
-
-function findDepth(array, depth){
-	if(depth >0) {
-		var newArr = array1.flat(3).reduce(function(item, currentval){
-		if(item.isArray)
-		return item+currentval;
-	}
-});
-	
-}
-
-
-// Count array elementFromPoint
-
-var arr = ['a', 'b', 'c', 'd', 'a', 'd', 'a', 'm', 'k'];
-arr.sort();
-var count = 0;
-var currElm = null;
-for(var i = 0 ; i<arr.length; i++) {
-    
-    if(arr[i] != currElm){
-        if(count>0){
-            console.log('in for curr '+currElm+' count =='+count);
-        }
-         currElm = arr[i];
-         count = 1;
-    } else {
-        count++;
-    }
-    currElm = arr[i];
-}
-if(count>0){
-            console.log('curr '+currElm+' count =='+count);
-        }
-
-
-
-var fruits = ['apple', 'mango', 'banana', 'strawberry', 'orange'];
-fruits.forEach(function(item, index, array){
-	console.log(item, index, array);
-})
-
-fruits.splice()
-
-
-
-
-let users = [{name: 'john', age: 30}, {name: 'doe', age: 31}, {name: 'pal', age: 32}];
-let newUsers = users.map((currVal, index, arr)=>{
-	return [currVal.age]+1;
-});
-
-
-===============================================================================
-var arr = [1, 2, 3, 4, 5];
-var avg = arr.average();
-console.log(avg);
-
-Array.prototype.average = function(){
-	this.reduce(function(accumulator, currentVal){
-		return ((accumulator+currentVal)/this.length);
-	});
-}
-
-var arr = [1, 2, 3, 4, 5];
-var avg = arr.average();
-console.log(avg);
-
-
-//
-var arr1 = "john".split(''); //['j', 'o', 'h', 'n']
-var arr2 = arr1.reverse(); // ['n', 'h', 'o', 'j']
-var arr3 = "jones".split(''); // ['j', 'o', 'n', 'e', 's']
-arr2.push(arr3); // ['n', 'h', 'o', 'j', ['j', 'o', 'n', 'e', 's']]
-console.log("array 1: length=" + arr1.length + " last=" + arr1.slice(-1)); //array 1: length=5 last=j,o,n,e,s
-console.log("array 2: length=" + arr2.length + " last=" + arr2.slice(-1)); //array 2: length=5 last=j,o,n,e,s
-
-
-
-//
-const length = 4;
-const numbers = []; // 1, 2, 3, 4
-for (var i = 0; i < length; i++);{
-  numbers.push(i + 1);
-}
-
-//Object.freeze() vs const
-
-
-
-var name = {
-	fn: 'saikat',
-	ln: 'm',
-	getName: function(){
-		return this.fn+''+this.ln;
-	}
-}
-
-var name2 = {
-	fn : 'ashoke',
-	ln: 'm'
-}
-
-name2.myGetName = name.getName.bind(name2);
-
-
-=========================================================================================
-HCL Tech
-==========================================================================================
+===================================================================================
+HCL Tech, Bangalore, Glasdoor Rating 3.5
+===================================================================================
 
 function outer(){
 	var a = 10;
@@ -275,11 +222,8 @@ for(var i = 0; i<array1.length; i++) {
 
 
 
-
-
-
 ==========================================================================
-OpenText
+OpenText (Product Based) - Codility
 ==========================================================================
 // you can write to stdout for debugging purposes, e.g.
 // console.log('this is a debug message');
@@ -317,10 +261,6 @@ function solution(S) {
     return max;
     
 }
-
-
-
-
 
 Compilation successful.
 
