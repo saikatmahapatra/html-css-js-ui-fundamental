@@ -1,0 +1,61 @@
+==========================================================================
+OpenText (Product Based) - Codility
+==========================================================================
+// you can write to stdout for debugging purposes, e.g.
+// console.log('this is a debug message');
+
+// you can write to stdout for debugging purposes, e.g.
+// console.log('this is a debug message');
+
+function solution(S) {
+    // write your code in JavaScript (Node.js 8.9.4)
+    
+    var splitted = S.split('');
+    var newArr = [];
+    var max  = 0;
+    
+    // for(var i = 0; i<splitted.length; i++) {
+    //     let n = splitted[i]+''+splitted[i+1];
+    //     if(n.length == 2){
+    //         newArr.push(parseInt(n));
+    //     }
+    // }
+
+    splitted.forEach(function(currentVal, index, array){
+        let n = currentVal+''+array[index+1];
+        if(n.length == 2){
+            newArr.push(parseInt(n));
+        }
+    })
+    
+    if(newArr.length > 0) {
+        max = newArr.reduce(function(accumulator, currentItem){
+            return Math.max(accumulator, currentItem);
+        });
+    }
+
+    return max;
+    
+}
+
+Compilation successful.
+
+Example test:   '50552'
+Output:
+[ '5', '0', '5', '5', '2' ]
+OK
+
+Example test:   '10101'
+Output:
+[ '1', '0', '1', '0', '1' ]
+OK
+
+Example test:   '88'
+Output:
+[ '8', '8' ]
+OK
+
+Producing output might cause your solution to fail performance tests.
+You should remove code that produces output before you submit your solution.
+
+Detected some errors.

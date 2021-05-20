@@ -1,0 +1,55 @@
+//Write a function that will return sum of values inside the array.
+var array1 = [1,2,3,[4,5,[6,7,[8,9]]],[10,11,[12,13]]];
+
+console.log(newArr);
+
+function findDepth(array, depth){
+	if(depth >0) {
+		var newArr = array1.flat(3).reduce(function(item, currentval){
+		if(item.isArray)
+		return item+currentval;
+	}
+});
+	
+}
+
+
+// Count array elementFromPoint
+
+var arr = ['a', 'b', 'c', 'd', 'a', 'd', 'a', 'm', 'k'];
+arr.sort();
+var count = 0;
+var currElm = null;
+for(var i = 0 ; i<arr.length; i++) {
+    
+    if(arr[i] != currElm){
+        if(count>0){
+            console.log('in for curr '+currElm+' count =='+count);
+        }
+         currElm = arr[i];
+         count = 1;
+    } else {
+        count++;
+    }
+    currElm = arr[i];
+}
+if(count>0){
+            console.log('curr '+currElm+' count =='+count);
+        }
+
+
+
+var fruits = ['apple', 'mango', 'banana', 'strawberry', 'orange'];
+fruits.forEach(function(item, index, array){
+	console.log(item, index, array);
+})
+
+fruits.splice()
+
+
+
+
+let users = [{name: 'john', age: 30}, {name: 'doe', age: 31}, {name: 'pal', age: 32}];
+let newUsers = users.map((currVal, index, arr)=>{
+	return [currVal.age]+1;
+});

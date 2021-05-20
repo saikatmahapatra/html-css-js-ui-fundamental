@@ -1,0 +1,78 @@
+// Arrow Function
+function add(a,b) {
+	console.log(a+b);
+}
+
+add = (a,b) => {console.log(a+b)}
+add(7,3); // 10
+
+// Pure Function
+
+function test(a){
+	console.log(a*5);
+}
+test(10); //
+
+
+for(var i = 0; i<5 ;i++) {
+	setTimeout(()=>console.log(i));
+}
+// 5 times 5 due to call stack, event loop, callback queue
+
+for(let i = 0; i<5 ;i++) {
+	setTimeout(()=>console.log(i));
+}
+// 0, 1, 2, 3, 4 due to scope of let
+
+
+
+var arr = [1, 2, 3, 4, 5];
+var avg = arr.average();
+console.log(avg);
+
+Array.prototype.average = function(){
+	this.reduce(function(accumulator, currentVal){
+		return ((accumulator+currentVal)/this.length);
+	});
+}
+
+var arr = [1, 2, 3, 4, 5];
+var avg = arr.average();
+console.log(avg);
+
+
+//
+var arr1 = "john".split(''); //['j', 'o', 'h', 'n']
+var arr2 = arr1.reverse(); // ['n', 'h', 'o', 'j']
+var arr3 = "jones".split(''); // ['j', 'o', 'n', 'e', 's']
+arr2.push(arr3); // ['n', 'h', 'o', 'j', ['j', 'o', 'n', 'e', 's']]
+console.log("array 1: length=" + arr1.length + " last=" + arr1.slice(-1)); //array 1: length=5 last=j,o,n,e,s
+console.log("array 2: length=" + arr2.length + " last=" + arr2.slice(-1)); //array 2: length=5 last=j,o,n,e,s
+
+
+
+//
+const length = 4;
+const numbers = []; // 1, 2, 3, 4
+for (var i = 0; i < length; i++);{
+  numbers.push(i + 1);
+}
+
+//Object.freeze() vs const
+
+
+
+var name = {
+	fn: 'saikat',
+	ln: 'm',
+	getName: function(){
+		return this.fn+''+this.ln;
+	}
+}
+
+var name2 = {
+	fn : 'ashoke',
+	ln: 'm'
+}
+
+name2.myGetName = name.getName.bind(name2);
