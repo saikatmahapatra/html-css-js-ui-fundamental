@@ -1,3 +1,4 @@
+// what is closure
 function outer(){
 	var a = 10;
 	function inner(){
@@ -9,7 +10,7 @@ function outer(){
 outer();
 
 
-
+// what is curring function
 sum(23)(22)(66)(6)
 
 function sum(){
@@ -22,6 +23,7 @@ function sum(){
 	}
 }
 
+// classical vs prototypal inheritance
 var u1 = new User();
 var u2 = new User();
 
@@ -30,6 +32,7 @@ User.prototype.getName = function(){
 }
 
 
+// what is promise
 var p = new Promise(function(resolve, reject){
 	
 })
@@ -45,7 +48,7 @@ var p = new Promise(function(resolve, reject){
 .finally();
 
 
-
+// Flat this array
 
 let arr = [[1, 2],[3, 4, [5, 6, [7, 8], 9]],[10, [11, 12]]];
 let arr = [[1, 2],[3, 4, [5, 6, [7, 8], 9]],[10, [11, 12]]];
@@ -56,7 +59,7 @@ arr.flat(Infinity)
 (12) [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
 
-
+// Remove Duplicate Elements from Array
 var array1 = [1,2,3,4,5,2,4,24,2,4];
 var duplicateArray = [];
 for(var i = 0; i<array1.length; i++) {
