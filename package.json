@@ -6,7 +6,8 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "gulp watch",
-        "build": "gulp build"
+        "build": "gulp build",
+        "compile": "babel src/es6 --out-dir .compiled --source-maps --watch"
     },
     "author": "Saikat Mahapatra",
     "license": "ISC",
