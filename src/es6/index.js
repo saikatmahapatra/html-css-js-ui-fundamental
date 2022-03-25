@@ -51,3 +51,16 @@ let person = new class {
         return 'name is' + this.name;
     }
 }('Saikat Mahapatra');
+
+//Inheritance -prototypal
+function Animal(name){
+    this.name = name;
+}
+var cat = new Animal('cat');
+Animal.prototype.eatingHabit = function(eat) {
+    console.log(this.name + ' can eat '+eat)
+}
+cat.eatingHabit('milk');
+
+var dog = new Animal('Dog');
+dog.eatingHabit('meat');
