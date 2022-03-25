@@ -72,7 +72,7 @@ class Animal {
         this.name = name;
     }
     getName() {
-        console.log('name of the animal is '+this.name);
+        onsole.log('parent getName(). name => '+ this.name);
     }
 }
 
@@ -86,6 +86,13 @@ class Cat extends Animal {
         this.color = 'red';
     }
 
+    // method shadowing: child can have same method as parent. In that case parent method get shadowed. This is known as
+    // method shadowing
+    // to call parent's method we need to use super.methodName();
+    getName() {
+        super.getName();
+        console.log('child getName(). name => '+ this.name);
+    }
     
 
     eatingHabit() {
