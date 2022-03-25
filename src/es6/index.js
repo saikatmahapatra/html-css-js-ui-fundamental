@@ -64,3 +64,36 @@ cat.eatingHabit('milk');
 
 var dog = new Animal('Dog');
 dog.eatingHabit('meat');
+
+//ES6 inheritance using extends, super
+
+class Animal {
+    constructor(name) {
+        this.name = name;
+    }
+    getName() {
+        console.log('name of the animal is '+this.name);
+    }
+}
+
+class Cat extends Animal {
+   
+    constructor(name) {
+        super(name); 
+        // if we dont call super(), we will get Uncaught ReferenceError: 
+        // Must call super constructor in derived class before accessing 'this' or returning from 
+        // derived constructor
+        this.color = 'red';
+    }
+
+    
+
+    eatingHabit() {
+        console.log('Name of cat '+this.color);
+    }
+}
+
+let redCat = new Cat('red Cat');
+this.color = 'black';
+redCat.getName();
+redCat.eatingHabit();
