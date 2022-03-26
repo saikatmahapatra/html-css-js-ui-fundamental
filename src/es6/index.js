@@ -3,7 +3,10 @@
 //  #####################################
 const x = 10;
 
+
+// ####################################################
 // Class
+// ####################################################
 class Person {
     constructor(name) {
         //this.name = name;
@@ -24,7 +27,9 @@ class Person {
 let saikat = new Person('saikat mahapatra');
 console.log(saikat.name);
 
+// ####################################################
 // Singleton Class
+// ####################################################
 
 class App {
     constructor() {
@@ -43,7 +48,10 @@ var app1 = new App();
 var app2 = new App(); // it will throw 
 
 
+
+// ####################################################
 // Singleton simple syntax using ES6
+// ####################################################
 
 let person = new class {
     constructor(name) {
@@ -54,7 +62,9 @@ let person = new class {
     }
 }('Saikat Mahapatra');
 
-//Inheritance -prototypal
+// ####################################################
+// Inheritance -prototypal
+// ####################################################
 function Animal(name){
     this.name = name;
 }
@@ -67,8 +77,10 @@ cat.eatingHabit('milk');
 var dog = new Animal('Dog');
 dog.eatingHabit('meat');
 
-//ES6 inheritance using extends, super
 
+// ####################################################
+//  Classical Inheritance/ES6 inheritance using extends, super
+// ####################################################
 class Animal {
     constructor(name) {
         this.name = name;
@@ -113,3 +125,39 @@ redCat.eatingHabit();
 // redCat.helloworld(); // Accessing static method will throw Error: Uncaught TypeError: redCat.helloworld is not a function
 Cat.helloworld(); // works
 Animal.helloworld(); // works
+
+
+// ####################################################
+// use new.target to know whether a function was called using new keyword or like a normal function
+// for normal function call new.target will be undefined
+// for new keyword function call new.target will return a reference to that function
+// ####################################################
+function User(name) {
+    if(!new.target) {
+        throw Error('You need to use new User() syntax');
+    }
+    this.fullName = name;
+}
+// window object will not have fullName
+var saikat = new User('Saikat Mahapatra'); 
+
+// window.fullName = 'John Smith' as this is a global
+User('John Smith');
+
+
+class User{
+    constructor(name) {
+        this.fullName = name;
+        console.log(new.target);
+    }
+}
+
+class Emp extends User {
+    constructor(name, title) {
+        super(name);
+        this.role = title;
+    }
+}
+
+let sm = new User('saikat mahapatra'); // [Function: User]
+let js = new Emp('John Smith', 'Software Engineer'); //[Function: Emp]
