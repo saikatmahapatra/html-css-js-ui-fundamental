@@ -111,5 +111,5 @@ this.color = 'black';
 redCat.getName();
 redCat.eatingHabit();
 // redCat.helloworld(); // Accessing static method will throw Error: Uncaught TypeError: redCat.helloworld is not a function
-Cat.helloworld();
-Animal.helloworld();
+Cat.helloworld(); // works
+Animal.helloworld(); // works
