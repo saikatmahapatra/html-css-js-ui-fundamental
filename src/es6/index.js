@@ -72,7 +72,11 @@ class Animal {
         this.name = name;
     }
     getName() {
-        onsole.log('parent getName(). name => '+ this.name);
+        console.log('parent getName(). name => '+ this.name);
+    }
+
+    static helloworld() {
+        console.log('Hello World');
     }
 }
 
@@ -104,3 +108,6 @@ let redCat = new Cat('red Cat');
 this.color = 'black';
 redCat.getName();
 redCat.eatingHabit();
+// redCat.helloworld(); // Accessing static method will throw Error: Uncaught TypeError: redCat.helloworld is not a function
+Cat.helloworld();
+Animal.helloworld();
