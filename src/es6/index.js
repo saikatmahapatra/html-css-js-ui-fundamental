@@ -161,3 +161,20 @@ class Emp extends User {
 
 let sm = new User('saikat mahapatra'); // [Function: User]
 let js = new Emp('John Smith', 'Software Engineer'); //[Function: Emp]
+
+
+// ####################################################
+//  Arrow Function in ES6
+// ####################################################
+
+// Normal function expression
+let add = function(a, b) {
+    return a+b;
+}
+
+// Arrow function
+add = (a, b) => a+b // simple form of arrow function
+
+add = (a, b, c, d) => {
+    retun (a+b)*(c+d)
+}
