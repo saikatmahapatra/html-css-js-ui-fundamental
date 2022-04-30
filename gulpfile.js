@@ -1,5 +1,5 @@
 var gulp = require('gulp');
-var less = require('gulp-less');
+var sass = require('gulp-sass')(require('sass'));
 var babel = require('gulp-babel');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
@@ -9,12 +9,12 @@ var del = require('del');
  
 var paths = {
   styles: {
-    src: 'src/styles/**/*.less',
-    dest: 'assets/styles/'
+    src: 'assets/src/scss/**/*.scss',
+    dest: 'assets/dist/css/'
   },
   scripts: {
-    src: 'src/scripts/**/*.js',
-    dest: 'assets/scripts/'
+    src: 'assets/src/js/**/*.js',
+    dest: 'assets/dist/js/'
   }
 };
  
@@ -25,7 +25,7 @@ var paths = {
 function clean() {
   // You can use multiple globbing patterns as you would with `gulp.src`,
   // for example if you are using del 2.0 or above, return its promise
-  return del([ 'assets' ]);
+  return del([ 'assets/dist' ]);
 }
  
 /*
@@ -33,7 +33,7 @@ function clean() {
  */
 function styles() {
   return gulp.src(paths.styles.src)
-    .pipe(less())
+    .pipe(sass().on('error', sass.logError))
     .pipe(cleanCSS())
     // pass in options to the stream
     .pipe(rename({
