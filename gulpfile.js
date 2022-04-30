@@ -1,110 +1,75 @@
-// Gulp build confg file
-"use strict";
-const gulp = require('gulp');
-const sass = require('gulp-sass');
-const del = require('del');
-//const cleanCSS = require('gulp-clean-css');
-const sourcemaps = require('gulp-sourcemaps');
-const concat = require('gulp-concat');
-const imagemin = require('gulp-imagemin');
-const newer = require('gulp-newer');
-const rename = require('gulp-rename');
-const uglify = require('gulp-uglify');
-const eslint = require('gulp-eslint');
-const pipeline = require('readable-stream').pipeline;
-
-// source, destination path
-const path = {
-    build_dist: './dist',
-    css: { src: './src/scss/**/*.scss', dest: './dist/css' },
-    js: { src: './src/js/**/*.js', dest: './dist/js' },
-    img: { src: './src/img/**/*', dest: './dist/img' }
+var gulp = require('gulp');
+var less = require('gulp-less');
+var babel = require('gulp-babel');
+var concat = require('gulp-concat');
+var uglify = require('gulp-uglify');
+var rename = require('gulp-rename');
+var cleanCSS = require('gulp-clean-css');
+var del = require('del');
+ 
+var paths = {
+  styles: {
+    src: 'src/styles/**/*.less',
+    dest: 'assets/styles/'
+  },
+  scripts: {
+    src: 'src/scripts/**/*.js',
+    dest: 'assets/scripts/'
+  }
 };
-
-// delete existing dist folder
-function clean_build() {
-    return del([path.build_dist]);
+ 
+/* Not all tasks need to use streams, a gulpfile is just another node program
+ * and you can use all packages available on npm, but it must return either a
+ * Promise, a Stream or take a callback and call it
+ */
+function clean() {
+  // You can use multiple globbing patterns as you would with `gulp.src`,
+  // for example if you are using del 2.0 or above, return its promise
+  return del([ 'assets' ]);
 }
-
-// scss to css
-function css() {
-    return gulp.src(path.css.src)
-        .pipe(sourcemaps.init())
-        .pipe(sass.sync({
-            errLogToConsole: true,
-            outputStyle: 'compressed'
-        }).on('error', sass.logError))
-        .pipe(sourcemaps.write('.'))
-        .pipe(rename({ suffix: '.min' }))
-        .pipe(gulp.dest(path.css.dest));
+ 
+/*
+ * Define our tasks using plain functions
+ */
+function styles() {
+  return gulp.src(paths.styles.src)
+    .pipe(less())
+    .pipe(cleanCSS())
+    // pass in options to the stream
+    .pipe(rename({
+      basename: 'main',
+      suffix: '.min'
+    }))
+    .pipe(gulp.dest(paths.styles.dest));
 }
-
-// minify css with .min.css
-// function minify_css() {
-//     return gulp.src([path.css.dest + '/styles.css'])
-//         .pipe(cleanCSS({ compatibility: 'ie8', debug: true }, (details) => {
-//             console.log(`${details.name}: ${details.stats.originalSize}`);
-//             console.log(`${details.name}: ${details.stats.minifiedSize}`);
-//         }))
-//         .pipe(rename({ suffix: '.min' }))
-//         .pipe(gulp.dest(path.css.dest));
-// }
-
-// optimize images
-function img() {
-    return gulp
-        .src(path.img.src)
-        .pipe(newer(path.img.dest))
-        .pipe(
-            imagemin()
-        )
-        .pipe(gulp.dest(path.img.dest));
+ 
+function scripts() {
+  return gulp.src(paths.scripts.src, { sourcemaps: true })
+    .pipe(babel())
+    .pipe(uglify())
+    .pipe(concat('main.min.js'))
+    .pipe(gulp.dest(paths.scripts.dest));
 }
-
-// minify js
-function js() {
-    return pipeline(
-        gulp.src(path.js.src),
-        uglify(),
-        //gulp.pipe(concat('scripts.js')),
-        rename({ suffix: '.min' }),
-        gulp.dest(path.js.dest),
-
-    );
+ 
+function watch() {
+  gulp.watch(paths.scripts.src, scripts);
+  gulp.watch(paths.styles.src, styles);
 }
-
-// js lint
-function js_lint() {
-    return gulp
-        .src([path.js.src])
-        .pipe(eslint())
-        .pipe(eslint.format())
-        .pipe(eslint.failAfterError());
-}
-
-// detect file change and perform specific task
-function watch_file_changes() {
-    gulp.watch(path.css.src, gulp.series(css));
-    gulp.watch(path.js.src, gulp.series(js));
-    gulp.watch(path.img.src, gulp.series(img));
-}
-
-// exports tasks
-const cleanBuildTask = gulp.series(clean_build);
-exports.clean = cleanBuildTask;
-
-const buildTask = gulp.series(clean_build, gulp.series(css, js, img));
-exports.build = buildTask;
-
-const cssTask = gulp.series(css);
-exports.css = cssTask;
-
-const imgOptimizeTask = gulp.series(img);
-exports.img = imgOptimizeTask;
-
-const jsOptimizeTask = gulp.series(js);
-exports.js = jsOptimizeTask;
-
-const watchTask = gulp.parallel(watch_file_changes);
-exports.watch = watchTask;
-exports.default = buildTask;
+ 
+/*
+ * Specify if tasks run in series or parallel using `gulp.series` and `gulp.parallel`
+ */
+var build = gulp.series(clean, gulp.parallel(styles, scripts));
+ 
+/*
+ * You can use CommonJS `exports` module notation to declare tasks
+ */
+exports.clean = clean;
+exports.styles = styles;
+exports.scripts = scripts;
+exports.watch = watch;
+exports.build = build;
+/*
+ * Define default task that can be called by just running `gulp` from cli
+ */
+exports.default = build;
