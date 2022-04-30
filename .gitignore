@@ -3,3 +3,4 @@ package-lock.json
 /.vscode
 /proxy-mock-server/node_modules/
 .DS_Store
+/assets/dist/
