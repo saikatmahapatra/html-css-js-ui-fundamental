@@ -1,24 +1,36 @@
 <!doctype html>
-<body onload="alert(1);">
-    <h1>jQuery</h1>
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+    <title>Test HTML</title>
+</head>
+
+<body>
+
+    <main class="container-fluid">
+        <h1>It works</h1>
+    </main>
+    <!-- /.container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+   
     <script>
-        $(document).ready(function(){
-            alert(2);
-        });
+        $(initDOM);
+
+        function initDOM() {
+            console.log("#### jQuery ####" + jQuery.fn.jquery);
+        }
     </script>
-
-    <picture>
-        <source media="(min-width: 320px)" srcset="">
-        <source media="" srcset="">
-        <img src="" alt="Default">
-    </picture>
-
-    <figure>
-        <img src="">
-        <figcaption>Caption 1</figcaption>
-    </figure>
-
-
 </body>
+
 </html>
