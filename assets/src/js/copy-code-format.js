@@ -66,3 +66,57 @@ function Animal(n) {
 }
 var cat = new Animal('cat');
 cat.getName();
+
+
+
+let user = {
+    name: 'saikat',
+    address: {
+        home: {
+            city: 'kolkata',
+            area: 'airport'
+        },
+        office: {
+            city: 'kolkata',
+            area: 'newtown'
+        }
+    }
+}
+
+// user_address_home_area: "airport"
+// user_address_home_city: "kolkata"
+// user_address_office_area: "newtown"
+// user_address_office_city: "kolkata"
+// user_name: "saikat"
+
+let finalObj = {};
+let flatObj = (obj, parent) => {
+    for(let key in obj) {
+        if(typeof obj[key] === 'object') {
+            flatObj(obj[key], parent + '_' + key)
+        } else {
+            finalObj[parent + '_' + key] = obj[key];
+        }
+    }
+}
+
+flatObj(user, 'user');
+console.log(finalObj);
+
+
+
+let students = [{name: 'saikat', marks: 80}, {name: 'john', marks: 90}, {name: 'mohan', marks: 86}];
+// find the topper's name
+
+function findTopper(students) {
+    var maxScore;
+    var topper = [];
+    for(var i = 0; i < students.length; i++) {
+        for(var j = i; j < i-1; j++) {
+            if(students[i].marks > students[j].marks) {
+                maxScore = students[i].marks;
+            }
+        }
+    }
+    return maxScore;
+}
