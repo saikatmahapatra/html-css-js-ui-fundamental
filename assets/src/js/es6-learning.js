@@ -178,3 +178,16 @@ add = (a, b) => a+b // simple form of arrow function
 add = (a, b, c, d) => {
     retun (a+b)*(c+d)
 }
+
+function getUsers(){
+    let users = [];
+    setTimeout(function(){
+        users = [
+            {name: 'saikat', email: 'saikat@ex.com'},
+            {name: 'john', email: 'john@ex.com'},
+            {name: 'ram', email: 'ram@ex.com'}
+        ]
+    }, 4000);
+
+    return users;
+}
