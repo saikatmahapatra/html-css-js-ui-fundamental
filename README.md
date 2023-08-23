@@ -1,10 +1,8 @@
-# Bootstrap UI Library
+# JavaScript and UI project
 
-Core UI library for staring any project. Its having features like bootstrap SCSS theme customization, front end build tool gulp (old grunt removed).
-
-Other out the box features -
-1) jQuery, JavaScript core conceptual example
-2) Video JS project - HTML5 video player
-3) Node.js Express
-4) Node.js based proxy mock server for backend simulation
-5) Socket.io real time chat
+1) Bootstrap
+2) jQuery, JavaScript core conceptual example
+3) Video JS project - HTML5 video player
+4) Node.js Express
+5) Node.js based proxy mock server for backend simulation
+6) Socket.io real time chat
