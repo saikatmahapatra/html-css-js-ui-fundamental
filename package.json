@@ -49,5 +49,8 @@
     "sass": "^1.51.0",
     "select2-bootstrap-theme": "^0.1.0-beta.10",
     "socket.io": "^4.5.0"
+  },
+  "dependencies": {
+    "gulp-cli": "^2.3.0"
   }
 }
