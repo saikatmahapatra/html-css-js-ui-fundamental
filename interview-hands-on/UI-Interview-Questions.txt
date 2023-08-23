@@ -1,0 +1,385 @@
+####################################################################################
+# UI/Frontend Interview Fundamental Questions.
+# Front-End Developer/UI Developer/Lead/Architect/SMTS/LMTS/Software Engineer-UI
+# Follow me on LinkedIn : https://github.com/saikatmahapatra
+####################################################################################
+
+
+=========================================================
+Part 1: Web Fundamentals
+=========================================================
+1. What happens when you type http://www.google.com
+2. Difference between http and https.
+3. REST API Methods/HTTP metods - get, post, put, option, delete, patch
+4. Difference btn Post vs Put
+5. What is Rest API? Why known as RESTful? How is works
+6. How to enable https for Rest APIs
+7. How to improve web performance ( Know about DNS caching, PRPL, Laze loading etc)
+
+
+
+=========================================================
+Part 2: HTML5/CSS3
+=========================================================
+1. What is doctype ? If you dont write what will happen? HTML5 semantic elements? What are the benefits of Semantic tags?
+2. Box model - margin, border, padding 
+3. Diff values for padding, margin
+4. CSS position - static, fixed, absolute, relative, sticky
+5. How make application responsive without Bootstrap (explain @media query)
+6. Write a media query to make responsive UI
+7. Html 5 API - localstorage, session storage. What is the difference?
+8. If I want to know from which location website is getting access how to know (understand concept of geo location)
+9. Location specific advertisement to display
+10. Diff display  - block, inline block, none, flex
+11. Display Flex vs Grid
+12. CSS inheritance (using !important)
+13. CSS pseudo class vs pseudo elements
+14. You have text at left side, radio button at right side. On clicking on text how to check radion button ?
+Ans: Add <label for="radioBtnId">Text<label>
+15. What is Skeleton loading / Skeleton model ?
+https://css-tricks.com/building-skeleton-screens-css-custom-properties/
+16. CSS selectors (., #, +, > etc)
+17. In a web page there are few .png image how can you style them. ans - use CSS selectors img[src $= ".png"]
+18. What is web accessibility ? How to make a anchor link tag so that screen read treat is as button (<a href="" role="button">)
+
+
+
+=========================================================
+Part 3: JavaScript Important Concepts/Fundamentals
+Tags: Object Oriented JS, ES6, jQuery
+I was asked in many service-based, product-based companies
+=========================================================
+[Whenever you are preparing these questions be ready for advantage, disadvange, why need these kind of questions]
+
+1. How many ways are there to create object in JS? Explain all those. When we need those.
+2. Closure in JS
+3. Callback function.
+4. Higher-order function
+5. IIFE/ Immediately Invoking Function Expressions/ Self Invoking Functions
+6. Explain Callstack
+7. Explain Event Loop (Must know callback que, microtask que. Microtask que has highet priority over callback que)
+8. Generator functions
+9. Promises (know all methods, multiple promise handling)
+10. Async & Await
+11. Scope (global, local, function, block)
+12. Diff - var, let, const
+13. call(), apply(), bind() and this keyword /function borrowing
+14. Function Currying
+
+sum(2)(3)(10)(15);
+
+function sum(a){
+	return function(b){
+		return function(c){
+			return function(d){
+				return (a+b+c+d);
+			}
+		}
+	}
+}
+
+15. Pure Functions & Impure functions
+16. Debouncing and Throttling
+17. Shallow copy, Deep Copy
+18. Event Bubbling &  Event Capturing
+19. Function expression and Function declaration
+20. use strict
+21. Array methods (map, reduce, filter). Diff - forEach() vs map()
+22. Map, Set in ES6
+23. How many type of inheritance is there in JS (prototypal, classical)
+24. Explain Prototype. 
+If answer is correct ask to add a method [saikatAverage] in Array using prototype like below 
+
+var arr = [1, 2, 3, 4, 5];
+var avg = arr.saikatAverage();
+console.log(avg);
+
+Array.prototype.saikatAverage = function(){
+	this.reduce(function(accumulator, currentVal){
+		return ((accumulator+currentVal)/this.length);
+	});
+}
+
+25. Hoisting in JavaScript? Explain with example
+26. Is setTimeout() is a callback function? How it works?
+27. What is Memoization? Explain with example.
+28. What is Callback hell & how to handle it? (explain concept of promise)
+29. What is Arrow Function, How is diff from normal function? How this keyword works inside it?
+30. Spread operator (... operator ) & its uses
+
+let array1 = [1, 2, 3]; 
+let array2 = array1;
+array2.push(4);
+console.log(array2); // [1, 2, 3, 4 ] 
+console.log(array1); // [1, 2, 3, 4 ]  as array are passed by ref.
+
+now copy using spread operator
+let array1 = [1, 2, 3]; 
+let array2 = [...array1];
+array2.push(4);
+console.log(arr2); // [1, 2, 3, 4 ] 
+console.log(arr1); // [1, 2, 3 ]
+
+31. Call by value & call by reference in JS
+32. What is generator function. function*() {}
+33. Array.slice() vs Array.splice()
+34. How do you flat / sum the array? [ES6 flat()]
+
+let arr = [[1, 2],[3, 4, [5, 6, [7, 8], 9]],[10, [11, 12]]];
+arr.flat(5); // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+
+OR
+
+let arr = [[1, 2],[3, 4, [5, 6, [7, 8], 9]],[10, [11, 12]]];
+arr.flat(Infinity); //[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+
+SUM
+
+let arr = [[1, 2],[3, 4, [5, 6, [7, 8], 9]],[10, [11, 12]]];
+arr.flat(Infinity).reduce(function(a,c){
+    return a+c;
+});
+//78
+
+35. How do you exit from the above for loop without using break, any condition etc?
+36. What is double questions mark (??) operator? / Nullish coalescing operator in JS
+37. Write a function to check data type if Array or Object
+
+(function(data){
+if(Object.prototype.toString.call(data) == '[object Array]'){
+console.log('Array');
+}
+if(Object.prototype.toString.call(data) == '[object Object]'){
+console.log('Object');
+}
+})({'name': 'saikat'})
+
+38. Object.freeze()
+const user = {name: 'Saikat'};
+user.name = 'John';
+console.log(user.name); // 'John'
+
+to prevent this use
+const user = Object.freeze({name: 'Saikat'})
+user.name = 'John';
+console.log(user.name); // 'Saikat'
+
+How can you prevent this ?
+
+39. Sort array in ascending order
+var arr = [7, 88, 99, 223, 1, 3];
+for(var i = 0; i<arr.length; i++){
+	var target = arr[i];
+	for(var j = i-1; j>=0 && (arr[j]>target); j--){
+		arr[j+1] = arr[j];
+	}
+	arr[j+1]=target;
+}
+console.log(arr)
+
+40. What is AJAX? How it works?
+41. Is setTimeout is JS method or browser API ?
+42. Explain DOM, Virtual DOM, Shadow DOM
+43. What is Browser Object Model (BOM)?
+44. ES Class, Object other Fundamentals
+45. What is == , === operators? Difference?
+
+
+
+
+
+
+
+=========================================================
+Part 4: JS: What will be the output & why
+=========================================================
+
+(1) What will be the out put & why?
+
+var arr1 = "john".split(''); //['j', 'o', 'h', 'n']
+var arr2 = arr1.reverse(); // ['n', 'h', 'o', 'j']
+var arr3 = "jones".split(''); // ['j', 'o', 'n', 'e', 's']
+arr2.push(arr3); // ['n', 'h', 'o', 'j', ['j', 'o', 'n', 'e', 's']]
+console.log("array 1: length=" + arr1.length + " last=" + arr1.slice(-1)); 
+//array 1: length=5 last=j,o,n,e,s
+console.log("array 2: length=" + arr2.length + " last=" + arr2.slice(-1)); 
+//array 2: length=5 last=j,o,n,e,s
+
+(2) What will be the out put & why?
+const length = 4;
+const numbers = []; //5
+for (var i = 0; i < length; i++);{
+  numbers.push(i + 1);
+}
+console.log(numbers); // 5
+
+
+(3) Execute setTimeout() from a for loop. What would be the output & why?
+
+for(var i = 0; i<5 ; i++){
+    setTimeout(function(){
+        console.log(i);
+    }); // set 0 here and ask what would be output. same output
+}
+// Ans: 5 times 5
+
+Now, replace var with let
+
+for(let i = 0; i<5 ; i++){
+    setTimeout(function(){
+        console.log(i);
+    });
+}
+//Ans:  0, 1, 2, 3, 4
+
+
+(4) What will be the output & why?
+
+var myObject = {
+	price: 20.99, 
+    get_price : function() { 
+		return this.price; 
+	} 
+}; 
+
+var customObject = Object.create(myObject); 
+customObject.price = 19.99; 
+delete customObject.price;
+console.log(customObject.get_price());  //20.99
+
+Reason: Object.create creates a new object by using existing object prototype. First JS will check if price is there in customObject. if not found then will find in its __proto__
+
+customObject
+	price: 19.99
+	__proto__
+		price: 20.99
+		__proto__
+			Object
+
+(5) What will be the output?
+let res = 0;
+for(let i = 0; i<5; i++) {
+    res += 1;
+}
+console.log(res); // output = 5;
+
+(6) What will be the output?
+function printAge(data){
+	let age = {age: 30};
+	if(data === {age: 30}) {
+		console.log('1');
+	} else if(data == age) {
+		console.log(2);
+	} else{
+		console.log('3')
+	}
+}
+printAge({age: 30}); // output = 3
+
+
+
+=========================================================
+Part 5: Design Patterns, Rendering Patterns, performance Patterns
+I was asked in many Product based companies
+=========================================================
+1. Explain MVC, MVVM, MVP
+2. Singleton Desgn Patterns. Explain with example
+3. What is Client Side Rendering, Server Side Rendering (SSR), Static Rendering
+4. What is Factory Method?
+5. What is PRPL ?
+Push (or preload) the most important resources.
+Render the initial route as soon as possible.
+Pre-cache remaining assets.
+Lazy load other routes and non-critical assets.
+6. Understanding Async and Defer HTML Attributes/ Parser blocking scripts.
+<script async src="app.js"></script>
+<script defer src="app.js"></script>
+7. What is Micro Frontend architecture? Explain 
+
+
+
+
+=========================================================
+Part 6: Angular 2/4/5/6/7/8/9/10+
+=========================================================
+1. What is lazy loading
+2. How to know an angular app is having lazy loading features without seeing codebase
+3. How to handle application state (using Redux)
+4. Event, property binding
+5. Diff constructor vs ngOnInit
+5. Service to be used by a specific component using providedIn? What is any, root?
+6. Ivy compilation (ng v9)
+7. Call multiple http asynchronously
+8. Rxjs operators (state handling)
+9. Do you know ngrx library?
+10. What is @HostBinding , @HostListerer
+
+@HostListerer is used to listen any events generated for a element
+@HostBinding binds attribute to that host element
+
+
+11. What is the difference between on push & default strategy
+12. What is ViewProvider, purpose of it
+13. How to handle styling? Explain viewEncapsulation
+14. Explain advantage, disadvange of SPA. How to overcome SEO issue (Explain SSR Concepts)
+15. Diff - ViewChild, ContainerChild
+16. Diff - CanLoad, CanActivate, CanDeactivate
+17. Major thing why Google think to introduce Angular2 (diff Angular.js vs Angular)
+18. How to handle multiple observables once after another based on retunr respose of one after another
+
+2022
+
+1. Angular contentChild vs viewChild()
+2. Microfront end architecture
+3. Design patterns - Singleton, factory etc with explanation
+4. Design principles - solid etc
+5. ngContent
+6. forRoot, forChildren
+7. Application architecture
+8. changeDetectionStrategy.on.push vs default
+9. what is viewEncapsulation
+10. how to minimize bundle size
+11. What is pure pipe & impure pipe
+
+
+
+=========================================================
+Part 7: CI/CD DevOps, Git
+=========================================================
+1. How is Git different from Subversion (SVN)?
+2. What is the correct syntax to add a message to a commit?
+3. Difference between git fetch and git pull.
+4. What does git clone do?
+5. What is git stash?
+6. How to cherry pick a commit from one branch to another?
+7. Explain git rebase
+8. What has to be run to squash the last N commits into a single commit?
+9. What is yml file?
+
+
+
+
+
+=========================================================
+Part 8: Agile/Managerial Round
+=========================================================
+1. What is difference agile and waterfall (explained)
+2. Scrum 3 roles of Scrum (Product Owner, Scrum Master, Dev Team)
+3. Which agile framework you use (said scrum)
+4. How many team member are there in scrum team( said 10. Got cross questions that there should be 7-9 why 10)
+5. What is your role
+6. How to meet date line
+7. How to resolve conflict in your team members?
+8. What are Development approach you follow (coding, review, staging etc)?
+9. What are scenario in scrum ceremony/scrum events? (Sprint Planning, Daily Scrum, Sprint Review, Sprint Retrospective)
+10. Do you have scrum master certificate? If we ask to get it in how many days you can learn it ?
+11. How do you manage if any production issue come and client escalate in call
+12. As u work in scrum so are u working in shift? I said we have general shift as TPM is from offshore?
+13. Tell me what 2 major critical issues u faced in angular and how did you resolved those?
+
+
+
+
+
+
+

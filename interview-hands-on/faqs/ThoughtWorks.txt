@@ -1,0 +1,67 @@
+=========================
+ThoughtWorks
+========================
+
+Given an array of stock prices of a stock on each day, find the minimum buy price and maximum sell
+price that produces the greatest profit. As shown in the below example, if you buy on day 1 when
+stock price is 2 and sell it on day 4 when stock price reaches 5, you would get the maximum profit.
+Example:
+Input: [2,3,4,5,1,4]
+Output: [2,5]
+0 - 2
+1 - 3
+2 - 4
+3 - 5
+4 - 1
+5 - 4
+
+
+function getMaxProfit(priceList, start, end){
+	let maxProfit = 0;
+	if(end <= start) {
+		return 0;
+	}
+	// buy on day
+	for(let i = start; i<end ; i++) {
+		// for sell
+		for(let j = i+1; j <= end; j++) {
+			//find profit
+			if(priceList[j] > priceList[i]) {
+				//let check_current_profit = priceList[j] - priceList[i] + getMaxProfit(priceList, start, (i-1)) + getMaxProfit(priceList, j+1, end);
+				//console.log('day '+i+'  check_current_profit = '+check_current_profit);
+				let check_current_profit = (priceList[j]-priceList[i])
+				maxProfit = Math.max(maxProfit, check_current_profit);
+			}
+		}
+	}
+	return maxProfit;
+}
+getMaxProfit([2,3,4,5,1,4], 0, 5)
+
+
+
+
+
+
+Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+Input: "{[]}"
+Output: true
+Input: "([)]"
+Output: false
+
+
+
+function validateString(str) {
+	let checker = [];
+	for(var i = 0; i< str.length; i++) {
+		if(str[i] === '(' || ) {
+			checker.push(str[i]);
+		}
+	}
+	return checker.length > 0 ? 'invalid' : 'valid';
+}
+
+validateString('{');
+
+
+

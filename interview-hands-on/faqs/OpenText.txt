@@ -1,0 +1,154 @@
+==========================================================================
+1 st round OpenText (Product Based) - Codility
+==========================================================================
+// you can write to stdout for debugging purposes, e.g.
+// console.log('this is a debug message');
+
+// you can write to stdout for debugging purposes, e.g.
+// console.log('this is a debug message');
+
+function solution(S) {
+    // write your code in JavaScript (Node.js 8.9.4)
+    
+    var splitted = S.split('');
+    var newArr = [];
+    var max  = 0;
+    
+    // for(var i = 0; i<splitted.length; i++) {
+    //     let n = splitted[i]+''+splitted[i+1];
+    //     if(n.length == 2){
+    //         newArr.push(parseInt(n));
+    //     }
+    // }
+
+    splitted.forEach(function(currentVal, index, array){
+        let n = currentVal+''+array[index+1];
+        if(n.length == 2){
+            newArr.push(parseInt(n));
+        }
+    })
+    
+    if(newArr.length > 0) {
+        max = newArr.reduce(function(accumulator, currentItem){
+            return Math.max(accumulator, currentItem);
+        });
+    }
+
+    return max;
+    
+}
+
+Compilation successful.
+
+Example test:   '50552'
+Output:
+[ '5', '0', '5', '5', '2' ]
+OK
+
+Example test:   '10101'
+Output:
+[ '1', '0', '1', '0', '1' ]
+OK
+
+Example test:   '88'
+Output:
+[ '8', '8' ]
+OK
+
+Producing output might cause your solution to fail performance tests.
+You should remove code that produces output before you submit your solution.
+
+Detected some errors.
+
+
+==================================================================
+Open Text - 2nd  Tech Round (HireVue) with all live coding session
+==================================================================
+1. IIFE
+2. Callback function
+3. Promise
+4. promise.all() etc method
+5. Program to reverse a string (I did using array.reverse(), asked to write using for loop, did it)
+6. Resolve a promise ----- (I need to make improvement on this)
+7. CSS float properties (float none)
+8. Explain prototype
+
+
+
+==================================================================
+Open Text - 3rd Tech Round (HireVue) with all live coding session
+==================================================================
+
+Q1) // 0 1 1 2 3 5 ...
+printFeb(5)
+
+
+function printFeb(n){
+  let n1 = 0;
+  let n2 = 1;
+  let nextNum;
+  for(let i = 1; i<=n ; i++) {
+    console.log(n1);
+    nextNum = n1+n2;
+    n1 = n2;
+    n2 = nextNum;
+  }
+}
+
+
+
+
+Q2)
+
+var height = [1,8,6,2,5,4,8,3,7];
+function getMaxArea(height) {
+  var maxArea = Number.MIN_SAFE_INTEGER;
+  var length = height.length;
+  var left = 0;
+  var right = length-1;
+  while(left < right) {
+    var smallBar = Math.min(height[left], height[right]);
+    //console.log(smallBar)
+    maxArea = Math.max(maxArea, (smallBar*(right-left)));
+    if(height[left] < height[right]) {
+      left++;
+    } else {
+      right--;
+    }
+  }
+  console.log('first logic =',maxArea)
+  return maxArea;
+}
+getMaxArea(height);
+
+
+/*function getMaxArea(height) {
+  var maxArea = 0, i = 0, j = height.length-1;
+  //console.log('dddd',j);
+  while(i < j){
+    maxArea = Math.max(maxArea, Math.min(height[i], height[j]) * (j-i));
+    if(height[i] <= height[j]) {
+      i++;
+    }else {
+      j--;
+    }    
+  }
+  console.log('maxArea=',maxArea);
+  return maxArea;
+}
+var height = [1,8,6,2,5,4,8,3,7];
+getMaxArea(height);*/
+
+
+
+==================================================================
+Open Text - 4th Tech Round (HireVue) with all live coding session
+==================================================================
+1) diff get, post
+2) web architecture
+3) series 3,6,9,3,6,9.....n. get nth value
+4) print triangle 
+1
+2 3 4
+5 6 7 8
+9 10 11 12 13

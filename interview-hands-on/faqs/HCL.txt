@@ -1,0 +1,76 @@
+==========================
+HCL-Tech-Bangalore
+==========================
+// what is closure
+function outer(){
+	var a = 10;
+	function inner(){
+		console.log(a+10);
+	}
+	inner();
+}
+
+outer();
+
+
+// what is curring function
+sum(23)(22)(66)(6)
+
+function sum(){
+	return function(){
+		return function(){
+			return function(){
+				
+			}
+		}
+	}
+}
+
+// classical vs prototypal inheritance
+var u1 = new User();
+var u2 = new User();
+
+User.prototype.getName = function(){
+	
+}
+
+
+// what is promise
+var p = new Promise(function(resolve, reject){
+	
+})
+.then(res=>{
+	
+})
+.then(res=>{
+	
+})
+.catch(err=>{
+	
+})
+.finally();
+
+
+// Flat this array
+
+let arr = [[1, 2],[3, 4, [5, 6, [7, 8], 9]],[10, [11, 12]]];
+let arr = [[1, 2],[3, 4, [5, 6, [7, 8], 9]],[10, [11, 12]]];
+arr.flat(5)
+(12) [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+
+OR
+
+let arr = [[1, 2],[3, 4, [5, 6, [7, 8], 9]],[10, [11, 12]]];
+arr.flat(Infinity)
+(12) [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+
+
+// Remove Duplicate Elements from Array
+var array1 = [1,2,3,4,5,2,4,24,2,4];
+var uniqueArr = [];
+array1.forEach(function(item, index, arr){
+if(!uniqueArr.includes(item)) {
+uniqueArr.push(item);
+}
+});
+console.log(uniqueArr); // [1, 2, 3, 4, 5, 24]

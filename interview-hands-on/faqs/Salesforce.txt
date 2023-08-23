@@ -1,0 +1,52 @@
+function outer(){
+	var a = 10;
+	function inner(){
+		console.log(a+10);
+	}
+	inner();
+}
+
+outer(); // 20
+
+
+==========================================================================
+Salesforce - Front-end Support Engineer - Mobify
+==========================================================================
+1. Expain client server architecture
+2. What happens when u hit www.google.com
+3. Explain DNS
+4. How to improve performance
+5. Reason of slow performance
+6. Other JS question 
+7. Diff SOAP, REST API
+8. How do you submit form using JS
+9. Explain closure
+10. Explain call back
+
+
+
+function myFn(userId, Password){
+	// ajax
+	// do other stuff
+	
+	return {isLogin: true|false, username: "john|guest"};
+}
+
+
+// myFn()
+userId:
+Password:
+
+$('#submitBtn').on('click', function(){
+	$('#userForm').submit();
+})
+
+<form onSubmit="submitMyForm();">
+</form>
+
+js
+====
+function submitMyForm(){
+	
+}
+
