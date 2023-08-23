@@ -1,5 +1,7 @@
 # JavaScript and UI project
 
+Learn new technologies related to JavaScript & UI and implement here
+
 1) Bootstrap
 2) jQuery, JavaScript core conceptual example
 3) Video JS project - HTML5 video player
