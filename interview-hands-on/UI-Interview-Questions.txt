@@ -47,7 +47,6 @@ https://css-tricks.com/building-skeleton-screens-css-custom-properties/
 =========================================================
 Part 3: JavaScript Important Concepts/Fundamentals
 Tags: Object Oriented JS, ES6, jQuery
-I was asked in many service-based, product-based companies
 =========================================================
 [Whenever you are preparing these questions be ready for advantage, disadvange, why need these kind of questions]
 
@@ -367,8 +366,8 @@ Part 8: Agile/Managerial Round
 2. Scrum 3 roles of Scrum (Product Owner, Scrum Master, Dev Team)
 3. Which agile framework you use (said scrum)
 4. How many team member are there in scrum team( said 10. Got cross questions that there should be 7-9 why 10)
-5. What is your role
-6. How to meet date line
+5. What is your role & how you manage critical deliveries
+6. How do you meet deadline
 7. How to resolve conflict in your team members?
 8. What are Development approach you follow (coding, review, staging etc)?
 9. What are scenario in scrum ceremony/scrum events? (Sprint Planning, Daily Scrum, Sprint Review, Sprint Retrospective)
