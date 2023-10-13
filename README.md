@@ -1,4 +1,4 @@
-# HTML5, CSS3, JavaScript based UI proof-of-concepts and Interview hands-on
+# HTML, CSS, JavaScript based UI proof-of-concepts and Interview hands-on
 
 Learn new technologies related to JavaScript & UI and implement here
 
