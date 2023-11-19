@@ -1,627 +1,117 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-bs-theme="light">
+
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="favicon.ico">
-    <title>Bootstrap Customized Theme UI</title>
-    <!-- Customized Bootstrap core CSS -->
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.84.0">
+    <title>Bootstrap</title>
+    <!-- Bootstrap Customized final CSS -->
     <link href="assets/css/styles.css" rel="stylesheet">
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark colorgraph-navbar fixed-top">
-        <a class="navbar-brand" href="#"><img src="assets/img/logo.png" width="32px" alt="Brand"> Logo</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
-            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Home
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Active Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled Link</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdown01">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
-            </ul>
-
-            <ul class="navbar-nav my-2 my-lg-0">
-                <li class="nav-item">
-                    <form class="form-inline">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn  btn-outline-info my-2 my-sm-0" type="submit">Search</button>
-                    </form>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-user-circle" aria-hidden="true"></i> My Account</a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown03">
-                        <div class="dropdown-item welcome-user-container">
-                            <div class="">John Smith</div>
-                            <div class="small">john.smith@[xxxx].com</div>
-                            <div class="small">Role: Super User</div>
-                            <div class="small">Last Login: [dd/mm/yyyy] [hh.mm.ss] am/pm</div>
-                        </div>
-                        <div class="dropdown-divider mt-3"></div>
-                        <a class="dropdown-item" href="#">Profile</a>
-                        <a class="dropdown-item" href="#">Change Password</a>
-                        <a class="dropdown-item" href="#">Signout</a>
-                    </div>
-                </li>
-            </ul>
-
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top colorgraph-navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="assets/img/logo.png" width="32px" alt="Brand Logo">
+                Brand
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
         </div>
     </nav>
-
-    <main role="main" class="container-fluid">
-        <h1 class="page-title">Bootstrap UI Components</h1>
-
-        <h2 class="component-title">Button</h2>
-
-        <button type="button" class="btn btn-primary">.btn-primary</button>
-        <button type="button" class="btn btn-secondary">.btn-secondary</button>
-        <button type="button" class="btn btn-success">.btn-success</button>
-        <button type="button" class="btn btn-danger">.btn-danger</button>
-        <button type="button" class="btn btn-warning">.btn-warning</button>
-        <button type="button" class="btn btn-info">.btn-info</button>
-        <button type="button" class="btn btn-light">.btn-light</button>
-        <button type="button" class="btn btn-dark">.btn-dark</button>
-        <button type="button" class="btn btn-link">.btn-link</button>
-
-        <h2 class="component-title">Button Outline</h2>
-
-        <button type="button" class="btn btn-outline-primary">.btn-outline-primary</button>
-        <button type="button" class="btn btn-outline-secondary">.btn-outline-secondary</button>
-        <button type="button" class="btn btn-outline-success">.btn-outline-success</button>
-        <button type="button" class="btn btn-outline-danger">.btn-outline-danger</button>
-        <button type="button" class="btn btn-outline-warning">.btn-outline-warning</button>
-        <button type="button" class="btn btn-outline-info">.btn-outline-info</button>
-        <button type="button" class="btn btn-outline-light">.btn-outline-light</button>
-
-        <h2 class="component-title">Typography</h2>
-
-        <p><a href="https://getbootstrap.com/">Bootstrap</a> is an open source toolkit for developing with <span
-                class="font-weight-bold">HTML, CSS, and JS</span>. Quickly prototype your ideas or build your entire app
-            with our Sass variables and mixins,
-            responsive grid system, extensive prebuilt components, and powerful plugins built on jQuery.</p>
-
-        <h1>h1. Bootstrap heading</h1>
-        <h2>h2. Bootstrap heading</h2>
-        <h3>h3. Bootstrap heading</h3>
-        <h4>h4. Bootstrap heading</h4>
-        <h5>h5. Bootstrap heading</h5>
-        <h6>h6. Bootstrap heading</h6>
-
-        <p class="h1">h1. Bootstrap heading</p>
-        <p class="h2">h2. Bootstrap heading</p>
-        <p class="h3">h3. Bootstrap heading</p>
-        <p class="h4">h4. Bootstrap heading</p>
-        <p class="h5">h5. Bootstrap heading</p>
-        <p class="h6">h6. Bootstrap heading</p>
-
-        <h2 class="component-title">Progress Bar</h2>
-        <div class="progress mt-3">
-            <div class="progress-bar progress-bar-striped bg-primary" role="progressbar" style="width: 32%"
-                aria-valuenow="32" aria-valuemin="0" aria-valuemax="100">32%</div>
+    <main class="container">
+        <!-- <h1>Welcome</h1> -->
+        <div class="bg-light p-5 rounded">
+            <h1>Bootstrap Customized Theme example</h1>
+            <p class="lead">This example is a quick exercise to illustrate how to generate production ready customized Bootstrap theme.</p>
+            <a class="btn btn-lg btn-primary" href="https://getbootstrap.com/" role="button">View bootstrap docs
+                &raquo;</a>
         </div>
-        <div class="progress mt-3">
-            <div class="progress-bar progress-bar-striped bg-secondary" role="progressbar" style="width: 45%"
-                aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">45%</div>
-        </div>
-        <div class="progress mt-3">
-            <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 60%"
-                aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">60%</div>
-        </div>
-        <div class="progress mt-3">
-            <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 85%"
-                aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">85%</div>
-        </div>
-        <div class="progress mt-3">
-            <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 32%"
-                aria-valuenow="32" aria-valuemin="0" aria-valuemax="100">32%</div>
+        <div class="my-3">
+            <h2>Buttons</h2>
+            <button type="button" class="btn btn-primary btn-lg">Primary Large Button</button>
+            <button type="button" class="btn btn-primary">Primary</button>
+            <button type="button" class="btn btn-secondary">Secondary</button>
+            <button type="button" class="btn btn-success">Success</button>
+            <button type="button" class="btn btn-danger">Danger</button>
+            <button type="button" class="btn btn-warning">Warning</button>
+            <button type="button" class="btn btn-info">Info</button>
+            <button type="button" class="btn btn-light">Light</button>
+            <button type="button" class="btn btn-dark">Dark</button>
+            <button type="button" class="btn btn-link">Link</button>
         </div>
 
-        <h2 class="component-title">Alerts</h2>
-        <div class="alert alert-primary" role="alert">
-            This is a primary alert—check it out!
-        </div>
-        <div class="alert alert-secondary" role="alert">
-            This is a secondary alert—check it out!
-        </div>
-        <div class="alert alert-success" role="alert">
-            This is a success alert—check it out!
-        </div>
-        <div class="alert alert-warning" role="alert">
-            This is a warning alert—check it out!
-        </div>
-        <div class="alert alert-danger" role="alert">
-            This is a danger alert—check it out!
-        </div>
-        <div class="alert alert-dark" role="alert">
-            This is a dark alert—check it out!
-        </div>
-        <div class="alert alert-light" role="alert">
-            This is a light alert—check it out!
+        <div class="my-3">
+            <h2>Button Outline</h2>
+            <button type="button" class="btn btn-outline-primary">Primary</button>
+            <button type="button" class="btn btn-outline-secondary">Secondary</button>
+            <button type="button" class="btn btn-outline-success">Success</button>
+            <button type="button" class="btn btn-outline-danger">Danger</button>
+            <button type="button" class="btn btn-outline-warning">Warning</button>
+            <button type="button" class="btn btn-outline-info">Info</button>
+            <button type="button" class="btn btn-outline-light">Light</button>
+            <button type="button" class="btn btn-outline-dark">Dark</button>
         </div>
 
-        <h2 class="component-title">Tooltip</h2>
-        <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
-            Tooltip on top
-        </button>
-        <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right"
-            title="Tooltip on right">
-            Tooltip on right
-        </button>
-        <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom"
-            title="Tooltip on bottom">
-            Tooltip on bottom
-        </button>
-        <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="left"
-            title="Tooltip on left">
-            Tooltip on left
-        </button>
-        <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-html="true"
-            title="<em>Tooltip</em> <u>with</u> <b>HTML</b>. To open modal <span style='cursor: pointer;' data-toggle='modal' data-target='#exampleModal'><u>click here</u></span>">
-            Tooltip with HTML
-        </button>
+        <div class="my-3">
+            <h2>Typography</h2>
+            <h1>h1. Bootstrap heading</h1>
+            <h2>h2. Bootstrap heading</h2>
+            <h3>h3. Bootstrap heading</h3>
+            <h4>h4. Bootstrap heading</h4>
+            <h5>h5. Bootstrap heading</h5>
+            <h6>h6. Bootstrap heading</h6>
+            <strong>What is Lorem Ipsum?</strong>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+            scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
+            electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
+            Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
+            Aldus PageMaker including versions of Lorem Ipsum.
 
-        <h2 class="component-title">Card (Customized for News Feed)</h2>
-        <div class="row">
-            <div class="col-md-12 mb-3">
-                <div class="card-news pl-2 border-4 border-left border-success">
-                    <div class="card-news-header h5">The standard Lorem Ipsum passage, used since the 1500s</div>
-                    <div class="card-news-time-auther">
-                        <span class="text-muted small">Administrator, 20/09/2018 10.34am</span>
-                    </div>
-                    <div class="card-news-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                        mollit anim id est laborum. <a class="btn btn-sm btn-primary" href="#">View details</a></div>
-                </div>
-                <!--/.card-news-->
-            </div>
-
-            <div class="col-md-12 mb-3">
-                <div class="card-news pl-2 border-4 border-left border-danger">
-                    <div class="card-news-header h5">Lorem ipsum dolor sit amet, consectetur adipiscing elit</div>
-                    <div class="card-news-time-auther">
-                        <span class="text-muted small">Administrator, 20/09/2018 10.34am</span>
-                    </div>
-                    <div class="card-news-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                        mollit anim id est laborum. <a class="btn btn-sm btn-primary" href="#">View details</a></div>
-                </div>
-                <!--/.card-news-->
-            </div>
-
+            <a href="https://getbootstrap.com/" target="_blank">https://getbootstrap.com/ (Example anchor link)</a>
         </div>
 
-        <h2 class="component-title">Card</h2>
-
-        <div class="row">
-            <div class="col-md-3">
-                <div class="card">
-                    <h5 class="card-header">Card Header</h5>
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                            Click here for <a href="#" class="">more details</a></p>
-                    </div>
-                    <div class="card-footer">.card-footer</div>
-                </div>
+        <div class="my-3">
+            <h2>Form Control</h2>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
-
-            <div class="col-md-3">
-                <div class="card">
-                    <h5 class="card-header">Featured</h5>
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        </p>
-                        <a href="#" class="btn btn-light">.btn-light</a>
-                    </div>
-                    <div class="card-footer">
-                        <button class="btn btn-primary btn-sm">.btn-primary</button>
-                        <button class="btn btn-secondary btn-sm">.btn-secondary</button>
-                    </div>
-                </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
             </div>
-
-            <div class="col-md-6">
-                <div class="card card-legend">
-                    <div class="card-body">
-                        <h5 class="card-title text-on-card">Add Benificiary</h5>
-                        <div class="form-group row">
-                            <label for="example-text-input" class="col-2 col-form-label">Text</label>
-                            <div class="col-10">
-                                <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-                            </div>
-                        </div>
-                        <button class="btn btn-primary">Submit</button>
-                        <button class="btn btn-secondary">Cancel</button>
-                    </div>
-                    <!--./card-body-->
-                </div>
-                <!--./card-->
-            </div>
-
-        </div>
-
-        <h2 class="component-title">Accordion</h2>
-        <div id="accordion">
-            <div class="card">
-                <div class="card-header" id="heading_1">
-                    <h5 class="mb-0">
-                        <button class="btn btn-link btn-block" data-toggle="collapse" data-target="#collapse_1"
-                            aria-expanded="true" aria-controls="collapse_1">Heading #1</button>
-                    </h5>
-                </div>
-
-                <div id="collapse_1" class="collapse show" aria-labelledby="heading_1" data-parent="#accordion">
-                    <div class="card-body">
-                        1 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                        occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        <a href="#" class="">more details</a>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header" id="heading_2">
-                    <h5 class="mb-0">
-                        <button class="btn btn-link collapsed btn-block" data-toggle="collapse"
-                            data-target="#collapse_2" aria-expanded="false" aria-controls="collapse_2">Heading
-                            #2</button>
-                    </h5>
-                </div>
-                <div id="collapse_2" class="collapse" aria-labelledby="heading_2" data-parent="#accordion">
-                    <div class="card-body">
-                        2 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                        occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        <a href="#" class="">more details</a>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header" id="heading_3">
-                    <h5 class="mb-0">
-                        <button class="btn btn-link collapsed btn-block" data-toggle="collapse"
-                            data-target="#collapse_3" aria-expanded="false" aria-controls="collapse_3">Heading
-                            #3</button>
-                    </h5>
-                </div>
-                <div id="collapse_3" class="collapse" aria-labelledby="heading_3" data-parent="#accordion">
-                    <div class="card-body">
-                        3 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                        occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        <a href="#" class="">more details</a>
-                    </div>
-                </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
         </div>
-        <!--/#accordion-->
-
-        <h2 class="component-title">Form</h2>
-        <form>
-            <div class="form-row">
-                <div class="form-group col-md-4">
-                    <label for="exampleFormControlInput2">Text Box</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput2"
-                        placeholder="name@example.com">
-                </div>
-                <div class="form-group col-md-4">
-                    <label for="exampleFormControlInput3">Text Box (Small)</label>
-                    <input type="email" class="form-control form-control-sm" id="exampleFormControlInput3"
-                        placeholder="name@example.com">
-                </div>
-                <div class="form-group col-md-4">
-                    <label for="exampleFormControlInput4">Text Box (Large)</label>
-                    <input type="email" class="form-control form-control-lg" id="exampleFormControlInput4"
-                        placeholder="name@example.com">
-                </div>
-            </div>
-            <!--/.form-row-->
-            <div class="form-row">
-                <div class="form-group col-md-4">
-                    <label for="exampleFormControlSelect1">Example select</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                </div>
-                <div class="form-group col-md-4">
-                    <label for="exampleFormControlSelect2">Example multiple select</label>
-                    <select multiple class="form-control" id="exampleFormControlSelect2">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                </div>
-                <div class="form-group col-md-4">
-                    <label for="exampleFormControlTextarea1">Example textarea</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                </div>
-            </div>
-            <!--/.form-row-->
-
-            <div class="form-row">
-                <div class="form-group col-md-4">
-                    <label for="select2_example">Example select (Select2 JS)</label>
-                    <select class="form-control" id="select2_example">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">Apple</option>
-                        <option value="9">Mango</option>
-                    </select>
-                </div>
-            </div>
-            <!--/.form-row-->
-
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                        <label class="form-check-label" for="defaultCheck1"> Default checkbox </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
-                        <label class="form-check-label" for="defaultCheck2"> Disabled checkbox </label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                        <label class="form-check-label" for="inlineCheckbox1">1</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                        <label class="form-check-label" for="inlineCheckbox2">2</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" disabled>
-                        <label class="form-check-label" for="inlineCheckbox3">3 (disabled)</label>
-                    </div>
-                </div>
-                <div class="form-group col-md-6">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
-                            value="option1" checked>
-                        <label class="form-check-label" for="exampleRadios1"> Default radio </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
-                            value="option2">
-                        <label class="form-check-label" for="exampleRadios2"> Second default radio </label>
-                    </div>
-                    <div class="form-check disabled">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3"
-                            value="option3" disabled>
-                        <label class="form-check-label" for="exampleRadios3"> Disabled radio</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                            value="option1">
-                        <label class="form-check-label" for="inlineRadio1">1</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                            value="option2">
-                        <label class="form-check-label" for="inlineRadio2">2</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                            value="option3" disabled>
-                        <label class="form-check-label" for="inlineRadio3">3 (disabled)</label>
-                    </div>
-                </div>
-            </div>
-            <!--/.form-row-->
-
-            <div class="form-row mb-4">
-
-                <div class="col-md-4">
-
-                    <div class="custom-control custom-checkbox my-1 mr-sm-2">
-                        <input type="checkbox" class="custom-control-input" id="customcheckbox1">
-                        <label class="custom-control-label" for="customcheckbox1">Kolkata</label>
-                    </div>
-                    <div class="custom-control custom-checkbox my-1 mr-sm-2">
-                        <input type="checkbox" class="custom-control-input" id="customcheckbox2">
-                        <label class="custom-control-label" for="customcheckbox2">Mumbai</label>
-                    </div>
-
-                    <div class="custom-control custom-checkbox my-1 mr-sm-2 custom-control-inline">
-                        <input type="checkbox" class="custom-control-input" id="custominlinecheckbox1">
-                        <label class="custom-control-label" for="custominlinecheckbox1">Kolkata</label>
-                    </div>
-                    <div class="custom-control custom-checkbox my-1 mr-sm-2 custom-control-inline">
-                        <input type="checkbox" class="custom-control-input" id="custominlinecheckbox2" disabled>
-                        <label class="custom-control-label" for="custominlinecheckbox2">Mumbai</label>
-                    </div>
-
-                </div>
-
-                <div class="col-md-4">
-
-                    <div class="custom-control custom-radio">
-                        <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                        <label class="custom-control-label" for="customRadio1">Male</label>
-                    </div>
-                    <div class="custom-control custom-radio">
-                        <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                        <label class="custom-control-label" for="customRadio2">Female</label>
-                    </div>
-
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="customRadioInline1" name="customRadioInline1"
-                            class="custom-control-input">
-                        <label class="custom-control-label" for="customRadioInline1">Yes</label>
-                    </div>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="customRadioInline2" name="customRadioInline1"
-                            class="custom-control-input">
-                        <label class="custom-control-label" for="customRadioInline2">No</label>
-                    </div>
-
-                </div>
-
-                <div class="col-md-4">
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="customFile">
-                        <label class="custom-file-label" for="customFile">Choose file</label>
-                    </div>
-                </div>
-
-            </div>
-            <!--/.form-row-->
-
-            <button type="submit" class="btn btn-primary">Submit</button>
-            <button class="btn btn-secondary">Cancel</button>
-        </form>
-        <!--/form-->
-
-        <h2 class="component-title">Floating Label Example</h2>
-        <form class="form-signin">
-            <div class="text-center mb-4">
-                <img class="mb-4" width="32px" src="assets/img/logo.png" alt="" class="logo">
-                <h1 class="h3 mb-3 font-weight-normal">Please sign in to continue</h1>
-            </div>
-
-            <div class="form-label-group">
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="">
-                <label for="inputEmail">Email address</label>
-            </div>
-
-            <div class="form-label-group">
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
-                <label for="inputPassword">Password</label>
-            </div>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-        </form>
-
-        <h2 class="component-title">Table</h2>
-        <p>Available table classes are .table .table-sm .table-bordered .table-striped</p>
-        <table class="table table-sm table-bordered table-striped">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h2 class="component-title">Modal</h2>
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Launch demo
-            modal</button>
-
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        Modal Body
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </main>
-    <!-- /.container -->
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-    <script>
-        $(initDOM);
-        function initDOM() {
-            console.log("#### jQuery ####" + jQuery.fn.jquery);
-        }
-    </script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
