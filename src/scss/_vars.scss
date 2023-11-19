@@ -39,8 +39,8 @@ $gray: lighten($black, 33.5%);
 $gray-dark: lighten($black, 20%);
 $gray-darker: lighten($black, 13.5%);
 //Override primary color (Nav, Button, Link)
-$brand-color: #0b1372;
-$primary-color: $color_purple;
+$brand-color: #b20000;
+$primary-color: #b20000;
 // Complementry color is used to indecate the loading bar on the top
 // of the page with pace.js plugin
 $complementry-color: adjust_hue($primary-color, 180);

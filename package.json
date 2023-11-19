@@ -1,11 +1,19 @@
 {
   "name": "javascript-ui-poc",
   "version": "1.0.0",
-  "description": "Learn new technologies related to JavaScript & UI and implement here",
+  "description": "Demo project for building a Bootstrap powered site via npm. Learn new technologies related to JavaScript & UI and implement here",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "build": "npm run css",
+    "css-compile": "node-sass --include-path node_modules --output-style compressed --source-map true --source-map-contents true --precision 6 src/scss -o assets/css/",
+    "css-lint": "stylelint src/scss/",
+    "css-prefix": "postcss --replace assets/css/styles.css --use autoprefixer --map",
+    "css-purge": "purgecss --keyframes --css assets/css/styles.css --content index.html \"node_modules/bootstrap/js/dist/{util,modal}.js\" --output assets/css/",
+    "css": "npm-run-all css-compile css-prefix",
+    "server": "live-server --port=3000",
+    "start": "npm-run-all --parallel watch server",
+    "watch": "nodemon -e html,scss -x \"npm run css\"",
+    "test": "npm run css-lint && npm run css"
   },
   "repository": {
     "type": "git",
@@ -19,38 +27,21 @@
   },
   "homepage": "https://github.com/saikatmahapatra/html-css-js-ui-project#readme",
   "devDependencies": {
-    "bootstrap": "^5.3.1",
-    "crypto-js": "^4.1.1",
-    "cryptojs": "^2.5.3",
-    "datatables": "^1.10.18",
-    "datatables-bootstrap": "^0.0.1",
-    "datatables-responsive": "^1.0.7",
-    "datatables.net-bs4": "^1.13.6",
-    "datatables.net-buttons-bs4": "^2.4.1",
-    "datatables.net-dt": "^1.13.6",
-    "datatables.net-responsive": "^2.5.0",
-    "del": "^7.0.0",
-    "express": "^4.18.2",
-    "font-awesome": "^4.7.0",
-    "fontawesome": "^5.6.3",
-    "gulp": "^4.0.2",
-    "gulp-babel": "^8.0.0",
-    "gulp-clean-css": "^4.3.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-less": "^5.0.0",
-    "gulp-rename": "^2.0.0",
-    "gulp-sass": "^5.1.0",
-    "gulp-sourcemaps": "^3.0.0",
-    "gulp-uglify": "^3.0.2",
-    "jquery": "^3.7.0",
-    "nanobar": "^0.4.2",
-    "pace-js": "^1.2.4",
-    "popper.js": "^1.16.1",
-    "sass": "^1.66.1",
-    "select2-bootstrap-theme": "^0.1.0-beta.10",
-    "socket.io": "^4.7.2"
+    "autoprefixer": "^10.4.14",
+    "live-server": "^1.2.2",
+    "node-sass": "^8.0.0",
+    "nodemon": "^2.0.22",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.21",
+    "postcss-cli": "^10.1.0",
+    "purgecss": "^5.0.0",
+    "stylelint": "^14.16.1",
+    "stylelint-config-twbs-bootstrap": "^7.0.0"
   },
   "dependencies": {
-    "gulp-cli": "^2.3.0"
+    "bootstrap": "^4.6.2",
+    "bootstrap-icons": "^1.10.3",
+    "jquery": "^3.6.4",
+    "popper.js": "^1.16.1"
   }
 }
