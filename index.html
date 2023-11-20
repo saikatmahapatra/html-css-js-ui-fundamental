@@ -10,6 +10,9 @@
     <title>Bootstrap</title>
     <!-- Bootstrap Customized final CSS -->
     <link href="assets/css/styles.css" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+  <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"> -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@300" rel="stylesheet" />
 </head>
 
 <body>
@@ -41,6 +44,7 @@
                 </form> -->
                 <div class="d-flex">
                     <ul class="navbar-nav">
+                        <button id="theme_switch" type="button" class="btn btn-light btn-sm" title="Switch to dark mode"><span id="theme_switch_icon" class="icon-asset material-symbols-outlined" aria-hidden="true">dark_mode</span></button>
                         <li class="nav-item">
                             <a class="nav-link" href="#">My Account</a>
                         </li>
@@ -52,7 +56,7 @@
             </div>
         </div>
     </nav>
-    <main class="container">
+    <main class="container-fluid">
         <!-- <h1>Welcome</h1> -->
         <div class="bg-light p-5 rounded">
             <h1>Bootstrap Customized Theme example</h1>
@@ -103,6 +107,14 @@
             Aldus PageMaker including versions of Lorem Ipsum.
 
             <a href="https://getbootstrap.com/" target="_blank">https://getbootstrap.com/ (Example anchor link)</a>
+
+            <h4 class="mt-4">Material Symbols</h4>
+            <span class="icon-asset material-symbols-outlined mx-1" aria-hidden="true">home</span>
+            <span class="icon-asset material-symbols-outlined mx-1" aria-hidden="true">info</span>
+
+            <button type="button" class="btn btn-primary"><span class="icon-asset material-symbols-outlined mx-1" aria-hidden="true">account_circle</span> Primary</button>
+            <button type="button" class="btn btn-success"><span class="icon-asset material-symbols-outlined mx-1" aria-hidden="true">add</span> Success</button>
+
         </div>
 
         <div class="my-3">
@@ -122,6 +134,40 @@
         </div>
     </main>
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // on load
+        let themeSwitch = document.getElementById('theme_switch');
+        let themeSwitchIcon = document.getElementById('theme_switch_icon');
+        let theme = getTheme();
+
+        // on click
+        themeSwitch.addEventListener('click', function(e) {
+            let theme = getTheme();
+            let newThemeValue = theme == 'light' ? 'dark' : 'light';
+            setTheme(newThemeValue);
+            changeSwitchButtonUI(newThemeValue);
+            
+        })
+
+        function getTheme() {
+            let theme = localStorage.getItem('theme') || 'light';
+            setTheme(theme);
+            changeSwitchButtonUI(theme);
+            return theme;
+        }
+
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-bs-theme', theme);
+            localStorage.setItem('theme', theme);
+        }
+
+        function changeSwitchButtonUI(newThemeValue) {
+            let newThemeIcon = newThemeValue == 'light' ? 'dark_mode' : 'light_mode';
+            let newThemeTitle = newThemeValue == 'light' ? 'Switch to dark mode' : 'Switch to light mode';
+            themeSwitch.setAttribute('title', newThemeTitle);
+            themeSwitchIcon.innerHTML = newThemeIcon;
+        }
+      </script>
 </body>
 
 </html>
