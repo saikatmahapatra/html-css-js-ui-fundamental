@@ -60,7 +60,7 @@ function watch() {
 /*
  * Specify if tasks run in series or parallel using `gulp.series` and `gulp.parallel`
  */
-var build = gulp.series(clean, gulp.parallel(styles, scripts));
+var build = gulp.series(clean, gulp.series(styles, scripts));
  
 /*
  * You can use CommonJS `exports` module notation to declare tasks

@@ -1,10 +1,9 @@
-// Styles.scss
-// Contains customized global styles and this file is imported in the main styles.scss file
+// custom-styles.scss
 
 // CSS Layer: priority order lowest to highest
 @layer vendor, bootstrap-r, my-app;
 
-// Include (parts of) Bootstrap v5
+// Option B: Include parts of Bootstrap
 // Copied from "../../node_modules\bootstrap\scss\bootstrap.scss" keeping exact order on import
 //=================================================================================
 // 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
