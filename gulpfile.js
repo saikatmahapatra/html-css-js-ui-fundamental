@@ -1,15 +1,15 @@
-var gulp = require('gulp');
-var sass = require('gulp-sass')(require('sass'));
-var babel = require('gulp-babel');
-var concat = require('gulp-concat');
-var uglify = require('gulp-uglify');
-var rename = require('gulp-rename');
-var cleanCSS = require('gulp-clean-css');
-var del = require('del');
+const gulp = require('gulp');
+const sass = require('gulp-sass')(require('sass'));
+const babel = require('gulp-babel');
+const concat = require('gulp-concat');
+const uglify = require('gulp-uglify');
+const rename = require('gulp-rename');
+const cleanCSS = require('gulp-clean-css');
+const del = require('del');
 
 
 // npm i --save-dev gulp gulp-cli gulp-sass sass gulp-babel gulp-concat gulp-uglify gulp-rename gulp-clean-css del --force --verbose
-var paths = {
+const paths = {
   styles: {
     src: 'src/scss/**/*.scss',
     dest: 'dist/css/'
@@ -62,7 +62,7 @@ function watch() {
 /*
  * Specify if tasks run in series or parallel using `gulp.series` and `gulp.parallel`
  */
-var build = gulp.series(clean, gulp.parallel(styles, scripts));
+const build = gulp.series(clean, gulp.parallel(styles, scripts));
  
 /*
  * You can use CommonJS `exports` module notation to declare tasks
