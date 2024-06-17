@@ -43,6 +43,7 @@ https://css-tricks.com/building-skeleton-screens-css-custom-properties/
 16. CSS selectors (., #, +, > etc)
 17. In a web page there are few .png image how can you style them. ans - use CSS selectors img[src $= ".png"]
 18. What is web accessibility ? How to make a anchor link tag so that screen read treat is as button (<a href="" role="button">)
+19. What is BEM (Block, Element, Modifier) methodology in CSS?
 
 
 
