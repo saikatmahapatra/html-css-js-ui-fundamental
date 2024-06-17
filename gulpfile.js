@@ -5,8 +5,10 @@ const uglify = require('gulp-uglify');
 const rename = require('gulp-rename');
 const sass = require('gulp-sass')(require('sass'));
 const cleanCSS = require('gulp-clean-css');
+const clean = require('gulp-clean');
 
-function clean() {
+function cleanBuild() {
+  return src('dist').pipe(clean());
 }
 
 function css() {
@@ -26,21 +28,21 @@ function javascript() {
     //.pipe(src('vendor/*.js'))
     //.pipe(dest('output/'))
     .pipe(uglify())
-    .pipe(rename({ extname: '.min.js' }))
+    .pipe(rename({ suffix: '.min' }))
     .pipe(dest('dist/js/'));
 }
 
 function copyAssets() {
-  return src(['assets/images/**/*{.jpg, .png}'])
+  return src(['assets/images/**'])
     .pipe(dest('dist/images/'));
 }
 
 
 function watchTask() {
   watch('src/scss/**/*.scss', css);
-  watch('src/js/**/*.js', series(clean, javascript));
-  watch('assets/**/', series(copyAssets));
+  watch('src/js/**/*.js', series(cleanBuild, javascript));
+  watch('assets/images/**', series(copyAssets));
 };
 
-exports.build = series(css, javascript);
+exports.build = series(cleanBuild, css, javascript, parallel(copyAssets));
 exports.default = watchTask;

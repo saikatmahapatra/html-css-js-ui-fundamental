@@ -10,7 +10,7 @@
     "css-prefix": "postcss --replace dist/css/styles.css --use autoprefixer --map",
     "css-purge": "purgecss --keyframes --css dist/css/styles.css --content bootstrap_theme.html \"node_modules/bootstrap/js/dist/{util,modal}.js\" --output dist/css/",
     "css": "npm-run-all css-compile css-prefix",
-    "server": "gulp && live-server --port=3000",
+    "server": "live-server --port=3000",
     "start": "npm-run-all --parallel watch server",
     "watch": "nodemon -e html,scss -x \"npm run css\"",
     "test": "npm run css-lint && npm run css"
@@ -28,7 +28,6 @@
   "homepage": "https://github.com/saikatmahapatra/html-css-js-ui-project#readme",
   "devDependencies": {
     "autoprefixer": "^10.4.19",
-    "del": "^7.1.0",
     "gulp": "^5.0.0",
     "gulp-babel": "^8.0.0",
     "gulp-clean": "^0.4.0",
