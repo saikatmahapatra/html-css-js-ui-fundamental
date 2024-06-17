@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "build": "npm run css",
-    "css-compile": "node-sass --include-path node_modules --output-style compressed --source-map true --source-map-contents true --precision 6 src/scss -o assets/css/",
+    "css-compile": "node-sass --include-path node_modules --output-style compressed --source-map true --source-map-contents true --precision 6 src/scss -o dist/css/",
     "css-lint": "stylelint src/scss/",
-    "css-prefix": "postcss --replace assets/css/styles.css --use autoprefixer --map",
-    "css-purge": "purgecss --keyframes --css assets/css/styles.css --content bootstrap_theme.html \"node_modules/bootstrap/js/dist/{util,modal}.js\" --output assets/css/",
+    "css-prefix": "postcss --replace dist/css/styles.css --use autoprefixer --map",
+    "css-purge": "purgecss --keyframes --css dist/css/styles.css --content bootstrap_theme.html \"node_modules/bootstrap/js/dist/{util,modal}.js\" --output dist/css/",
     "css": "npm-run-all css-compile css-prefix",
     "server": "gulp && live-server --port=3000",
     "start": "npm-run-all --parallel watch server",
