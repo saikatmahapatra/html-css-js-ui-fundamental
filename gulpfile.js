@@ -1,62 +1,59 @@
-const gulp = require('gulp');
-const sass = require('gulp-sass')(require('sass'));
-const babel = require('gulp-babel');
-const concat = require('gulp-concat');
-const uglify = require('gulp-uglify');
-const rename = require('gulp-rename');
-const cleanCSS = require('gulp-clean-css');
-const del = require('del');
- 
-const paths = {
-  styles: {
-    src: 'assets/src/styles/**/*.scss',
-    dest: 'dist/css/'
-  },
-  scripts: {
-    src: 'assets/src/js/**/*.js',
-    dest: 'dist/js/'
-  }
+const { src, dest, watch, series} = require('gulp');
+const sass = require('gulp-sass')(require('sass')); 
+const prefix = require('gulp-autoprefixer');
+const minify = require('gulp-clean-css');
+const terser = require('gulp-terser');
+const imagemin = require('gulp-imagemin');
+const imagewebp = require('gulp-webp');
+
+//compile, prefix, and min scss
+function compilescss() {
+  return src('src/styles/*.scss')
+    .pipe(sass())
+    .pipe(prefix('last 2 versions'))
+    .pipe(minify())
+    .pipe(dest('dist/css'))
 };
- 
 
-function clean() {
-  return del([ 'dist' ]);
+//optimize and move images
+function optimizeimg() {
+  return src('assets/images/*.{jpg,png}') // change to your source directory
+    .pipe(imagemin([
+      imagemin.mozjpeg({ quality: 80, progressive: true }),
+      imagemin.optipng({ optimizationLevel: 2 }),
+    ]))
+    .pipe(dest('dist/images'))
+};
+
+//optimize and move images
+function webpImage() {
+  return src('dist/images/*.{jpg,png}')
+    .pipe(imagewebp())
+    .pipe(dest('dist/images'))
+};
+
+
+// minify js
+function jsmin(){
+  return src('src/js/*.js')
+    .pipe(terser())
+    .pipe(dest('dist/js'));
 }
 
-function css() {
-  return gulp.src(paths.styles.src)
-    .pipe(sass().on('error', sass.logError))
-    .pipe(cleanCSS())
-    // pass in options to the stream
-    .pipe(rename({
-      basename: 'styles',
-      suffix: '.min'
-    }))
-    .pipe(gulp.dest(paths.styles.dest));
+//watchtask
+function watchTask(){
+  watch('src/styles/**/*.scss', compilescss);
+  watch('src/js/*.js', jsmin);
+  watch('src/images/*', optimizeimg);
+  watch('dist/images/*.{jpg,png}', webpImage);
 }
- 
-function javascript() {
-  return gulp.src(paths.scripts.src, { sourcemaps: true })
-    .pipe(babel())
-    .pipe(uglify())
-    //.pipe(concat('main.min.js'))
-    .pipe(rename({ suffix: '.min' }))
-    .pipe(gulp.dest(paths.scripts.dest));
-}
- 
-function watch() {
-  gulp.watch(paths.scripts.src, scripts);
-  gulp.watch(paths.styles.src, styles);
-}
- 
 
-const build = gulp.series(clean, gulp.series(css, javascript));
 
-exports.clean = clean;
-exports.css = css;
-exports.javascript = javascript;
-exports.watch = watch;
-exports.build = build;
-
-// Default task
-exports.default = build;
+// Default Gulp task 
+exports.default = series(
+  compilescss,
+  jsmin,
+  optimizeimg,
+  webpImage,
+  watchTask
+);
