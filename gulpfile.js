@@ -8,7 +8,7 @@ const imagewebp = require('gulp-webp');
 
 //compile, prefix, and min scss
 function compilescss() {
-  return src('src/styles/*.scss')
+  return src('src/scss/*.scss')
     .pipe(sass())
     .pipe(prefix('last 2 versions'))
     .pipe(minify())
@@ -42,7 +42,7 @@ function jsmin(){
 
 //watchtask
 function watchTask(){
-  watch('src/styles/**/*.scss', compilescss);
+  watch('src/scss/**/*.scss', compilescss);
   watch('src/js/*.js', jsmin);
   watch('src/images/*', optimizeimg);
   watch('dist/images/*.{jpg,png}', webpImage);
