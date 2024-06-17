@@ -10,20 +10,20 @@ const del = require('del');
 const paths = {
   styles: {
     src: 'assets/src/styles/**/*.scss',
-    dest: 'assets/dist/css/'
+    dest: 'dist/css/'
   },
   scripts: {
     src: 'assets/src/js/**/*.js',
-    dest: 'assets/dist/js/'
+    dest: 'dist/js/'
   }
 };
  
 
 function clean() {
-  return del([ 'assets/dist' ]);
+  return del([ 'dist' ]);
 }
 
-function styles() {
+function css() {
   return gulp.src(paths.styles.src)
     .pipe(sass().on('error', sass.logError))
     .pipe(cleanCSS())
@@ -35,7 +35,7 @@ function styles() {
     .pipe(gulp.dest(paths.styles.dest));
 }
  
-function scripts() {
+function javascript() {
   return gulp.src(paths.scripts.src, { sourcemaps: true })
     .pipe(babel())
     .pipe(uglify())
@@ -50,11 +50,11 @@ function watch() {
 }
  
 
-const build = gulp.series(clean, gulp.series(styles, scripts));
+const build = gulp.series(clean, gulp.series(css, javascript));
 
 exports.clean = clean;
-exports.styles = styles;
-exports.scripts = scripts;
+exports.css = css;
+exports.javascript = javascript;
 exports.watch = watch;
 exports.build = build;
 
