@@ -3,14 +3,13 @@ const { src, dest, series, parallel, watch } = require('gulp');
 const babel = require('gulp-babel');
 const uglify = require('gulp-uglify');
 const rename = require('gulp-rename');
+const sass = require('gulp-sass')(require('sass'));
 const cleanCSS = require('gulp-clean-css');
 
-function clean(cb) {
-  // body omitted
-  cb();
+function clean() {
 }
 
-function css(cb) {
+function css() {
   return src(['src/scss/**/*.scss'])
     .pipe(sass().on('error', sass.logError))
     .pipe(cleanCSS())
@@ -21,7 +20,7 @@ function css(cb) {
     .pipe(dest('dist/css/'));
 }
 
-function javascript(cb) {
+function javascript() {
   return src(['src/js/*.js'], { sourcemaps: true })
     .pipe(babel())
     //.pipe(src('vendor/*.js'))
@@ -31,14 +30,17 @@ function javascript(cb) {
     .pipe(dest('dist/js/'));
 }
 
+function copyAssets() {
+  return src(['assets/images/**/*{.jpg, .png}'])
+    .pipe(dest('dist/images/'));
+}
+
 
 function watchTask() {
   watch('src/scss/**/*.scss', css);
   watch('src/js/**/*.js', series(clean, javascript));
+  watch('assets/**/', series(copyAssets));
 };
 
-exports.build = series(clean, css, javascript);
-exports.watchTask = watchTask;
-exports.javascript = javascript;
-exports.css = css;
+exports.build = series(css, javascript);
 exports.default = watchTask;
