@@ -9,7 +9,7 @@ var del = require('del');
  
 var paths = {
   styles: {
-    src: 'assets/src/scss/**/*.scss',
+    src: 'assets/src/styles/**/*.scss',
     dest: 'assets/dist/css/'
   },
   scripts: {
