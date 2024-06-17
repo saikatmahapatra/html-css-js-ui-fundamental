@@ -6,15 +6,17 @@ var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var cleanCSS = require('gulp-clean-css');
 var del = require('del');
- 
+
+
+// npm i --save-dev gulp gulp-cli gulp-sass sass gulp-babel gulp-concat gulp-uglify gulp-rename gulp-clean-css del --force --verbose
 var paths = {
   styles: {
-    src: 'assets/src/scss/**/*.scss',
-    dest: 'assets/dist/css/'
+    src: 'src/scss/**/*.scss',
+    dest: 'dist/css/'
   },
   scripts: {
-    src: 'assets/src/js/**/*.js',
-    dest: 'assets/dist/js/'
+    src: 'src/js/**/*.js',
+    dest: 'dist/js/'
   }
 };
  
@@ -25,7 +27,7 @@ var paths = {
 function clean() {
   // You can use multiple globbing patterns as you would with `gulp.src`,
   // for example if you are using del 2.0 or above, return its promise
-  return del([ 'assets/dist' ]);
+  return del([ 'dist' ]);
 }
  
 /*
