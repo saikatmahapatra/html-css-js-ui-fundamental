@@ -1,4 +1,4 @@
-# HTML, CSS, JavaScript based UI proof-of-concepts and Interview hands-on
+# HTML, CSS, JavaScript UI proof-of-concepts and Frontend Interview Questions
 
 Learn new technologies related to JavaScript & UI and implement here
 
@@ -8,4 +8,4 @@ Learn new technologies related to JavaScript & UI and implement here
 4) Node.js Express
 5) Node.js based proxy mock server for backend simulation
 6) Socket.io real time chat
-7) JavaScript/UI Interview hands-on, coding practices, FAQs
+7) JavaScript/UI/Frontend Interview Questions, coding, etc
