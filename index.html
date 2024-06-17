@@ -11,17 +11,14 @@
     <!-- Bootstrap Customized final CSS -->
     <link href="assets/css/styles.css" rel="stylesheet">
     <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
-  <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"> -->
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@300" rel="stylesheet" />
+    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@300" rel="stylesheet" />
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md bg-primary navbar-dark fixed-top colorgraph-navbar">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="assets/img/logo.png" width="32px" alt="Brand Logo">
-                Brand
-            </a>
+            <a class="navbar-brand" href="#">Fixed navbar</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -38,32 +35,15 @@
                         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                     </li>
                 </ul>
-                <!-- <form class="d-flex">
+                <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
-                </form> -->
-                <div class="d-flex">
-                    <ul class="navbar-nav">
-                        <button id="theme_switch" type="button" class="btn btn-light btn-sm" title="Switch to dark mode"><span id="theme_switch_icon" class="icon-asset material-symbols-outlined" aria-hidden="true">dark_mode</span></button>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">My Account</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Logout</a>
-                        </li>
-                    </ul>
-                </div>
+                </form>
             </div>
         </div>
     </nav>
+
     <main class="container-fluid">
-        <!-- <h1>Welcome</h1> -->
-        <div class="bg-light p-5 rounded">
-            <h1>Bootstrap Customized Theme example</h1>
-            <p class="lead">This example is a quick exercise to illustrate how to generate production ready customized Bootstrap theme.</p>
-            <a class="btn btn-lg btn-primary" href="https://getbootstrap.com/" role="button">View bootstrap docs
-                &raquo;</a>
-        </div>
         <div class="my-3">
             <h2>Buttons</h2>
             <button type="button" class="btn btn-primary btn-lg">Primary Large Button</button>
@@ -112,8 +92,10 @@
             <span class="icon-asset material-symbols-outlined mx-1" aria-hidden="true">home</span>
             <span class="icon-asset material-symbols-outlined mx-1" aria-hidden="true">info</span>
 
-            <button type="button" class="btn btn-primary"><span class="icon-asset material-symbols-outlined mx-1" aria-hidden="true">account_circle</span> Primary</button>
-            <button type="button" class="btn btn-success"><span class="icon-asset material-symbols-outlined mx-1" aria-hidden="true">add</span> Success</button>
+            <button type="button" class="btn btn-primary"><span class="icon-asset material-symbols-outlined mx-1"
+                    aria-hidden="true">account_circle</span> Primary</button>
+            <button type="button" class="btn btn-success"><span class="icon-asset material-symbols-outlined mx-1"
+                    aria-hidden="true">add</span> Success</button>
 
         </div>
 
@@ -133,6 +115,7 @@
             </div>
         </div>
     </main>
+
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         // on load
@@ -141,12 +124,12 @@
         let theme = getTheme();
 
         // on click
-        themeSwitch.addEventListener('click', function(e) {
+        themeSwitch.addEventListener('click', function (e) {
             let theme = getTheme();
             let newThemeValue = theme == 'light' ? 'dark' : 'light';
             setTheme(newThemeValue);
             changeSwitchButtonUI(newThemeValue);
-            
+
         })
 
         function getTheme() {
@@ -167,7 +150,6 @@
             themeSwitch.setAttribute('title', newThemeTitle);
             themeSwitchIcon.innerHTML = newThemeIcon;
         }
-      </script>
-</body>
+    </script>
 
 </html>
