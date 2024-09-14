@@ -639,3 +639,17 @@
 <script>
     console.log("Alert 4:  After html Tag");
 </script>
+
+<script>
+	// call, apply, bind
+	let user1 = {
+		name: "user 1",
+		sayHi: function(city, country) {
+			console.log("Welcome ", this.name, city, country);
+		}
+	}
+	let user2 = {
+		name: "user 2"
+	};
+	user1.sayHi.call(user2, "Kolkata", "IN");
+</script>
