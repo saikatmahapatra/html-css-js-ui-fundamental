@@ -1,6 +1,6 @@
 /node_modules
 package-lock.json
-/.vscode
+#/.vscode
 /proxy-mock-server/node_modules/
 .DS_Store
 /assets/dist/
