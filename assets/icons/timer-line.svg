@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+    <defs>
+        <filter id="prefix__a">
+            <feColorMatrix in="SourceGraphic" values="0 0 0 0 0.000000 0 0 0 0 0.294118 0 0 0 0 0.576471 0 0 0 1.000000 0"/>
+        </filter>
+        <filter id="prefix__b">
+            <feColorMatrix in="SourceGraphic" values="0 0 0 0 0.000000 0 0 0 0 0.294118 0 0 0 0 0.576471 0 0 0 1.000000 0"/>
+        </filter>
+        <path id="prefix__c" d="M0 0L18.266 0 18.266 18 0 18z"/>
+    </defs>
+    <g fill="none" fill-rule="evenodd" filter="url(#prefix__a)" transform="translate(-641 -1660)">
+        <g>
+            <g filter="url(#prefix__b)" transform="translate(641 1660)">
+                <g transform="translate(3 3)">
+                    <mask id="prefix__d" fill="#fff">
+                        <use xlink:href="#prefix__c"/>
+                    </mask>
+                    <path fill="#114C96" d="M16.503 4.067c-.285 0-.57-.091-.81-.277l-.08-.068-.934-.932c-.47-.472-.515-1.221-.108-1.744l.108-.123.444-.443c.47-.47 1.22-.517 1.743-.11l.08.069.935.93c.47.473.516 1.222.108 1.745l-.108.123-.443.444c-.256.256-.595.386-.935.386zm-8.125-1.13l-.553.06C4.504 3.347 2 6.135 2 9.48 2 13.075 4.925 16 8.52 16c3.595 0 6.52-2.925 6.52-6.52 0-3.433-2.681-6.291-6.103-6.507l-.56-.035zM8.52 18C3.822 18 0 14.178 0 9.48c0-4.07 2.837-7.507 6.732-8.332C6.809.554 7.28.078 7.89.008L8.04 0h.64c.642 0 1.187.46 1.299 1.085 4.026.696 7.06 4.22 7.06 8.395 0 4.698-3.821 8.52-8.52 8.52z" mask="url(#prefix__d)"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

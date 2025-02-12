@@ -1,0 +1,3 @@
+Rename Files:
+PS C:\DEV\html-css-js-ui-fundamental\assets\icons> get-childitem *.svg | foreach { rename-item $_ $_.Name.Replace("abc-"
+, "") }

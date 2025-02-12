@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+    <defs>
+        <filter id="prefix__a">
+            <feColorMatrix in="SourceGraphic" values="0 0 0 0 0.000000 0 0 0 0 0.294118 0 0 0 0 0.576471 0 0 0 1.000000 0"/>
+        </filter>
+        <path id="prefix__b" d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2zm0 2c-4.418 0-8 3.582-8 8s3.582 8 8 8 8-3.582 8-8-3.582-8-8-8zm-.573 3.315l4.847 3.331c.968.665.968 2.043 0 2.707l-4.846 3.332c-1.132.779-2.761.032-2.761-1.353V8.668c0-1.385 1.63-2.132 2.76-1.353zm-1.094 1.353v6.664c0-.012.083.026.15-.02L15.301 12l-4.819-3.312c-.066-.046-.149-.008-.149-.02z"/>
+    </defs>
+    <g fill="none" fill-rule="evenodd" filter="url(#prefix__a)" transform="translate(-1007 -1468)">
+        <g transform="translate(1007 1468)">
+            <use fill="#004B93" xlink:href="#prefix__b"/>
+        </g>
+    </g>
+</svg>
